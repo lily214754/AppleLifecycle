@@ -16,3 +16,6 @@ The website also provides corresponding paper references for the collected infor
 ```sh
 docker-compose down
 docker-compose up --build
+
+## Website
+The website is running on the port: http://localhost:3000
