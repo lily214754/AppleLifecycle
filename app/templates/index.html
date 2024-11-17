@@ -14,7 +14,7 @@
 
 <!-- Buttons to control the display of each tree structure -->
 <div class="buttons">
-  <button onclick="toggleVisibility('naturalEnv')">Apple Tree Lifecycle in Natural Environment</button>
+  <button onclick="toggleVisibility('naturalEnv')">Apple Tree Lifecycle in a Natural Environment</button>
   <button onclick="toggleVisibility('commercialOrchard')">Apple Tree Lifecycle in the Commercial Orchard</button>
   <button onclick="toggleVisibility('reproductiveCycle')">Annual Reproductive Cycle</button>
 </div>
@@ -45,9 +45,9 @@
 
 <div id="commercialOrchard" class="tree-container" style="display: none;">
   <ul>
-    <li><span class="caret">Apple Tree Lifecycle in the Commercial Orchard</span>
+    <li><span class="caret">Apple Tree Life Cycle in a Commercial Orchard Environment</span>
       <ul class="nested">
-        <li>Planting Trees (Commercial Orchard Preparation -Table 2.1)
+        <li>Tree planting (Commercial Orchard Preparation -Table 2.1)
           <div id="buttonContainer2.1" class="table-button-container">
             <button id="toggleTableBtn2.1"  class="table-toggleTableBtn", onclick="showTable('2.1')">Show Details</button>
             <div id="tableContainer2.1" class="table-container" style="display: none;"></div>
@@ -55,18 +55,21 @@
             </div>
         </li>
 
-        <li>Young Tree (Orchard Management Strategies for Young Apple Trees - Table 2.2)
+        <li>Young / Unproductive Tree (Orchard Management Strategies for Young Apple Trees - Table 2.2)
           <div id="buttonContainer2.2" class="table-button-container">
             <button id="toggleTableBtn2.2"  class="table-toggleTableBtn", onclick="showTable('2.2')">Show Details</button>
             <div id="tableContainer2.2" class="table-container" style="display: none;"></div>
         </li>
-        <li>Reproductive/Mature Tree (Orchard Management Strategies for Mature Apple Trees- Table 2.3)
+        <li>Mature / Productive Tree (Orchard Management Strategies for Mature Apple Trees- Table 2.3)
           <div id="buttonContainer2.3" class="table-button-container">
             <button id="toggleTableBtn2.3"  class="table-toggleTableBtn", onclick="showTable('2.3')">Show Details</button>
             <div id="tableContainer2.3" class="table-container" style="display: none;"></div>
   
             </div>
         </li>
+        <li>
+        End of Productive Life
+      </li>
       </ul>
     </li>
   </ul>
