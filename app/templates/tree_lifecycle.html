@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Apple Tree Life Cycle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <style>
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Digital Apple Tree Life Cycle</h2>
+        <div class="hierarchy" id="breadcrumb"></div>
+        <div class="search-container">
+            <div class="search-icon-inside" onclick="searchStage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </div>
+            <input type="text" id="menuSearch" class="search-box" placeholder="Search..." oninput="updateSearchSuggestions()">
+            <div id="searchSuggestions" class="search-suggestions"></div>
+        </div>
+       
+        
+        <ul id="navigationMenu"></ul>
+    </aside>
+
+    <div class="content">
+        <div id="table-box" class="table-box-container"></div>
+        <main class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Timing</th>
+                        <th>Observation</th>
+                        <th>Key Measurements</th>
+                        <th id="dynamicCol"></th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable"></tbody>
+            </table>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+<script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let environment = urlParams.get("env");
+    let lifecycleData = {};
+    let currentPath = environment ? ["Home", environment.charAt(0).toUpperCase() + environment.slice(1)] : ["Home"];
+
+    const lifecycleStructure = {
+        "Home": ["Orchard", "Natural"],
+        "Natural": ["Seed Germination", "Juvenile Period", "Transition Period", "Reproductive Phase", "Aging"],
+        "Orchard": ["Planting Tree", "Young Tree", "Mature Tree", "End of Productive Life"],
+        "Mature Tree": [
+            "Dormancy", "Bud Development", "Leaf Development", "Shoot Development",
+            "Inflorescence Emergence", "Flowering", "Flower Bud Formation for Next Season", 
+            "Fruit Development", "Fruit Size Increase", "Maturity of Fruit and Seed", "Leaf Senescence"
+        ],
+        "Dormancy": ["Para-dormancy", "Endo-dormancy", "Eco-dormancy"],
+        "Flower Bud Formation for Next Season": ["Flower Induction", "Flower Initiation", "Bud Differentiation"],
+        "Fruit Size Increase": ["Cell Division", "Cell Enlargement"]
+    };
+
+    const normalizedStructure = Object.keys(lifecycleStructure).reduce((acc, key) => {
+        acc[key.toLowerCase()] = lifecycleStructure[key].map(stage => stage.toLowerCase());
+        return acc;
+    }, {});
+
+    $.getJSON("/data/tablesData.json", function(data) {
+        lifecycleData = Object.keys(data).reduce((acc, key) => {
+            acc[key.toLowerCase()] = {
+                displayName: key,
+                rowHtml: data[key]
+            };
+            return acc;
+        }, {});
+        updateNavigation();
+    }).fail(() => console.error("Error loading data"));
+
+    function updateNavigation() {
+        $("#breadcrumb").html(currentPath.map((stage, index) => 
+            `<span data-index="${index}" ${stage === "Home" ? 'data-home="true"' : ''}>
+                ${stage}${index < currentPath.length - 1 ? ' ›' : ''}
+            </span>`
+        ).join(''));
+
+        $("#navigationMenu").empty();
+        const currentNormalized = currentPath.slice(-1)[0].toLowerCase();
+        const subStages = normalizedStructure[currentNormalized] || [];
+
+        subStages.forEach(stageKey => {
+            const displayName = Object.keys(lifecycleStructure).find(
+                k => k.toLowerCase() === stageKey
+            ) || lifecycleData[stageKey]?.displayName || stageKey;
+            
+            const hasChildren = normalizedStructure[stageKey]?.length > 0;
+            $("#navigationMenu").append(`
+                <li data-stage="${stageKey}" class="nav-item">
+                    <span class="stage-name">${displayName}</span>
+                    ${hasChildren ? '<span class="arrow">→</span>' : ''}
+                </li>
+            `);
+        });
+
+        showAllRows();
+    }
+
+
+    function showAllRows() {
+    const currentStage = currentPath[currentPath.length - 1];
+    const validKey = Object.keys(lifecycleStructure).find(
+        key => key.toLowerCase() === currentStage.toLowerCase()
+    );
+    const subStages = validKey ? lifecycleStructure[validKey] : [];
+
+    $("#dataTable").empty();
+    let added = false;
+
+    function normalizeString(str) {
+        return str.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+    }
+
+    function findStageCode(stageName) {
+        const cleanStageName = normalizeString(stageName);
+        const candidates = Object.entries(stageCodeMapping)
+            .map(([code, name]) => {
+                const cleanName = normalizeString(name);
+                return {
+                    code,
+                    name,
+                    matchScore: cleanStageName.includes(cleanName) ? cleanName.length : 0
+                };
+            })
+            .filter(item => item.matchScore > 0)
+            .sort((a, b) => b.matchScore - a.matchScore);
+        return candidates.length > 0 ? candidates[0].code : null;
+    }
+
+    function injectCode(rowHtml, stageName) {
+        const stageCode = findStageCode(stageName);
+        if (stageCode) {
+            return rowHtml.replace(
+                /<td>(.*?)<\/td>/i,
+                `<td><b>${stageCode} </b> <br> $1</td>`
+            );
+        } else {
+            return rowHtml;
+        }
+    }
+
+
+    subStages.forEach(stage => {
+        if (lifecycleData[stage.toLowerCase()]?.rowHtml) {
+            const updatedRow = injectCode(lifecycleData[stage.toLowerCase()].rowHtml, stage);
+            $("#dataTable").append(updatedRow);
+            added = true;
+        }
+    });
+
+    $("#tableHint").toggle(!added);
+    $("table").show();
+    updateDynamicColumn();
+    initializeCiteReferences();
+}
+
+const stageCodeMapping = {
+    "NDG00": "Seed Germination",
+    "NDG01": "Juvenile Period",
+    "NDG02": "Transition Period",
+    "NDG03": "Reproductive Phase",
+    "NDG04": "Aging",
+
+    "ODG00": "Planting Tree",
+    "ODG01": "Young Tree",
+    "ODG02": "Mature Tree",
+    "ODG03": "End of Productive Life",
+
+    "OAR00": "Dormancy",
+    "OAR00-00": "Para-dormancy",
+    "OAR00-01": "Endo-dormancy",
+    "OAR00-02": "Eco-dormancy",
+
+
+    "OAR(01-04)": "Bud Development",
+
+
+    "OAR(10-19)": "Leaf Development",
+    "OAR(31-39)": "Shoot Development",
+
+    "OAR(40-45)": "Inflorescence Emergence",
+
+    "OAR(50-59)": "Flowering",
+
+    "OAR50-00": "Pollination",
+    "OAR50-01": "Fertilisation",
+    "OAR50-02": "Fruit Set",
+    "OAR55": "Full Bloom / Anthesis",
+
+    "OAR(60-62)": "Flower Bud Formation for Next Season",
+    "OAR60": "Flower Induction",
+    "OAR61": "Flower Initiation",
+    "OAR62": "Bud Differentiation",
+
+    "OAR(70-79)": "Fruit Development",
+    "OAR70": "Fruit Size Increase",
+    "OAR70-00": "Cell Division",
+    "OAR70-01": "Cell Enlargement",
+    "OAR(80-89)": "Maturity of Fruit and Seed",
+    "OAR(90-93)": "Leaf Senescence",
+};
+
+const bbchCodeMapping = {
+  "BBCH00": "Dormancy",
+  "BBCH01": "Beginning of leaf bud swelling",
+  "BBCH03": "End of leaf bud swelling",
+  "BBCH07": "Beginning of bud break",
+  "BBCH09": "Bud Break",
+  "BBCH10": "Green leaf tips 10 mm above the bud scales",
+  "BBCH11": "First leaves unfolded",
+  "BBCH15": "More leaves unfolded",
+  "BBCH19": "First leaves fully expanded",
+  "BBCH30": "Beginning of shoot growth",
+  "BBCH39": "Shoots about 90% of final length",
+  "BBCH51": "Floral Bud Swelling",
+  "BBCH52": "End of bud swelling",
+  "BBCH53": "Bud Burst",
+  "BBCH55": "Flower buds visible",
+  "BBCH57": "Pink Bud Stage",
+  "BBCH59": "Hollow Bud Formation",
+  "BBCH60": "First Flower",
+  "BBCH65": "About 50% of flowers open",
+  "BBCH67": "Flowers fading",
+  "BBCH69": "End of Flowering",
+  "BBCH71": "First Fruit Fall",
+  "BBCH72": "Fruit size up to 20 mm",
+  "BBCH73": "Second Fruit Fall",
+  "BBCH75": "Fruit about 50% final size",
+  "BBCH81": "Beginning of Ripening",
+  "BBCH85": "Advanced Coloring",
+  "BBCH87": "Fruit for Picking",
+  "BBCH92": "Leaves Begin to Discolor",
+  "BBCH93": "Beginning of Leaf Fall",
+  "BBCH95": "50% Leaves Discolored",
+  "BBCH97": "All Leaves Fallen"
+};
+
+
+function reverseStageCodeMapping(mapping) {
+    const reversed = {};
+    for (const [code, name] of Object.entries(mapping)) {
+        reversed[name.toLowerCase()] = code; // Use lowercase for safer matching
+    }
+    return reversed;
+}
+
+// ✅ Create the reversed mapping
+const stageNameMapping = reverseStageCodeMapping(stageCodeMapping);
+
+
+function updateURLWithhighlightedStageParam(obsId) {
+  const url = new URL(window.location);
+  url.searchParams.set('highlightedStage', obsId);
+  window.history.pushState({}, '', url);
+}
+
+function removehighlightedStageParamFromURL() {
+  const url = new URL(window.location);
+  url.searchParams.delete('highlightedStage');
+  window.history.pushState({}, '', url);
+}
+
+function updateURLWithStageParam(obsId) {
+  const url = new URL(window.location);
+  url.searchParams.set('stage', obsId);
+  window.history.pushState({}, '', url);
+}
+
+function removeStageParamFromURL() {
+  const url = new URL(window.location);
+  url.searchParams.delete('stage');
+  window.history.pushState({}, '', url);
+}
+
+function updateURLWithEnvParam(obsId) {
+  const url = new URL(window.location);
+  url.searchParams.set('env', obsId);
+  window.history.pushState({}, '', url);
+}
+
+function removeEnvParamFromURL() {
+  const url = new URL(window.location);
+  url.searchParams.delete('env');
+  window.history.pushState({}, '', url);
+}
+
+  
+
+
+
+    $(document).on('click', '.arrow', function(e) {
+        e.stopPropagation();
+        const stageKey = $(this).closest('.nav-item').data('stage');
+        const displayName = Object.keys(lifecycleStructure).find(
+            k => k.toLowerCase() === stageKey
+        ) || stageKey;
+        currentPath.push(displayName);
+
+     
+        updateURLWithEnvParam(currentPath[1]?.toLowerCase());
+        updateURLWithStageParam(stageNameMapping[displayName.toLowerCase()]);
+        removehighlightedStageParamFromURL();
+
+        updateNavigation();
+    });
+
+    $(document).on('click', '.stage-name', function(e) {
+        e.stopPropagation();
+        const stageKey = $(this).closest('.nav-item').data('stage');
+        const displayName = Object.keys(lifecycleStructure).find(
+            k => k.toLowerCase() === stageKey
+        ) || stageKey;
+        console.log("Clicked stage: ", stageKey);
+
+        const stageParam = stageNameMapping[stageKey.toLowerCase()];
+        updateURLWithhighlightedStageParam(stageParam);
+        highlightAndCenterRow(stageKey);
+    });
+
+    function highlightAndCenterRow(stageKey) {
+    $(".highlighted").removeClass("highlighted");
+
+    const cleanTarget = stageKey.toLowerCase().trim();
+
+    let matched = false;
+
+    $("#dataTable tr").each(function () {
+        const firstCellText = $(this).find("td").first().text().toLowerCase().trim();
+        if (firstCellText.includes(cleanTarget)) {
+            $(this).addClass("highlighted");
+            if (!matched) {
+                centerRowInContainer(this);
+                matched = true;
+            }
+        }
+    });
+}
+
+
+    // function highlightAndCenterRow(stageKey) {
+
+    //     $(".highlighted").removeClass("highlighted");
+    //     $("#dataTable tr").each(function() {
+    //         if ($(this).text().toLowerCase().includes(stageKey.toLowerCase())) {
+    //             $(this).addClass("highlighted");
+    //             centerRowInContainer(this);
+    //         }
+    //     });
+    // }
+
+    $(document).on('click', '#breadcrumb span', function() {
+        const targetIndex = parseInt($(this).data('index'));
+        if ($(this).data("home")) {
+            window.location.href = "/";
+            return;
+        }
+        currentPath = currentPath.slice(0, targetIndex + 1);
+        updateNavigation();
+        
+
+        const lastStageName = currentPath[currentPath.length - 1];
+        const normalizedLastStageName = lastStageName.toLowerCase();
+        const stageCode = stageNameMapping[normalizedLastStageName] || normalizedLastStageName.toUpperCase();
+        updateURLWithStageParam(stageCode) 
+        removehighlightedStageParamFromURL();
+    });
+ 
+
+
+// **🔹 Search function (Same as Clicking)**
+// function searchStage() {
+//     const query = $("#menuSearch").val().trim().toLowerCase();
+//     if (!query) return;
+
+//     // **1️ Check if query matches abbreviation (e.g., "O1")**
+//     let foundStageKey = Object.keys(stageCodeMapping).find(
+//         key => key.toLowerCase() === query
+//     );
+
+//     // **2️ If not found, check if it matches full stage name (e.g., "Tree Planting")**
+//     if (!foundStageKey) {
+//         foundStageKey = Object.keys(stageCodeMapping).find(
+//             key => stageCodeMapping[key].toLowerCase() === query
+//         );
+//     }
+
+//     // **3️  If still not found, show alert**
+//     if (!foundStageKey) {
+//         alert("Stage not found");
+//         return;
+//     }
+
+//     const foundStage = stageCodeMapping[foundStageKey];
+    
+
+//     // **4️ Find the correct environment (Natural/Orchard)**
+//     let newEnvironment = foundStageKey.startsWith("N") ? "Natural" : "Orchard";
+
+//     const url = new URL(window.location);
+//     url.searchParams.set("env", newEnvironment);
+//     window.history.pushState({}, '', url); 
+
+//     temporaryPath = []
+//     let parentStage = foundStage;
+
+//     while (parentStage !== 'Home') {
+//         for (let parent in lifecycleStructure) {
+//             if (lifecycleStructure[parent].includes(parentStage)) {
+//                 temporaryPath.push(parentStage);
+//                 parentStage = parent;
+//                 break; // stop searching once found
+//             }
+//         }
+//     }
+//     temporaryPath.push('Home'); // Add the root
+
+//     currentPath = [...temporaryPath].reverse()
+//     parentFoundStage = currentPath[currentPath.length - 2]
+
+//     updateNavigationSidebar(parentFoundStage);
+//     updateDynamicColumn();
+
+//     showAllRowsUnderParent(parentFoundStage);
+
+//     highlightSearchedRow(foundStage);
+//     $("#menuSearch").val(foundStageKey);
+
+//     localStorage.setItem('lastSearchCode', foundStageKey);
+//     $("#searchSuggestions").empty().hide();
+// }
+function searchStage() {
+    const query = $("#menuSearch").val().trim().toUpperCase();
+    if (!query) return;
+
+    let foundStageKey = null;
+    let foundStage = null;
+
+    // 1️⃣ Exact match in stage code (e.g., OAR50)
+    if (stageCodeMapping[query]) {
+        foundStageKey = query;
+        foundStage = stageCodeMapping[query];
+    }
+
+    // 2️⃣ Match full stage name
+    if (!foundStageKey) {
+        const matched = Object.entries(stageCodeMapping).find(([code, name]) =>
+            name.toLowerCase() === query.toLowerCase()
+        );
+        if (matched) {
+            foundStageKey = matched[0];
+            foundStage = matched[1];
+        }
+    }
+
+    // 3️⃣ Match BBCH code
+    if (!foundStageKey && bbchCodeMapping[query]) {
+        foundStage = bbchCodeMapping[query];
+
+        const matched = Object.entries(stageCodeMapping).find(([code, name]) =>
+            name.toLowerCase().includes(foundStage.toLowerCase())
+        );
+        if (matched) {
+            foundStageKey = matched[0];
+            foundStage = matched[1];
+        }
+    }
+
+    if (!foundStageKey) {
+        alert("Stage not found");
+        return;
+    }
+
+    const newEnvironment = foundStageKey.startsWith("N") ? "Natural" : "Orchard";
+    const url = new URL(window.location);
+    url.searchParams.set("env", newEnvironment);
+    window.history.pushState({}, '', url);
+
+    // Rebuild breadcrumb
+    temporaryPath = [];
+    let parentStage = foundStage;
+
+    while (parentStage !== 'Home') {
+        for (let parent in lifecycleStructure) {
+            if (lifecycleStructure[parent].includes(parentStage)) {
+                temporaryPath.push(parentStage);
+                parentStage = parent;
+                break;
+            }
+        }
+    }
+    temporaryPath.push('Home');
+    currentPath = [...temporaryPath].reverse();
+
+    const parentFoundStage = currentPath[currentPath.length - 2];
+
+    updateNavigationSidebar(parentFoundStage);
+    updateDynamicColumn();
+    showAllRowsUnderParent(parentFoundStage);
+    highlightSearchedRow(foundStage);
+
+    $("#menuSearch").val(foundStageKey);
+    localStorage.setItem('lastSearchCode', foundStageKey);
+    $("#searchSuggestions").empty().hide();
+}
+
+// **🔹 Update sidebar with sub-stages of the parent stage**
+function updateNavigationSidebar(parentStage) {
+    console.log(currentPath)
+    currentPath.pop(); // Remove the current stage
+    $("#breadcrumb").html(currentPath.map((stage, index) => 
+                `<span data-index="${index}" ${stage === "Home" ? 'data-home="true"' : ''}>
+                    ${stage}${index < currentPath.length - 1 ? ' ›' : ''}
+                </span>`
+            ).join(''));
+
+
+
+    $("#navigationMenu").empty(); // Clear previous items
+
+    const subStages = lifecycleStructure[parentStage] || [];
+
+    subStages.forEach(stageKey => {
+        const displayName = stageCodeMapping[stageKey] || stageKey;
+        const hasChildren = lifecycleStructure[stageKey]?.length > 0;
+
+        $("#navigationMenu").append(`
+            <li data-stage="${stageKey}" class="nav-item">
+                <span class="stage-name">${displayName}</span>
+                ${hasChildren ? '<span class="arrow">→</span>' : ''}
+            </li>
+        `);
+    });
+}
+
+// **🔹 Show all rows under the parent stage but highlight only the searched row**
+function showAllRowsUnderParent(parentStage) {
+    $("#dataTable").empty(); // Clear table before updating
+
+    let added = false;
+    updateURLWithStageParam(stageNameMapping[parentStage.toLowerCase()]);
+
+    // Show all child stages' rows
+    subStages = lifecycleStructure[parentStage] || [];
+    function normalizeString(str) {
+        return str.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+    }
+
+    function findStageCode(stageName) {
+        const cleanStageName = normalizeString(stageName);
+        const candidates = Object.entries(stageCodeMapping)
+            .map(([code, name]) => {
+                const cleanName = normalizeString(name);
+                return {
+                    code,
+                    name,
+                    matchScore: cleanStageName.includes(cleanName) ? cleanName.length : 0
+                };
+            })
+            .filter(item => item.matchScore > 0)
+            .sort((a, b) => b.matchScore - a.matchScore);
+        return candidates.length > 0 ? candidates[0].code : null;
+    }
+
+    function injectCode(rowHtml, stageName) {
+        const stageCode = findStageCode(stageName);
+        if (stageCode) {
+            return rowHtml.replace(
+                /<td>(.*?)<\/td>/i,
+                `<td><b>${stageCode} </b> <br> $1</td>`
+            );
+        } else {
+            return rowHtml;
+        }
+    }
+
+
+    subStages.forEach(stage => {
+        if (lifecycleData[stage.toLowerCase()]?.rowHtml) {
+            const updatedRow = injectCode(lifecycleData[stage.toLowerCase()].rowHtml, stage);
+            $("#dataTable").append(updatedRow);
+            added = true;
+        }
+    });
+
+    $("#tableHint").toggle(!added);
+    $("table").show();
+    initializeCiteReferences();
+}
+
+// **🔹 Function to Highlight Only the Searched Row**
+function highlightSearchedRow(stageKey) {
+    $(".highlighted").removeClass("highlighted"); // Remove previous highlights
+
+    $("#dataTable tr").each(function() {
+        if ($(this).text().toLowerCase().includes(stageKey.toLowerCase())) {
+            $(this).addClass("highlighted");
+            centerRowInContainer(this);
+        }
+    });
+    updateURLWithhighlightedStageParam(stageNameMapping[stageKey.toLowerCase()]) 
+}
+
+function centerRowInContainer(rowElement) {
+    const container = document.querySelector('.table-container');
+    const containerRect = container.getBoundingClientRect();
+    const rowRect = rowElement.getBoundingClientRect();
+
+    const offset = rowRect.top - containerRect.top; 
+    const containerScrollTop = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    const rowHeight = rowElement.clientHeight;
+
+    // Smoothly scroll so that the row is centered
+    container.scrollTo({
+        top: containerScrollTop + offset - (containerHeight / 2) + (rowHeight / 2),
+        behavior: 'smooth'
+    });
+}
+
+function updateSearchSuggestions() {
+    const query = $("#menuSearch").val().trim().toLowerCase();
+    const suggestionsContainer = $("#searchSuggestions");
+
+    suggestionsContainer.empty().hide();
+
+    if (!query) return;
+
+    const suggestions = Object.keys(stageCodeMapping).filter(key => {
+        const stageName = stageCodeMapping[key].toLowerCase();
+        return key.toLowerCase().includes(query) || stageName.includes(query);
+    });
+
+    if (suggestions.length === 0) {
+        suggestionsContainer.append(`<div class="suggestion-item" style="cursor: default; color: gray;">No matches found</div>`);
+        suggestionsContainer.show();
+        return;
+    }
+
+    suggestions.forEach(stageKey => {
+        suggestionsContainer.append(`
+            <div class="suggestion-item" data-code="${stageKey}">
+                <strong>${stageKey}</strong>: ${stageCodeMapping[stageKey]}
+            </div>
+        `);
+    });
+
+    suggestionsContainer.show();
+}
+
+
+const updateDynamicColumn = () => {
+        const stage = currentPath[currentPath.length - 1].toLowerCase();
+        console.log(stage);
+        const colHeader = document.getElementById("dynamicCol");
+
+        if (stage === "orchard") {
+            colHeader.textContent = "Suggested Operation";
+           
+        } else if (stage === "dormancy") {
+            colHeader.textContent = "Reason for Dormancy";
+
+        } else if (stage === "natural") {  
+            colHeader.textContent = "";  
+        } else if (stage === "flower bud formation for next season") {  
+                colHeader.textContent = ""; 
+        } else if (stage === "fruit size increase") {  
+                colHeader.textContent = "";      
+        } else {
+            colHeader.textContent = "Suggested Operation";
+           
+        }
+    };
+
+    
+
+
+
+// ✅ Ensure this is only run after DOM is ready and after stageCodeMapping is defined
+$(document).ready(function () {
+
+
+    $("#menuSearch").on("input", function() {
+    updateSearchSuggestions();
+    });
+    const lastSearch = localStorage.getItem('lastSearchCode');
+    if (lastSearch) {
+        $("#menuSearch").val(lastSearch);
+    }
+    updateNavigation();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const stageParam = urlParams.get('stage');
+    const highlightedStage = urlParams.get('highlightedStage');
+    if (stageParam) {
+        const cleanStageParam = stageParam.toLowerCase();
+
+        // Step 1: Find the corresponding stage name from stageCodeMapping
+        const matchedStageName = stageCodeMapping[stageParam.toUpperCase()] || null;
+        if (matchedStageName) {
+            // Step 2: Rebuild breadcrumb/path
+            temporaryPath = [];
+            let parentStage = matchedStageName;
+
+            while (parentStage !== 'Home') {
+                for (let parent in lifecycleStructure) {
+                    if (lifecycleStructure[parent].includes(parentStage)) {
+                        temporaryPath.push(parentStage);
+                        parentStage = parent;
+                        break;
+                    }
+                }
+                if (parentStage === 'Home') break; // Prevent infinite loop
+            }
+            temporaryPath.push('Home');
+
+            currentPath = [...temporaryPath].reverse();
+            updateNavigation();
+            
+
+            // Step 3: Scroll and Highlight
+            setTimeout(() => {
+                if(highlightedStage) {
+                    highlightAndCenterRow(highlightedStage)
+                }
+                
+            }, 500);
+        }
+    }
+
+    // ✅ Delegated click handler for dynamic suggestion items
+    $(document).on("click", ".suggestion-item", function() {
+        const selectedCode = $(this).data("code");
+        console.log("Clicked suggestion: ", selectedCode);
+        $("#menuSearch").val(selectedCode);
+        $("#searchSuggestions").empty().hide();
+        searchStage();
+    });
+
+    // ✅ Enter key triggers search
+    $("#menuSearch").on('keypress', function(e) {
+    if (e.which === 13) { 
+        e.preventDefault();  // Prevent accidental form submission
+        searchStage();
+        $("#searchSuggestions").empty().hide();
+    }
+});
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
