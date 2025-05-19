@@ -1,6 +1,6 @@
 # Apple Tree Life Cycle Portal
 
-The **Apple Tree Life Cycle Portal** is a web-based Node.js application that enables visualization of the apple tree's life cycle for digital traceability. It supports stage-specific information, observations, measurements, orchard operations, and literature references.
+The **Apple Tree Life Cycle Portal** hosts the natural life cycle, the orchard life cycle and the annual reproductive cycle. Stage and sub-stage characteristics are structured according to four dimensions. For orchard management operations, the portal integrates links to a list of relevant third-party databases and guidelines. For apple tree research, all references used throughout the life cycle are cited and traceable within the portal for further exploration and validation.
 
 ---
 
