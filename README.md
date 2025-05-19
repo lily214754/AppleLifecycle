@@ -1,23 +1,9 @@
-# AppleLifecycle
+# 🍏 Apple Life Cycle Portal
 
-The project creates a website to showcase the collected information on the apple tree lifecycle under two conditions: natural environment and orchard. The focus is on the annual reproductive cycle of apple trees.
+The **Apple Life Cycle Portal** is a web-based Node.js application that enables visualization of the apple tree's life cycle for digital traceability. It supports stage-specific information, observations, measurements, orchard operations, and literature references.
 
-The website also provides corresponding paper references for the collected information.
+---
 
-## Prerequisites
+You can run the portal locally using the provided scripts, or simply access the publicly available version at:
 
-- Install Docker
-
-## Running the Website
-
-1. Open a terminal in the project folder.
-2. Run the following commands to deploy locally:
-
-```sh
-docker-compose down
-docker-compose up --build
-
-## Website
-The website is running on the port: http://localhost:3000
-
-Note: You can also visit the interactive portal directly via:  https://applelifecycle-3094d65c1fea.herokuapp.com
+🔗 [https://applelifecycle-3094d65c1fea.herokuapp.com/](https://applelifecycle-3094d65c1fea.herokuapp.com/)
