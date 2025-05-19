@@ -82,7 +82,12 @@ async function executeSQLFileIfNeeded2() {
         console.log(`🔄 Executing SQL file: natural.sql...`);
         const filePath = path.join(__dirname, 'natural.sql'); // ✅ Get full path of `database.sql`
         const sqlQuery = fs.readFileSync(filePath, 'utf8'); // ✅ Read SQL file
- 
+
+
+        // console.log(`🔄 Executing SQL file: orchard.sql...`);
+        // const filePath2 = path.join(__dirname, 'orchard.sql'); // ✅ Get full path of `database.sql`
+        // const sqlQuery2 = fs.readFileSync(filePath2, 'utf8'); // ✅ Read SQL file
+        
         const client = await pool.connect();
         try {
             await client.query(sqlQuery); // ✅ Execute SQL

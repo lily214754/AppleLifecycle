@@ -596,7 +596,7 @@ function removeOpDeatilParam() {
       "OAR71": "Table S27: Suggested operation guide for first cover spray stage (OAR71).",
       "OAR72": "Table S28: Suggested operation guide for second cover stage (OAR72).",
       "OAR73": "Table S29: Suggested operation guide for late fruit development stage (OAR73).",
-      "OAR82": "Table S33: Suggested operation guide for harvest stage (OAR82)."
+      "OAR82": "Table S32: Suggested operation guide for harvest stage (OAR82)."
       // Add other OAR mappings here
     };
   

@@ -64,6 +64,7 @@
             "Fruit Development", "Fruit Size Increase", "Maturity of Fruit and Seed", "Leaf Senescence"
         ],
         "Dormancy": ["Para-dormancy", "Endo-dormancy", "Eco-dormancy"],
+        "Flowering": ["Pollination", "Fertilization", "Fruit set"],
         "Flower Bud Formation for Next Season": ["Flower Induction", "Flower Initiation", "Bud Differentiation"],
         "Fruit Size Increase": ["Cell Division", "Cell Enlargement"]
     };
@@ -201,7 +202,7 @@ const stageCodeMapping = {
     "OAR(50-59)": "Flowering",
 
     "OAR50-00": "Pollination",
-    "OAR50-01": "Fertilisation",
+    "OAR50-01": "Fertilization",
     "OAR50-02": "Fruit Set",
     "OAR55": "Full Bloom / Anthesis",
 
@@ -719,7 +720,9 @@ const updateDynamicColumn = () => {
         } else if (stage === "flower bud formation for next season") {  
                 colHeader.textContent = ""; 
         } else if (stage === "fruit size increase") {  
-                colHeader.textContent = "";      
+                colHeader.textContent = "";    
+        } else if (stage === "flowering") {  
+                colHeader.textContent = "";    
         } else {
             colHeader.textContent = "Suggested Operation";
            
@@ -843,6 +846,7 @@ const bbchToStageCode = {
         "ODG02": "Table S6: The annual reproductive cycle",
         "OAR00": "Table S7: Substages of dormancy.",
         "OAR(60-62)": "Table S21: Substages of flower bud formation.",
+        "OAR(50-59)": "Table S16: Stages required to form fruitlets.",
         "OAR70": "Table S23: Fruit growth stages in apple trees."
        
     };

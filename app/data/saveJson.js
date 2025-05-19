@@ -626,8 +626,7 @@ const lifecycleData = {
     <tr id='Flower Induction'>
         <td>Flower Induction</td>
         <td>
-            Typically, around mid-June in the Northern Hemisphere 
-            cite{hankeNoFlowerNo2007}.
+            Typically, around mid-June in the Northern Hemisphere cite{hankeNoFlowerNo2007} and spans from the time of bloom until several weeks after full bloom cite{verheijMorphologicalPhysiologicalAspects1996}. 
         </td>
         <td>
             - No visible morphological changes cite{milyaevProfilingPhytohormonesApple2022}.
@@ -640,11 +639,21 @@ const lifecycleData = {
     <tr id='Flower Initiation'>
         <td>Flower Initiation</td>
         <td>
-            Begins in summer cite{wilkieRegulationFloralInitiation2008a}.
+            Begins in summer cite{wilkieRegulationFloralInitiation2008a} extending into early autumn cite{ferreeApplesBotanyProduction2003} Typically begins around mid-July in the Northern Hemisphere and may occur before or after shoot elongation ceases cite{hankeNoFlowerNo2007}.<br>
+
+The broadening of the shoot apex begins around 40 days after full bloom and may continue to 50 days cite{fosterMorphologicalQuantitativeCharacterization2003}. Doming of the apex peaks around 50 days cite{kotodaFloweringJuvenilityApple2021} and might extend up to 127 days after full bloom  cite{fosterMorphologicalQuantitativeCharacterization2003}. <br>
+The initiation phase generally lasts between 3-7 weeks, but some studies have observed ow it can last up to three months cite{trompLowerbudFormationPome2000} <br>
+
         </td>
         <td>
             The shoot apex undergoes broadening and doming in sequential 
             order cite{hirstRootstockEffectsFlowering1995}.
+
+            Two prerequisites for floral initiation include reaching a sufficient number of appendages and meeting the minimum duration of the plastochron cite{wilkieRegulationFloralInitiation2008a, zhuEffectTemperatureFlowerbud1997}.  <br> <br>
+<b>Appendages number</b>: varied from 16 to 20 cite{campoyDormancyTemperateFruit2011} <br><br>
+<b>Plastochron</b>: 7 days is the minimum duration for formation of flower bud cite{verheijMorphologicalPhysiologicalAspects1996} <br>
+
+
         </td>
         <td>
             - Microscopy / bud dissection <br> 
@@ -665,22 +674,12 @@ const lifecycleData = {
         cite{trompLowerbudFormationPome2000}. 
         Flower bud formation completion time varies, ranging from 15 to 22 
         weeks after full bloom, with variations up to six weeks across 
-        different seasons cite{mcartneySeasonalVariationOnset2001}.
+        different seasons cite{mcartneySeasonalVariationOnset2001}. <br>
+        Differentiation rates vary by position on the tree: spur buds develop into floral meristems by late summer, whereas extension shoots may continue developing throughout autumn and winter, and possibly into the following spring cite{riveroFloweringPhenologyInterrelations2017}  \newline
+
     </td>
     <td>
-        Differentiation rates vary by position on the tree: 
-        spur buds develop into floral meristems by late summer, whereas 
-        extension shoots may continue developing throughout autumn and winter, 
-        and possibly into the following spring 
-        cite{riveroFloweringPhenologyInterrelations2017}.
-        - Apical meristem transitions into an inflorescent meristem 
-          and subsequently into floral meristems cite{malladiMolecularPhysiologyFruit2020}.<br>
-        - Initially, the domed apical meristem initiates four to six lateral meristems and bracts.<br>
-        - Terminal flower-initiated bracts and bracelet.<br>
-        - Lateral floral meristems initiate bracts.<br>
-        - Proximal and lateral floral meristems form floral organs such as 
-          sepals, petals, stamens, and carpels in sequential order 
-          cite{fosterMorphologicalQuantitativeCharacterization2003}.
+        - Apical meristem transitions into an inflorescent meristem and subsequently into floral meristems. cite{malladiMolecularPhysiologyFruit2020}.  Initially, the domed apical meristem initiates four to six lateral meristems and bracts. This is followed by terminal flower-initiated bracts and bracelet; lateral floral meristems initiate bracts. Finally, proximal and lateral floral meristem formed floral organs such as sepals, petals, stamens and carpels in sequential order cite{fosterMorphologicalQuantitativeCharacterization2003} 
     </td>
     <td>
         - Microscopy / bud dissection<br>
