@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Apple Tree Lifecycle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <style>
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Digital Apple Tree Lifecycle</h2>
+        <div class="hierarchy" id="breadcrumb"></div>
+        <div class="search-container">
+            <div class="search-icon-inside" onclick="searchStage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </div>
+            <input type="text" id="menuSearch" class="search-box" placeholder="Search..." oninput="updateSearchSuggestions()">
+            <div id="searchSuggestions" class="search-suggestions"></div>
+        </div>
+       
+        
+        <ul id="navigationMenu"></ul>
+    </aside>
+
+    <div class="content">
+
+        <div id="table-box" class="table-box-container"></div>
+        <main class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Timing</th>
+                        <th>Observation</th>
+                        <th>Key Measurements</th>
+                        <!-- <th>Suggested Operation</th> -->
+                        <th id="dynamicCol"></th>
+                    </tr>
+                </thead>
+                <tbody id="dataTable"></tbody>
+            </table>
+            <div class="table-header">
+                <button class="add-data-btn" onclick="openDataForm()">+ Add New Data</button>
+            </div>
+
+            <div id="dataFormModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeDataForm()">&times;</span>
+                    
+                    <h3>Add New Data</h3>
+                    <form id="stageDataForm" onsubmit="submitData(event)">
+                        <!-- 🔺 Sticky Toggle Selector -->
+                        <div style="position: sticky; top: 0; background: white; z-index: 2; padding-bottom: 8px; border-bottom: 1px solid #ccc; margin-bottom: 10px;">
+                            <h4 style="margin: 0;">Select Data Type to Submit</h4>
+                            <div style="display: flex; gap: 8px; margin-top: 8px;">
+                                <button type="button" onclick="toggleBlock('timing')" class="block-tab-btn">Timing</button>
+                                <button type="button" onclick="toggleBlock('observation')" class="block-tab-btn">Observation</button>
+                                <button type="button" onclick="toggleBlock('measurement')" class="block-tab-btn">Key Measurement</button>
+                            </div>
+                        </div>
+                    
+                        <!-- Stage Information (Always Visible) -->
+                        <div class="form-section">
+                            <label for="stage_code_select">Stage Code:</label>
+                    <input list="stage_code_list" name="stage_code" id="stage_code_select" placeholder="e.g., NDG00" required oninput="updateStageNameFromCode()">
+                    <datalist id="stage_code_list">
+                        <!-- Filled dynamically with JS -->
+                    </datalist>
+                   </div>
+                    
+                        <!-- 🔺 TIMING BLOCK -->
+                        <div id="timingBlock" class="form-section">
+                            <h4>Timing Information</h4>
+                            <input type="number" name="reference_id" placeholder="Reference ID (optional)">
+                            <select name="timing_type" onchange="toggleTimingFields(this)">
+                                <option value="">Select Timing Type</option>
+                                <option value="description">Description</option>
+                                <option value="reference">Reference Timing</option>
+                            </select>
+                            <div id="timingDescriptionFields">
+                                <textarea name="timing_description" placeholder="Timing description"></textarea>
+                            </div>
+                            <div id="timingReferenceFields" style="display:none">
+                                <input type="text" name="reference_timing" placeholder="Reference timing">
+                                <input type="text" name="reference_timing_distance" placeholder="Timing distance">
+                            </div>
+                        </div>
+                    
+                        <!-- 🔺 OBSERVATION BLOCK -->
+                        <div id="observationBlock" class="form-section" style="display:none">
+                            <h4>Observation</h4>
+                            <input type="number" name="obs_reference_id" placeholder="Reference ID (optional)">
+                            <input type="text" name="obs_item" placeholder="Observation item">
+                            <textarea name="obs_description" placeholder="General description"></textarea>
+                            <input type="text" name="obs_value" placeholder="Observation value">
+                        </div>
+                    
+                        <!-- 🔺 MEASUREMENT BLOCK -->
+                        <div id="measurementBlock" class="form-section" style="display:none">
+                            <h4>Quantity Measurements</h4>
+                            <input type="number" name="meas_reference_id" placeholder="Reference ID (optional)">
+                            <input type="text" name="measurement_name" placeholder="Measurement name">
+                            <input type="text" name="unit" placeholder="Unit">
+                            <input type="text" name="value_range" placeholder="Value range">
+                            <textarea name="calculation_method" placeholder="Calculation method"></textarea>
+                        </div>
+                    
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel" onclick="closeDataForm()">Cancel</button>
+                            <button type="submit" class="btn-submit">Submit Data</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </main>
+        <!-- Add this right before the closing </body> tag -->
+
+    </div>
+    <script src="scripts.js"></script>
+<script>
+    let urlParams = new URLSearchParams(window.location.search);
+    let environment = urlParams.get("env");
+    let lifecycleData = {};
+    let currentPath = environment ? ["Home", environment.charAt(0).toUpperCase() + environment.slice(1)] : ["Home"];
+
+    const lifecycleStructure = {
+        "Home": ["Orchard", "Natural"],
+        "Natural": ["Seed Germination", "Juvenile Period", "Transition Period", "Reproductive Phase", "Aging"],
+        "Orchard": ["Planting Tree", "Young Tree", "Mature Tree", "End of Productive Life"],
+        "Mature Tree": [
+            "Dormancy", "Bud Development", "Leaf Development", "Shoot Development",
+            "Inflorescence Emergence", "Flowering", "Flower Bud Formation for Next Season", 
+            "Fruit Development", "Maturity of Fruit and Seed", "Leaf Senescence"
+        ],
+        "Dormancy": ["Para-dormancy", "Endo-dormancy", "Eco-dormancy"],
+        "Flower Bud Formation for Next Season": ["Flower Induction", "Flower Initiation", "Bud Differentiation"],
+        "Fruit Development": ["Cell Division", "Cell Enlargement"]
+    };
+
+    const normalizedStructure = Object.keys(lifecycleStructure).reduce((acc, key) => {
+        acc[key.toLowerCase()] = lifecycleStructure[key].map(stage => stage.toLowerCase());
+        return acc;
+    }, {});
+
+    $.getJSON("/data/tablesData.json", function(data) {
+        lifecycleData = Object.keys(data).reduce((acc, key) => {
+            acc[key.toLowerCase()] = {
+                displayName: key,
+                rowHtml: data[key]
+            };
+            return acc;
+        }, {});
+        updateNavigation();
+    }).fail(() => console.error("Error loading data"));
+
+    function updateNavigation() {
+        $("#breadcrumb").html(currentPath.map((stage, index) => 
+            `<span data-index="${index}" ${stage === "Home" ? 'data-home="true"' : ''}>
+                ${stage}${index < currentPath.length - 1 ? ' ›' : ''}
+            </span>`
+        ).join(''));
+
+        $("#navigationMenu").empty();
+        const currentNormalized = currentPath.slice(-1)[0].toLowerCase();
+        const subStages = normalizedStructure[currentNormalized] || [];
+
+        subStages.forEach(stageKey => {
+            const displayName = Object.keys(lifecycleStructure).find(
+                k => k.toLowerCase() === stageKey
+            ) || lifecycleData[stageKey]?.displayName || stageKey;
+            
+            const hasChildren = normalizedStructure[stageKey]?.length > 0;
+            $("#navigationMenu").append(`
+                <li data-stage="${stageKey}" class="nav-item">
+                    <span class="stage-name">${displayName}</span>
+                    ${hasChildren ? '<span class="arrow">→</span>' : ''}
+                </li>
+            `);
+        });
+
+        showAllRows();
+    }
+
+    
+
+
+    async function loadStageData(stageCode) {
+        const timing = await fetch(`/api/stage/${stageCode}/timing`).then(res => res.json());
+        const observation = await fetch(`/api/stage/${stageCode}/observation`).then(res => res.json());
+        const keyMeasurement = await fetch(`/api/stage/${stageCode}/keymeasurement`).then(res => res.json());
+        const generalOperation = await fetch(`/api/stage/${stageCode}/generaloperation`).then(res => res.json());
+
+        const formatTiming = timing.map(t => t.timing_type === 'description' 
+            ? `${t.description} cite{${t.bibtex_key}}` 
+            : `${t.reference_timing} (${t.reference_timing_distance}) cite{${t.bibtex_key}}` ).join('<br>');
+
+        const formatObservation = observation.map(o => 
+                                                        o.item 
+                                                            ? `<strong>${o.item}</strong>: <br>${o.value} cite{${o.bibtex_key}}` 
+                                                            : `${o.description} cite{${o.bibtex_key}}`
+                                                    ).join('<br>');
+                                                    
+        const formatMeasurement = keyMeasurement.map(k => `${k.measurement_name}${k.unit ? ' (' + k.unit + ')' : ''} ${k.value_range ? 'Range: ' + k.value_range : ''} cite{${k.bibtex_key}}`).join('<br>');
+
+        const formatGeneralOperation = generalOperation.map(o => `${o.description}`
+                                                    ).join('<br>');
+
+        return { formatTiming, formatObservation, formatMeasurement,formatGeneralOperation };
+    }
+    function findStageCode(stageName) {
+        const cleanName = stageName.toLowerCase().replace(/ /g, '');
+        return Object.entries(stageCodeMapping).find(([code, name]) =>
+            cleanName.includes(name.toLowerCase().replace(/ /g, ''))
+        )?.[0] || null;
+    }
+
+    async function injectCode(stageName) {
+    const stageCode = findStageCode(stageName);
+    if (stageCode) {
+        const { formatTiming, formatObservation, formatMeasurement,formatGeneralOperation } = await loadStageData(stageCode);
+        return `
+            <tr>
+                <td><strong>${stageCode}</strong><br>${stageName}</td>
+                <td>${formatTiming}</td>
+                <td>${formatObservation}</td>
+                <td>${formatMeasurement}</td>
+                <td>${formatGeneralOperation}</td>
+                <td></td>
+            </tr>`;
+    } else {
+        return '';
+    }
+}
+
+
+    function normalizeString(str) {
+        return str.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+    }
+
+
+    async function showAllRows() {
+    const currentStage = currentPath[currentPath.length - 1];
+    const validKey = Object.keys(lifecycleStructure).find(
+        key => key.toLowerCase() === currentStage.toLowerCase()
+    );
+    const subStages = validKey ? lifecycleStructure[validKey] : [];
+
+    $("#dataTable").empty();
+    let added = false;
+
+    for (const stage of subStages) {
+        const updatedRow = await injectCode(stage);
+        if (updatedRow) {
+            $("#dataTable").append(updatedRow);
+            added = true;
+        }
+    }
+
+    $("#tableHint").toggle(!added);
+    $("table").show();
+    updateDynamicColumn();
+    initializeCiteReferences();
+}
+
+
+
+    $(document).on('click', '.arrow', function(e) {
+        e.stopPropagation();
+        const stageKey = $(this).closest('.nav-item').data('stage');
+        const displayName = Object.keys(lifecycleStructure).find(
+            k => k.toLowerCase() === stageKey
+        ) || stageKey;
+        currentPath.push(displayName);
+        updateNavigation();
+    });
+
+    $(document).on('click', '.stage-name', function(e) {
+        e.stopPropagation();
+        const stageKey = $(this).closest('.nav-item').data('stage');
+        highlightAndCenterRow(stageKey);
+    });
+
+    function highlightAndCenterRow(stageKey) {
+        $(".highlighted").removeClass("highlighted");
+        $("#dataTable tr").each(function() {
+            if ($(this).text().toLowerCase().includes(stageKey.toLowerCase())) {
+                $(this).addClass("highlighted");
+                centerRowInContainer(this);
+                //const element = $(this).get(0);
+                // const offset = element.offsetTop - (window.innerHeight / 2);
+                // window.scrollTo({ top: offset, behavior: 'smooth' });
+            }
+        });
+    }
+
+    $(document).on('click', '#breadcrumb span', function() {
+        const targetIndex = parseInt($(this).data('index'));
+        if ($(this).data("home")) {
+            window.location.href = "/";
+            return;
+        }
+        currentPath = currentPath.slice(0, targetIndex + 1);
+        updateNavigation();
+    });
+ 
+
+    // **Search Function (Now Works Exactly Like Clicking)**
+    const stageCodeMapping = {
+    "NDG00": "Seed Germination",
+    "NDG01": "Juvenile Period",
+    "NDG02": "Transition Period",
+    "NDG03": "Reproductive Phase",
+    "NDG04": "Aging",
+
+    "ODG00": "Planting Tree",
+    "ODG01": "Young Tree",
+    "ODG02": "Mature Tree",
+    "ODG03": "End of Productive Life",
+
+    "OAR-00": "Dormancy",
+  "OAR00-00": "Para-dormancy",
+  "OAR00-01": "Endo-dormancy",
+  "OAR00-02": "Eco-dormancy",
+
+
+    "OAR(01-04)": "Bud Development",
+  "OAR01-03": "Leaf Bud Swelling",
+  "OAR04-09": "Bud Break",
+
+    "OAR(10-19)": "Leaf Development",
+    "OAR(31-39)": "Shoot Development",
+
+    "OAR(40-45)": "Inflorescence Emergence",
+
+    "OAR(50-59)": "Flowering",
+    "OAR50": "First Flower",
+  "OAR50-00": "Pollination",
+  "OAR50-01": "Fertilisation",
+  "OAR50-02": "Fruit Set",
+  "OAR55": "Full Bloom / Anthesis",
+  "OAR57": "End of Flowering",
+  "OAR59": "End of Flowering",
+
+  "OAR(60-62)": "Flower Bud Formation for Next Season",
+  "OAR60": "Flower Induction",
+  "OAR61": "Flower Initiation",
+  "OAR62": "Bud Differentiation",
+
+  "OAR(70-79)": "Fruit Development",
+  "OAR70": "Fruit Size Increase",
+  "OAR70-00": "Cell Division",
+  "OAR70-01": "Cell Enlargement",
+  "OAR71": "First Fruit Fall",
+  "OAR72": "Second Fruit Fall",
+  "OAR79": "Shoot Growth Completed",
+
+  "OAR(80-89)": "Maturity of Fruit and Seed",
+  "OAR80": "Beginning of Ripening",
+  "OAR81": "Advanced Coloring",
+  "OAR82": "Fruit Harvest",
+
+  "OAR(90-93)": "Senescence",
+  "OAR90": "Leaves Begin to Discolor",
+  "OAR91": "Beginning of Leaf Fall",
+  "OAR92": "50% Leaves Discolored",
+  "OAR93": "All Leaves Fallen"
+};
+
+  
+
+// **🔹 Search function (Same as Clicking)**
+function searchStage() {
+    const query = $("#menuSearch").val().trim().toLowerCase();
+    if (!query) return;
+
+    // **1️⃣ Check if query matches abbreviation (e.g., "O1")**
+    let foundStageKey = Object.keys(stageCodeMapping).find(
+        key => key.toLowerCase() === query
+    );
+
+    // **2️⃣ If not found, check if it matches full stage name (e.g., "Tree Planting")**
+    if (!foundStageKey) {
+        foundStageKey = Object.keys(stageCodeMapping).find(
+            key => stageCodeMapping[key].toLowerCase() === query
+        );
+    }
+
+    // **3️⃣ If still not found, show alert**
+    if (!foundStageKey) {
+        alert("Stage not found");
+        return;
+    }
+
+    const foundStage = stageCodeMapping[foundStageKey];
+    
+
+    // **4️⃣ Find the correct environment (Natural/Orchard)**
+    let newEnvironment = foundStageKey.startsWith("N") ? "Natural" : "Orchard";
+
+    const url = new URL(window.location);
+    url.searchParams.set("env", newEnvironment);
+    window.history.pushState({}, '', url); 
+
+    temporaryPath = []
+    let parentStage = foundStage;
+
+    while (parentStage !== 'Home') {
+        for (let parent in lifecycleStructure) {
+            if (lifecycleStructure[parent].includes(parentStage)) {
+                temporaryPath.push(parentStage);
+                parentStage = parent;
+                break; // stop searching once found
+            }
+        }
+    }
+    temporaryPath.push('Home'); // Add the root
+
+    currentPath = [...temporaryPath].reverse()
+    parentFoundStage = currentPath[currentPath.length - 2]
+
+    updateNavigationSidebar(parentFoundStage);
+    updateDynamicColumn();
+
+    showAllRowsUnderParent(parentFoundStage);
+
+    highlightSearchedRow(foundStage);
+    $("#menuSearch").val(foundStageKey);
+
+    localStorage.setItem('lastSearchCode', foundStageKey);
+    $("#searchSuggestions").empty().hide();
+}
+
+// **🔹 Update sidebar with sub-stages of the parent stage**
+function updateNavigationSidebar(parentStage) {
+    console.log(currentPath)
+    currentPath.pop(); // Remove the current stage
+    $("#breadcrumb").html(currentPath.map((stage, index) => 
+                `<span data-index="${index}" ${stage === "Home" ? 'data-home="true"' : ''}>
+                    ${stage}${index < currentPath.length - 1 ? ' ›' : ''}
+                </span>`
+            ).join(''));
+
+
+
+    $("#navigationMenu").empty(); // Clear previous items
+
+    const subStages = lifecycleStructure[parentStage] || [];
+
+    subStages.forEach(stageKey => {
+        const displayName = stageCodeMapping[stageKey] || stageKey;
+        const hasChildren = lifecycleStructure[stageKey]?.length > 0;
+
+        $("#navigationMenu").append(`
+            <li data-stage="${stageKey}" class="nav-item">
+                <span class="stage-name">${displayName}</span>
+                ${hasChildren ? '<span class="arrow">→</span>' : ''}
+            </li>
+        `);
+    });
+}
+
+// **🔹 Show all rows under the parent stage but highlight only the searched row**
+function showAllRowsUnderParent(parentStage) {
+    $("#dataTable").empty(); // Clear table before updating
+
+    let added = false;
+
+    // Show all child stages' rows
+    subStages = lifecycleStructure[parentStage] || [];
+    function normalizeString(str) {
+        return str.toLowerCase().replace(/[\s\/\-\(\)]/g, '');
+    }
+
+    function findStageCode(stageName) {
+        const cleanStageName = normalizeString(stageName);
+        const candidates = Object.entries(stageCodeMapping)
+            .map(([code, name]) => {
+                const cleanName = normalizeString(name);
+                return {
+                    code,
+                    name,
+                    matchScore: cleanStageName.includes(cleanName) ? cleanName.length : 0
+                };
+            })
+            .filter(item => item.matchScore > 0)
+            .sort((a, b) => b.matchScore - a.matchScore);
+        return candidates.length > 0 ? candidates[0].code : null;
+    }
+
+    function injectCode(rowHtml, stageName) {
+        const stageCode = findStageCode(stageName);
+        if (stageCode) {
+            return rowHtml.replace(
+                /<td>(.*?)<\/td>/i,
+                `<td><b>${stageCode} </b> <br> $1</td>`
+            );
+        } else {
+            return rowHtml;
+        }
+    }
+
+
+    subStages.forEach(stage => {
+        if (lifecycleData[stage.toLowerCase()]?.rowHtml) {
+            const updatedRow = injectCode(lifecycleData[stage.toLowerCase()].rowHtml, stage);
+            $("#dataTable").append(updatedRow);
+            added = true;
+        }
+    });
+
+    $("#tableHint").toggle(!added);
+    $("table").show();
+    initializeCiteReferences();
+}
+
+// **🔹 Function to Highlight Only the Searched Row**
+function highlightSearchedRow(stageKey) {
+    $(".highlighted").removeClass("highlighted"); // Remove previous highlights
+
+    $("#dataTable tr").each(function() {
+        if ($(this).text().toLowerCase().includes(stageKey.toLowerCase())) {
+            $(this).addClass("highlighted");
+            centerRowInContainer(this);
+        }
+    });
+}
+
+function centerRowInContainer(rowElement) {
+    const container = document.querySelector('.table-container');
+    const containerRect = container.getBoundingClientRect();
+    const rowRect = rowElement.getBoundingClientRect();
+
+    const offset = rowRect.top - containerRect.top; 
+    const containerScrollTop = container.scrollTop;
+    const containerHeight = container.clientHeight;
+    const rowHeight = rowElement.clientHeight;
+
+    // Smoothly scroll so that the row is centered
+    container.scrollTo({
+        top: containerScrollTop + offset - (containerHeight / 2) + (rowHeight / 2),
+        behavior: 'smooth'
+    });
+}
+
+function updateSearchSuggestions() {
+    const query = $("#menuSearch").val().trim().toLowerCase();
+    const suggestionsContainer = $("#searchSuggestions");
+
+    suggestionsContainer.empty().hide();
+
+    if (!query) return;
+
+    const suggestions = Object.keys(stageCodeMapping).filter(key => {
+        const stageName = stageCodeMapping[key].toLowerCase();
+        return key.toLowerCase().includes(query) || stageName.includes(query);
+    });
+
+    if (suggestions.length === 0) {
+        suggestionsContainer.append(`<div class="suggestion-item" style="cursor: default; color: gray;">No matches found</div>`);
+        suggestionsContainer.show();
+        return;
+    }
+
+    suggestions.forEach(stageKey => {
+        suggestionsContainer.append(`
+            <div class="suggestion-item" data-code="${stageKey}">
+                <strong>${stageKey}</strong>: ${stageCodeMapping[stageKey]}
+            </div>
+        `);
+    });
+
+    suggestionsContainer.show();
+}
+
+
+const updateDynamicColumn = () => {
+        const lastStage = currentPath[currentPath.length - 2].toLowerCase();
+
+        const stage = currentPath[currentPath.length - 1].toLowerCase();
+        console.log(stage);
+        const colHeader = document.getElementById("dynamicCol");
+
+        if (stage === "orchard") {
+            colHeader.textContent = "Suggested Operation";
+           
+        } else if (stage === "dormancy") {
+            colHeader.textContent = "Reason for Dormancy";
+        } else if (lastStage === "orchard") {
+            colHeader.textContent = "Suggested Operation";
+        } else {
+            colHeader.textContent = "";
+           
+        }
+    };
+
+// ✅ Ensure this is only run after DOM is ready and after stageCodeMapping is defined
+$(document).ready(function () {
+    $("#menuSearch").on("input", function() {
+    updateSearchSuggestions();
+    });
+    const lastSearch = localStorage.getItem('lastSearchCode');
+    if (lastSearch) {
+        $("#menuSearch").val(lastSearch);
+    }
+    updateNavigation();
+
+    // ✅ Delegated click handler for dynamic suggestion items
+    $(document).on("click", ".suggestion-item", function() {
+        const selectedCode = $(this).data("code");
+        console.log("Clicked suggestion: ", selectedCode);
+        $("#menuSearch").val(selectedCode);
+        $("#searchSuggestions").empty().hide();
+        searchStage();
+    });
+
+    // ✅ Enter key triggers search
+    $("#menuSearch").on('keypress', function(e) {
+    if (e.which === 13) { 
+        e.preventDefault();  // Prevent accidental form submission
+        searchStage();
+        $("#searchSuggestions").empty().hide();
+    }
+});
+});
+
+
+// Add these functions to the <script> section
+    function openDataForm() {
+    document.getElementById('dataFormModal').style.display = 'block';
+}
+
+function closeDataForm() {
+    document.getElementById('dataFormModal').style.display = 'none';
+}
+
+function toggleTimingFields(select) {
+    const descFields = document.getElementById('timingDescriptionFields');
+    const refFields = document.getElementById('timingReferenceFields');
+    if (select.value === 'description') {
+        descFields.style.display = 'block';
+        refFields.style.display = 'none';
+    } else {
+        descFields.style.display = 'none';
+        refFields.style.display = 'block';
+    }
+}
+
+async function submitData(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const stageCode = formData.get('stage_code');
+    const referenceId = formData.get('reference_id') || null;
+
+    try {
+        // Submit or get Stage ID first
+        const stageResponse = await fetch('/api/stage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ stage_code: stageCode })
+        });
+        const stage_id = stageData.stage_id;
+
+        // Submit based on block type
+        if (document.getElementById('timingBlock').style.display !== 'none') {
+            const payload = {
+                stage_id,
+                reference_id,
+                timing_type: formData.get('timing_type'),
+                description: formData.get('timing_description'),
+                reference_timing: formData.get('reference_timing'),
+                reference_timing_distance: formData.get('reference_timing_distance')
+            };
+            await fetch('/api/timing', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+
+        } else if (document.getElementById('observationBlock').style.display !== 'none') {
+            const payload = {
+                stage_id,
+                reference_id: formData.get('obs_reference_id') || null,
+                description: formData.get('obs_description'),
+                item: formData.get('obs_item'),
+                value: formData.get('obs_value')
+            };
+            await fetch('/api/observation', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+
+        } else if (document.getElementById('measurementBlock').style.display !== 'none') {
+            const payload = {
+                stage_id,
+                reference_id: formData.get('meas_reference_id') || null,
+                measurement_name: formData.get('measurement_name'),
+                unit: formData.get('unit'),
+                value_range: formData.get('value_range'),
+                calculation_method: formData.get('calculation_method')
+            };
+            await fetch('/api/measurement', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        }
+
+        alert("Data submitted successfully!");
+        closeDataForm();
+        showAllRows();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Failed to submit data.");
+    }
+}
+
+function toggleBlock(type) {
+    const blocks = {
+        timing: document.getElementById('timingBlock'),
+        observation: document.getElementById('observationBlock'),
+        measurement: document.getElementById('measurementBlock')
+    };
+
+    // Hide all first
+    Object.values(blocks).forEach(block => block.style.display = 'none');
+
+    // Show selected
+    if (blocks[type]) {
+        blocks[type].style.display = 'block';
+    }
+}
+
+function populateStageCodeList() {
+  const list = document.getElementById('stage_code_list');
+  list.innerHTML = '';
+  for (let code in stageCodeMapping) {
+    const option = document.createElement('option');
+    option.value = code;
+    option.label = stageCodeMapping[code];
+    list.appendChild(option);
+  }
+}
+
+// 🔺 Show stage name on input
+function updateStageNameFromCode() {
+  const input = document.getElementById('stage_code_select').value.trim();
+  const display = document.getElementById('stage_name_display');
+  display.textContent = stageCodeMapping[str(input)] || 'Unknown stage code';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  populateStageCodeList();
+  updateStageNameFromCode();
+});
+
+
+</script>
+
+</body>
+</html>
