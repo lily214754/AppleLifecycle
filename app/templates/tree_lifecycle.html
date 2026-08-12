@@ -455,9 +455,16 @@ function searchStage() {
         's23': {code: 'OAR70', env: 'orchard'}
     };
 
-    if (tableNameToStageMapping[normalizedQuery.replace('s', '')]) {
+    // `query` is upper-cased above but every key here is lower-case, and the keys
+    // include the leading 's' -- so the lookup has to use the normalised query as
+    // it stands. Stripping the 's' first looked for '6' among keys named 's6'.
+    // This also referenced an undeclared `normalizedQuery`, which threw a
+    // ReferenceError before any stage match could run, disabling the whole search.
+    const normalizedQuery = query.toLowerCase();
+
+    if (tableNameToStageMapping[normalizedQuery]) {
         const tableKey = normalizedQuery.replace('s', '');
-        const {code, env} = tableNameToStageMapping[tableKey];
+        const {code, env} = tableNameToStageMapping[normalizedQuery];
         
         // Construct URL
         const url = new URL(window.location);

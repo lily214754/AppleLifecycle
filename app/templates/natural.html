@@ -596,7 +596,10 @@ function updateSearchSuggestions() {
 
 
 const updateDynamicColumn = () => {
-        const lastStage = currentPath[currentPath.length - 2].toLowerCase();
+        // currentPath holds a single entry at the top of the natural life cycle, so
+        // index length-2 is undefined there and calling toLowerCase on it threw,
+        // aborting the render partway through showAllRows.
+        const lastStage = (currentPath[currentPath.length - 2] || '').toLowerCase();
 
         const stage = currentPath[currentPath.length - 1].toLowerCase();
         console.log(stage);
@@ -742,8 +745,13 @@ function toggleBlock(type) {
     }
 }
 
+// These two drive a stage-code picker that this page does not contain -- none of
+// stage_code_list, stage_code_select or stage_name_display exist here. Both ran on
+// DOMContentLoaded and threw on the missing elements, aborting the rest of that
+// handler. Guarded rather than deleted so they still work wherever the picker lives.
 function populateStageCodeList() {
   const list = document.getElementById('stage_code_list');
+  if (!list) return;
   list.innerHTML = '';
   for (let code in stageCodeMapping) {
     const option = document.createElement('option');
@@ -755,9 +763,13 @@ function populateStageCodeList() {
 
 // 🔺 Show stage name on input
 function updateStageNameFromCode() {
-  const input = document.getElementById('stage_code_select').value.trim();
+  const select = document.getElementById('stage_code_select');
   const display = document.getElementById('stage_name_display');
-  display.textContent = stageCodeMapping[str(input)] || 'Unknown stage code';
+  if (!select || !display) return;
+  const input = select.value.trim();
+  // was str(input) -- Python, not JavaScript, so this threw a ReferenceError on
+  // every page load. `input` is already a string from .value.trim().
+  display.textContent = stageCodeMapping[input] || 'Unknown stage code';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
