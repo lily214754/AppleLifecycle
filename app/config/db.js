@@ -50,6 +50,9 @@ async function initializeDatabase() {
         }
 
         await runSQLFile('natural.sql');
+        // A cite{} marker in tablesData.json resolves against reference_data, so the
+        // reference has to exist before the page renders it.
+        await runSQLFile('add_reference_lang1987.sql');
         await runSQLFile('protocol.sql');
         // Additions still awaiting sign-off; they render in blue until confirmed.
         await runSQLFile('added_operations.sql');
