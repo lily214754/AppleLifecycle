@@ -1,0 +1,10 @@
+# Container-stack build manifest. The app's Heroku stack is set to `container`,
+# so Heroku builds the image from the Dockerfile below rather than running a
+# buildpack. Without this file the deploy stops at "Fetching app code".
+#
+# No `run` section is needed: Heroku uses the Dockerfile's CMD for the web
+# process. Heroku ignores EXPOSE and injects its own $PORT, which app.js already
+# honours via `process.env.PORT || 3000`.
+build:
+  docker:
+    web: Dockerfile
