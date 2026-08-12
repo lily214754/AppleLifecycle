@@ -75,6 +75,8 @@ async function initializeDatabase() {
         // Depends on fix_stage_timing.sql: the pairs it merges only sit at the same
         // stage once the mis-filed half has been moved there.
         await runSQLFile('fix_duplicate_operations.sql');
+        // Must run after protocol.sql, which is what seeds the rows it removes.
+        await runSQLFile('fix_ndg_measurements.sql');
         await runSQLFile('fix_integrity.sql');
 
         console.log("✅ Database initialized successfully!");
