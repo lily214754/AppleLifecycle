@@ -6,7 +6,7 @@ const lifecycleData = {
         <tr id='Seed Germination'>
             <td>Seed germination</td>
             <td>Spring cite{ferreeApplesBotanyProduction2003}</td>
-            <td>Cotyledones (e.g., first leaves) emerge</td>
+            <td>Cotyledons (e.g., first leaves) emerge</td>
             <td>
                 - Environmental condition<br>
                 - Soil pH<br>
@@ -675,7 +675,7 @@ The initiation phase generally lasts between 3-7 weeks, but some studies have ob
         Flower bud formation completion time varies, ranging from 15 to 22 
         weeks after full bloom, with variations up to six weeks across 
         different seasons cite{mcartneySeasonalVariationOnset2001}. <br>
-        Differentiation rates vary by position on the tree: spur buds develop into floral meristems by late summer, whereas extension shoots may continue developing throughout autumn and winter, and possibly into the following spring cite{riveroFloweringPhenologyInterrelations2017}  \newline
+        Differentiation rates vary by position on the tree: spur buds develop into floral meristems by late summer, whereas extension shoots may continue developing throughout autumn and winter, and possibly into the following spring cite{riveroFloweringPhenologyInterrelations2017}
 
     </td>
     <td>

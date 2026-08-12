@@ -5,12 +5,32 @@ const app = express();
 const sequelize = require('./config/db');
 const referenceRoutes = require('./routes/referenceRoutes');
 const naturalRoutes = require('./routes/naturalRoutes');
+const protocolRoutes = require('./routes/protocolRoutes');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+// Static assets.
+//
+// Code and content must always be revalidated: max-age=0 with an ETag means the
+// browser asks every time and gets a cheap 304 when nothing changed, so it still
+// avoids re-downloading but can never serve a stale scripts.js or style.css. A
+// blanket max-age here previously left editors looking at an hour-old page.
+// Images and the vendored jQuery never change under the same name, so they keep a
+// long cache.
+const revalidate = {
+    etag: true,
+    maxAge: 0,
+    setHeaders(res, filePath) {
+        if (/[\\/](images|vendor)[\\/]/.test(filePath)) {
+            res.setHeader('Cache-Control', 'public, max-age=86400');
+        } else {
+            res.setHeader('Cache-Control', 'no-cache');
+        }
+    }
+};
+const staticOptions = revalidate;
+app.use(express.static(path.join(__dirname, 'public'), staticOptions));
 
 // Serve the index.html file when accessing the root URL
 app.get('/', (req, res) => {
@@ -18,16 +38,16 @@ app.get('/', (req, res) => {
     // console.log(path.join(__dirname, 'templates', 'index.html'))
 });
 // Serve JSON data
-app.use('/data', express.static(path.join(__dirname, 'data')));
+app.use('/data', express.static(path.join(__dirname, 'data'), staticOptions));
 
 
 const tableContents = [
     // 'table-content1',
     // 'table-content2',
     // 'table-content3',
-    'opration-contentODG00',
-    'opration-contentODG01',
-    'opration-contentODG02',
+    'operation-contentODG00',
+    'operation-contentODG01',
+    'operation-contentODG02',
     'table-content3.1',
     'table-content3.2',
     'table-content3.3',
@@ -46,13 +66,18 @@ const tableContents = [
     'tree_lifecycle',
     'annual_season',
     'ODG01',
-    'opration-contentOAR00'
+    'operation-contentOAR00'
 ];
 
-// Dynamically create routes for each table content file
+// Dynamically create routes for each table content file. Most of these fragments live
+// in public/ rather than templates/, so fall back there instead of throwing ENOENT.
 tableContents.forEach(content => {
     app.get(`/${content}`, (req, res) => {
-        res.sendFile(path.join(__dirname, 'templates', `${content}.html`));
+        const inTemplates = path.join(__dirname, 'templates', `${content}.html`);
+        const inPublic = path.join(__dirname, 'public', `${content}.html`);
+        if (fs.existsSync(inTemplates)) return res.sendFile(inTemplates);
+        if (fs.existsSync(inPublic)) return res.sendFile(inPublic);
+        res.status(404).send('Not found');
     });
 });
 
@@ -61,6 +86,8 @@ tableContents.forEach(content => {
 
 // Use the router for other routes
 app.use('/api', referenceRoutes);
+
+app.use('/api', protocolRoutes);
 
 app.use('/api/stage', naturalRoutes);
 

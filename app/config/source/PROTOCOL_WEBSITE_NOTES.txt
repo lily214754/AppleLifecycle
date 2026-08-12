@@ -1,0 +1,11 @@
+Authoritative protocol websites used directly in Table S4B
+
+- WMO: orchard meteorological instruments and siting.
+- WSU Tree Fruit: soil sampling, soil-moisture sensors, and apple leaf-tissue sampling.
+- LI-COR: LAI-2200C operating and isolated-row measurement guidance.
+- UC Agriculture and Natural Resources: midday stem-water-potential pressure-chamber protocol.
+- University of Maryland Extension: apple firmness and soluble-solids maturity tests.
+- WSU Tree Fruit: apple starch-iodine maturity test.
+- UC IPM: apple pest and disease monitoring protocols.
+
+Peer-reviewed apple papers remain the reference where the method is study-specific.

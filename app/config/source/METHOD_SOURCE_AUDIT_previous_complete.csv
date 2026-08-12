@@ -1,0 +1,85 @@
+Indicator(s),Stage(s),Protocol basis,Reference keys
+"Air temperature, relative humidity, wind speed/direction, rainfall and short-wave radiation",NDG00; ODG00--03; OAR00--93,Paper + authoritative protocol,wmo2024; sapkota2021
+Photosynthetically active radiation (PAR/PPFD),ODG02; OAR10--82,Source paper protocol,wunsche1996; middleton2002
+Soil temperature,NDG00; ODG00--03; OAR00--93,Paper + authoritative protocol,dong2001; wmo2024
+"Phenological event date, DOY, DAFB and photoperiod",OAR00--93,Source paper protocol,meier1994; stoeckli2015
+Composite soil sample,NDG00; ODG00--03,Authoritative protocol / standard,wsu_soil_sampling; nrcs2024fieldbook
+"Soil pH and available nutrient profile (SOC, total/extractable N, Olsen P, exchangeable K and named nutrients)",NDG00; ODG00--03,Paper + authoritative protocol,ge2018; wsu_soil_sampling
+Volumetric soil water content (VWC),NDG00; ODG00--03; OAR10--93,Paper + authoritative protocol,tsoulias2020; wsu_irrigation_sensors
+Soil-water potential / tension,ODG01--03; OAR10--82,Authoritative protocol / standard,wsu_irrigation_sensors
+Apparent soil electrical conductivity (ECa),ODG00--03; OAR10--82,Source paper protocol,tsoulias2020
+"Soil texture, bulk density, porosity, saturated hydraulic conductivity and penetration resistance",ODG00--03,Paper + authoritative protocol,paltineanu2016; nrcs2024fieldbook
+Scion/rootstock identity and tree age,ODG00--03,Source paper protocol,ferree2003
+"Graft-union height, row spacing, within-row spacing, planting density and row orientation",ODG00--03,Source paper protocol,sun2020; ferree2003
+Main-stem node number and flowering-node position,NDG01--03,Source paper protocol,liu2025; zhang2007; atay2020
+"Leaf blade area, length, width, aspect ratio, outline/shape and serration",NDG01--03,Paper + authoritative protocol,migicovsky2018; upov2023apple
+"Leaf attitude/side-shoot angle, thorn presence/density and adventitious-root presence",NDG01--03,Authoritative protocol / standard,upov2023apple
+"Leaf epidermal cell area/number, stomatal density, trichome density and leaf thickness",NDG01--03; OAR10--82,Source paper protocol,jia2024
+Leaf mass per area (LMA) / specific leaf weight,NDG01--03; OAR10--82,Source paper protocol,migicovsky2018; schechter1992
+"Phase-related phenolic markers (phloridzin, myricitrin, caffeic acid)",NDG01--03,Source paper protocol,zhang2007
+"Shoot length, elongation rate and terminal growth cessation",NDG01--04; OAR30--39; OAR79,Source paper protocol,wang2020
+"Root length, surface area, mean/maximum diameter and volume",NDG01; ODG03,Source paper protocol,liu2019; serrano2023
+Primary-root count; fine/medium/coarse root length; root dry mass; root-system width/depth/projected area,ODG03,Source paper protocol,serrano2023
+Rootstock:scion diameter ratio at graft union,ODG03,Source paper protocol,serrano2023
+Effective rooting depth and root water potential,ODG01--03; OAR50--82,Source paper protocol,tsoulias2020
+Fine- and coarse-root starch,OAR01--04,Source paper protocol,mochizuki1956
+Trunk circumference and trunk cross-sectional area (TCSA),NDG01--04; ODG01--03,Source paper protocol,gonzalez2023
+"Tree height, canopy width, projected area and canopy volume",ODG01--02; OAR10--82,Source paper protocol,sun2020
+Leaf area index (LAI): direct/reconstructed,ODG02; OAR10--82,Source paper protocol,wunsche1996; middleton2002
+Leaf area index (LAI): optical canopy analyser,ODG02; OAR10--82,Authoritative protocol / standard,licor_lai2200c
+Canopy light interception,ODG02; OAR10--82,Source paper protocol,middleton2002
+Crop load / fruit number per tree or TCSA; blossom-cluster density,ODG02--03; OAR40--82,Source paper protocol,stover2001; serra2016
+"Annual yield, cumulative yield and yield efficiency",ODG02--03; OAR82,Source paper protocol,plavcova2022; stover2001
+Flowering intensity and return bloom,ODG02--03; OAR40--59,Source paper protocol,plavcova2022; serra2016
+Annual trunk radial increment,ODG03,Source paper protocol,plavcova2022
+Bud count and external bud size,OAR00--04; ODG01--02,Paper + authoritative protocol,labuschagne2003; upov2023apple
+"Bud fresh mass, dry mass and water content",OAR00--04,Source paper protocol,milyaev2024
+"Chilling accumulation (CH, CU, CP) and chilling requirement",OAR00--04,Source paper protocol,parkes2020; sapkota2021; milyaev2024
+Budbreak percentage under forcing,OAR00--04,Source paper protocol,milyaev2024
+"Bud starch, soluble sugars, sucrose/glucose/fructose, sorbitol and total carbohydrate reserves",OAR00--04,Paper + authoritative protocol,sapkota2021; raese1977; sydney_anthrone
+"Leaf type, fresh/dry mass, area, number, water content, volume and internal gas-space volume",OAR10--82,Source paper protocol,schechter1992; lakso1984
+SPAD chlorophyll index,OAR10--82,Source paper protocol,neilsen1995
+"Leaf chlorophyll a, chlorophyll b, total chlorophyll, a:b ratio and carotenoids",OAR10--93,Source paper protocol,lauzike2020; tartachnyk2004
+"Leaf mineral nutrients (N, P, K, Ca, Mg and micronutrients)",OAR10--93,Paper + authoritative protocol,nachtigall2006; wsu_leaf_tissue
+"Net photosynthesis, stomatal conductance, transpiration and related gas-exchange metrics",OAR10--93,Source paper protocol,wunsche1996; lauzike2020
+Leaf dark respiration,OAR90--93,Source paper protocol,barden1979
+Chlorophyll fluorescence ($F_v/F_m$),OAR80--93,Source paper protocol,tartachnyk2004
+Stem water potential by pressure chamber,OAR10--82,Authoritative protocol / standard,ucanr_pressure_chamber
+Trunk water potential by embedded microtensiometer,OAR30--82,Source paper protocol,blanco2024
+Canopy temperature and $T_c-T_a$,OAR10--82,Source paper protocol,blanco2024
+Continuous trunk diameter and maximum daily trunk shrinkage (MDS),OAR30--82,Source paper protocol,blanco2024
+"Flower-cluster count, flowers per cluster, bloom percentage, flowering date and fruit set",OAR40--70,Source paper protocol,stoeckli2015; serra2016; losada2013
+Flower / fruitlet cell count and floral microscopy,OAR40--70,Source paper protocol,losada2013; malladi2010
+Pollinator visitation rate and flower-standardized visitation,OAR50--59,Source paper protocol,gilpin2022
+Pollen load on flower visitors,OAR50--59,Source paper protocol,gilpin2022
+Pollen-tube progression and controlled pollination,OAR50--59,Source paper protocol,losada2013
+Pollen viability and in-vitro germination,OAR40--59,Source paper protocol,calic2021
+"Flowering overlap, pollination-to-fertilization interval, stigmatic receptivity and effective pollination period (EPP)",OAR50--59,Source paper protocol,losada2013; roeder2021
+"Flower-bud histological stage, meristem diameter/height, appendage number and plastochron",OAR60--62,Source paper protocol,kofler2019; foster2003
+Bourse-bud phytohormones and defined metabolic analytes,OAR60--62,Source paper protocol,milyaev2022
+"Fruit diameter, fresh mass, growth rate and fruitlet retention/abscission",OAR70--82,Source paper protocol,malladi2010; greene2013
+"Fruit cortex cell-layer number, cell diameter, projected cell area, CSSI and CNI",OAR70--79,Source paper protocol,malladi2010; ng2013
+Fruit biochemical starch concentration,OAR70--82,Source paper protocol,ng2013
+Fruit firmness,OAR80--82,Paper + authoritative protocol,umd_apple_maturity; malladi2010
+Soluble solids concentration (SSC),OAR70--82,Paper + authoritative protocol,umd_apple_maturity; rutkowski2008
+Titratable acidity and fruit juice pH,OAR70--82,Paper + authoritative protocol,rutkowski2008; umd_apple_maturity
+Starch-iodine pattern index and Streif index,OAR80--82,Paper + authoritative protocol,wsu_apple_harvest; rutkowski2008
+"Fruit dry mass, dry matter and density",OAR70--82,Source paper protocol,vieira2022
+"Background skin colour ($L^*,a^*,b^*$, hue, chroma)",OAR80--82,Source paper protocol,felicetti2008
+"Fruit peel chlorophyll, carotenoids and anthocyanins",OAR80--82,Source paper protocol,felicetti2008
+Internal ethylene concentration and ethylene production rate,OAR80--82,Source paper protocol,johnston2009
+Index of absorbance difference ($I_{AD}$),OAR80--82,Paper + authoritative protocol,cocetta2017; umd_apple_maturity
+Fruit surface and near-surface tissue temperature,OAR70--82,Source paper protocol,li2014; wangfst2020
+"Fruit mineral nutrients (N, P, K, Ca, Mg, B, Cu, Fe, Mn, Zn)",OAR70--82,Source paper protocol,nachtigall2006
+Fruit soluble sugars and sorbitol,OAR70--82,Source paper protocol,filip2016
+Postharvest fruit mass loss / water-loss rate,OAR82; postharvest,Source paper protocol,johnston2009
+Disease incidence and disease severity,ODG01--03; OAR10--93,Paper + authoritative protocol,ucipm_apple; padder2021
+"Mite eggs/motile mites, aphid colonies, codling-moth trap capture and pest-damaged fruit/russet",ODG01--03; OAR10--82,Authoritative protocol / standard,ucipm_apple
+Leaf discoloration and leaf fall,OAR90--93,Source paper protocol,meier1994
+"Senescing-leaf photosynthesis, transpiration, stomatal conductance and $F_v/F_m$",OAR90--93,Source paper protocol,tartachnyk2004
+"Senescing-leaf chlorophyll, mineral nutrients, protein, amino acids, soluble sugars and H$_2$O$_2$",OAR90--93,Source paper protocol,spencer1972; nachtigall2006; sapkota2021
+"Senescence phytohormones (CK, GA, ethylene, SA, ABA, JA)",OAR90--93,Source paper protocol,milyaev2022
+"Stem soluble sugars, starch and total carbohydrates",OAR70--00,Paper + authoritative protocol,sivaci2006; sydney_anthrone
+"Whole-tree decline severity, survival and mortality",ODG03,Source paper protocol,wunsch2024; lawrence2025
+Multi-year yield/growth decline,ODG03,Source paper protocol,plavcova2022; lawrence2025
+Internal trunk necrosis and root-system deterioration,ODG03,Source paper protocol,serrano2023

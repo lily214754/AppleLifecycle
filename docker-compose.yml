@@ -1,9 +1,33 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: apple
+      POSTGRES_PASSWORD: apple
+      POSTGRES_DB: applelifecycle
+    ports:
+      - "55432:5432"
+    volumes:
+      - apple_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apple -d applelifecycle"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   backend:
     build: .
-    # ports:
-    #   - "3000:3000"
-    environment: 
-      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      # Defaults to the local db service; override to point at a hosted database.
+      DATABASE_URL: ${DATABASE_URL:-postgres://apple:apple@db:5432/applelifecycle}
+      PGSSL: ${PGSSL:-disable}
+
+volumes:
+  apple_pgdata:

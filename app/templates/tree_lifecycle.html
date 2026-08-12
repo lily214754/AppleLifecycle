@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Apple Tree Life Cycle</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/vendor/jquery-3.6.0.min.js"></script>
      <style>
     </style>
 </head>
@@ -46,6 +46,14 @@
             </table>
         </main>
     </div>
+
+    <!-- Measurement protocol panel: slides in from the right when a key measurement
+         is clicked. Overlays the page, so the main layout is unaffected. -->
+    <aside id="protocolDrawer" class="protocol-drawer" aria-hidden="true" aria-label="Measurement protocol">
+        <button type="button" class="protocol-drawer-close" aria-label="Close">&times;</button>
+        <div id="protocolDrawerBody"></div>
+    </aside>
+
     <script src="scripts.js"></script>
 <script>
     let urlParams = new URLSearchParams(window.location.search);
@@ -85,10 +93,18 @@
         updateNavigation();
     }).fail(() => console.error("Error loading data"));
 
+    // currentPath holds lower-cased stage keys, so the breadcrumb has to title-case
+    // them for display -- otherwise it reads "Home › orchard › Mature Tree".
+    function titleCase(text) {
+        return String(text).toLowerCase().split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
     function updateNavigation() {
-        $("#breadcrumb").html(currentPath.map((stage, index) => 
+        $("#breadcrumb").html(currentPath.map((stage, index) =>
             `<span data-index="${index}" ${stage === "Home" ? 'data-home="true"' : ''}>
-                ${stage}${index < currentPath.length - 1 ? ' ›' : ''}
+                ${titleCase(stage)}${index < currentPath.length - 1 ? ' ›' : ''}
             </span>`
         ).join(''));
 
@@ -169,7 +185,8 @@
     $("#tableHint").toggle(!added);
     $("table").show();
     updateDynamicColumn();
-    initializeCiteReferences();
+    initializeCiteReferences(document.getElementById('dataTable'));
+    renderMeasurementCells(document.getElementById('dataTable'));
 }
 
 const stageCodeMapping = {
@@ -669,7 +686,8 @@ function showAllRowsUnderParent(parentStage) {
 
     $("#tableHint").toggle(!added);
     $("table").show();
-    initializeCiteReferences();
+    initializeCiteReferences(document.getElementById('dataTable'));
+    renderMeasurementCells(document.getElementById('dataTable'));
 }
 
 // **🔹 Function to Highlight Only the Searched Row**

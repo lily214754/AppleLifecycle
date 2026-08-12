@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Apple Tree Lifecycle</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/vendor/jquery-3.6.0.min.js"></script>
      <style>
     </style>
 </head>
@@ -123,6 +123,13 @@
         <!-- Add this right before the closing </body> tag -->
 
     </div>
+    <!-- Measurement protocol panel: slides in from the right when a key measurement
+         is clicked. Overlays the page, so the main layout is unaffected. -->
+    <aside id="protocolDrawer" class="protocol-drawer" aria-hidden="true" aria-label="Measurement protocol">
+        <button type="button" class="protocol-drawer-close" aria-label="Close">&times;</button>
+        <div id="protocolDrawerBody"></div>
+    </aside>
+
     <script src="scripts.js"></script>
 <script>
     let urlParams = new URLSearchParams(window.location.search);
@@ -207,7 +214,15 @@
                                                             : `${o.description} cite{${o.bibtex_key}}`
                                                     ).join('<br>');
                                                     
-        const formatMeasurement = keyMeasurement.map(k => `${k.measurement_name}${k.unit ? ' (' + k.unit + ')' : ''} ${k.value_range ? 'Range: ' + k.value_range : ''} cite{${k.bibtex_key}}`).join('<br>');
+        // Measurements now link to their protocol when one exists; the citation is only
+        // appended when the row actually carries one, instead of emitting cite{undefined}.
+        const formatMeasurement = keyMeasurement.map(k => {
+            const label = `${k.measurement_name}${k.unit ? ' (' + k.unit + ')' : ''}${k.value_range ? ' Range: ' + k.value_range : ''}`;
+            const name = k.protocol_id
+                ? `<a href="#" class="measurement-link" data-protocol-id="${k.protocol_id}" data-measurement-id="${k.measurement_id}" title="Show the measurement protocol">${label}</a>`
+                : label;
+            return k.bibtex_key ? `${name} cite{${k.bibtex_key}}` : name;
+        }).join('<br>');
 
         const formatGeneralOperation = generalOperation.map(o => `${o.description}`
                                                     ).join('<br>');
@@ -266,7 +281,7 @@
     $("#tableHint").toggle(!added);
     $("table").show();
     updateDynamicColumn();
-    initializeCiteReferences();
+    initializeCiteReferences(document.getElementById('dataTable'));
 }
 
 
@@ -517,7 +532,7 @@ function showAllRowsUnderParent(parentStage) {
 
     $("#tableHint").toggle(!added);
     $("table").show();
-    initializeCiteReferences();
+    initializeCiteReferences(document.getElementById('dataTable'));
 }
 
 // **🔹 Function to Highlight Only the Searched Row**

@@ -1,3 +1,8 @@
+-- protocol.sql layers these on top of `stage` and `key_measurement`, so they have to
+-- go first or the DROPs below fail on every restart after the first.
+DROP TABLE IF EXISTS protocol_stage;
+DROP TABLE IF EXISTS protocol_reference;
+
 DROP TABLE IF EXISTS guidereference;
 DROP TABLE IF EXISTS operation;
 DROP TABLE IF EXISTS general_operation;
@@ -96,6 +101,12 @@ CREATE TABLE guidereference (
 
 
 INSERT INTO stage (stage_code, stage_name, description) VALUES
+('NDG00', 'Seed Germination', 'Emergence of the seedling from seed, ending with established cotyledons and first leaves.'),
+('NDG01', 'Juvenile Period', 'Vegetative phase before the tree is able to flower, lasting 4 to 12 years depending on cultivar.'),
+('NDG02', 'Transition Period', 'Juvenile-to-adult phase change in which reproductive competence is acquired.'),
+('NDG03', 'Reproductive Phase', 'Adult phase with regular flowering and fruiting.'),
+('NDG04', 'Aging', 'Progressive decline in vegetative and reproductive performance.'),
+
 ('ODG00', 'Planting Tree', 'Initial phase of planting orchard trees, including rootstock preparation and grafting.'),
 ('ODG01', 'Young Tree', 'Early growth phase where trees establish roots and vegetative structures.'),
 ('ODG02', 'Mature Tree', 'Productive phase with active fruiting and full canopy development.'),
@@ -126,7 +137,7 @@ INSERT INTO stage (stage_code, stage_name, description) VALUES
 ('OAR(50-59)', 'Flowering', 'Progressive flower bloom with overlapping phases.'),
 ('OAR50', 'First Flower', 'Opening of first flowers in the orchard.'),
 ('OAR50-00', 'Pollination', 'Transfer of pollen grains between flowers.'),
-('OAR50-01', 'Fertilisation', 'Union of gametes resulting in zygote formation.'),
+('OAR50-01', 'Fertilization', 'Union of gametes resulting in zygote formation.'),
 ('OAR50-02', 'Fruit Set', 'Formation of fruit following successful fertilisation.'),
 ('OAR55', 'Full Bloom / Anthesis', 'Peak flowering period with maximum open blooms.'),
 ('OAR57', 'End of Flowering', 'Petal fall indicating flowering completion.'),
@@ -217,7 +228,7 @@ INSERT INTO general_operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 249'
 FROM operation
 WHERE description = 'Involves adding topsoil to flatter or uniformly shaped ground';
 
@@ -232,7 +243,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 249'
 FROM operation
 WHERE description = 'Establish the orchard parallel to natural contour of the land';
 
@@ -247,7 +258,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 249'
 FROM operation
 WHERE description = 'Create stepped ground only considered when other soil and water conservation methods are insufficient';
 
@@ -262,7 +273,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'pp. 248-249'
 FROM operation
 WHERE description LIKE 'Perform subsoiling%';
 
@@ -277,7 +288,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Soil & Water Conservation Engineering',
-  'https://elibrary.asabe.org/textbook.asp?confid=swce2012', 'p.303'
+  'https://elibrary.asabe.org/textbook.asp?confid=swce2012', 'p. 303'
 FROM operation
 WHERE description LIKE 'Find practical information in the article%';
 
@@ -292,7 +303,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 252'
 FROM operation
 WHERE description LIKE 'Adjust soil pH using liming material%';
 
@@ -307,7 +318,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 252'
 FROM operation
 WHERE description LIKE 'Apply hay, straw, woodchips%';
 
@@ -322,7 +333,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Southeast USA Apple Orchard Integrated Guide',
-  'https://content.ces.ncsu.edu/static/publication/js/pdf\_js/web/viewer.html?slug=integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p.54'
+  'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 54'
 FROM operation
 WHERE description LIKE 'Apply nutrient like phosphorous%';
 
@@ -337,7 +348,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.72'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p. 248'
 FROM operation
 WHERE description LIKE 'Typically executed to about 20 cm%';
 
@@ -352,7 +363,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.39'
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'pp. 253-254'
 FROM operation
 WHERE description LIKE 'Apply chemical biocides%';
 
@@ -367,7 +378,7 @@ INSERT INTO operation (
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 SELECT operation_id, 'Irrigation Water Management Guide',
-  'https://apal.org.au/wp-content/uploads/2019/09/fo-ow-handout-09-sept-irrigation-guidelines.pdf', 'p.9'
+  'https://apal.org.au/wp-content/uploads/2019/09/fo-ow-handout-09-sept-irrigation-guidelines.pdf', 'p. 9'
 FROM operation
 WHERE description LIKE 'Utilize drippers, sprinklers, or pipes%';
 
@@ -386,7 +397,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'No crop in second year%' LIMIT 1),
-  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/', 'N/A'
+  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/', NULL
 );
 
 -- Thinning: Defruiting
@@ -401,7 +412,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Defruiting practices help%' LIMIT 1),
-  'New Jersey Apple IPM & Fertility Bulletins', 'https://njaes.rutgers.edu/pubs/subcategory.php?cat=3&sub=19', 'p.88'
+  'New Jersey Apple IPM & Fertility Bulletins', 'https://njaes.rutgers.edu/pubs/subcategory.php?cat=3&sub=19', 'p. 88'
 );
 
 -- Pollination: Defruiting
@@ -416,12 +427,12 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Select appropirate pollinizer trees%' LIMIT 1),
-  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/apples/crabapple-pollinators', 'N/A'
+  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/apples/crabapple-pollinators', NULL
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Select appropirate pollinizer trees%' LIMIT 1),
-  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/pollination/', 'N/A'
+  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/pollination/', NULL
 );
 
 
@@ -439,7 +450,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Manage leader development by removing competing shoots and new shoots below the leader%' LIMIT 1),
-  'New England Orchard BMP', 'https://www.umass.edu/agriculture-food-environment/fruit/publications/orchard-bmp-manual', 'N/A'
+  'New England Orchard BMP', 'https://www.umass.edu/agriculture-food-environment/fruit/publications/orchard-bmp-manual', NULL
 );
 
 
@@ -455,7 +466,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Apply before bud break in early spring%' LIMIT 1),
-  'Southeast USA Apple Orchard Integrated Guide', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'N/A'
+  'Southeast USA Apple Orchard Integrated Guide', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', NULL
 );
 
 -- Plant growth regulator: general
@@ -470,7 +481,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'According to goals, practical recommendations%' LIMIT 1),
-  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/bioregulator-sprays/other-apple-programs/', 'N/A'
+  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/bioregulator-sprays/other-apple-programs/', NULL
 );
 
 -- Plant growth regulator: non-bearing trees
@@ -485,7 +496,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description = 'Use of PGRs in non-bearing trees' LIMIT 1),
-  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/bioregulator-sprays/other-apple-programs/', 'N/A'
+  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/bioregulator-sprays/other-apple-programs/', NULL
 );
 
 
@@ -509,7 +520,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'The schedule is based on thresholds or indexes determined by the method or simulation model specific to field, accounting for weather, soil, and plant status. Maintaining soil moisture. Young trees spray schedule and watering guideline.' LIMIT 1),
   'Washington Apple Orchard Systems Hub',
   'https://treefruit.wsu.edu/orchard-management/irrigation-management/',
-  'N/A'
+  NULL
 );
 
 -- Insert orchard floor management operation
@@ -530,7 +541,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Use mulching or herbicides to eliminate weeds; Up to six cultivation per season may be required to suppress weeds; Herbicide spraying requires 200–400 L/ha of material; water volume varies with herbicide type; Refer to guidelines for practical herbicide application strategies.' LIMIT 1),
   'New Jersey Commercial Tree Fruit Production Guide – Weed and Floor Management',
   'https://njaes.rutgers.edu/pubs/subcategory.php?cat=5&sub=37',
-  'p.49, 77, 94'
+  'pp. 49, 77, 94'
 );
 
 -- Insert environmental stress management operation
@@ -550,8 +561,8 @@ INSERT INTO guidereference (
 ) VALUES (
   (SELECT operation_id FROM operation WHERE description = 'Use reflective films and shading such as coloured net; Bagging is also a common management strategy to protect fruit from sunburn and environmental damage.' LIMIT 1),
   'New England Orchard BMP Manual',
-  'https://ag.umass.edu/fruit/publications/orchard-bmp-manual',
-  ' 80'
+  'https://www.umass.edu/agriculture-food-environment/fruit/publications/orchard-bmp-manual',
+  'p. 80'
 );
 
 -- Insert operation: Environmental stress management - extreme events
@@ -617,7 +628,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Refer to the strategy outlined in the manual for monitoring duration and frequency, symptom descriptions, and appropriate actions. Practical recommendations are available for different stages based on crop goals and observations.' LIMIT 1),
   'Integrated Pest Management for Australian Apples & Pears',
   'https://www.horticulture.com.au/globalassets/hort-innovation/resource-assets/2020-21-australian-apple-and-pear-ipdm-manual.pdf',
-  ' 12–18'
+  'pp. 12-18'
 );
 
 
@@ -642,7 +653,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Remove buds, flowers, or fruits manually, mechanically, or chemically, depending on the method. This operation generally occurs once per season, with supplementary hand thinning later if the effect of initial thinning on fruit size or return bloom is not sufficient cite{stoverMethodAssessingRelationship2001}; Control 4-6 fruits per square cm of trunk cross-sectional area (TCSA), varying by variety cite{robinsonCropLoadManagement2008}.'),
   'Oregon Apple Pest and Frost Management Guide',
   'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf',
-  ' 82'
+  'p. 82'
 );
 
 INSERT INTO guidereference (
@@ -651,7 +662,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Remove buds, flowers, or fruits manually, mechanically, or chemically, depending on the method. This operation generally occurs once per season, with supplementary hand thinning later if the effect of initial thinning on fruit size or return bloom is not sufficient cite{stoverMethodAssessingRelationship2001}; Control 4-6 fruits per square cm of trunk cross-sectional area (TCSA), varying by variety cite{robinsonCropLoadManagement2008}.'),
   'Agriculture: Apple Pest Management Guidelines',
   'https://ipm.ucanr.edu/agriculture/apple/apple-thinning-sprays/#gsc.tab=0',
-  'N/A'
+  NULL
 );
 
 
@@ -661,7 +672,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Remove buds, flowers, or fruits manually, mechanically, or chemically, depending on the method. This operation generally occurs once per season, with supplementary hand thinning later if the effect of initial thinning on fruit size or return bloom is not sufficient cite{stoverMethodAssessingRelationship2001}; Control 4-6 fruits per square cm of trunk cross-sectional area (TCSA), varying by variety cite{robinsonCropLoadManagement2008}.'),
   'Washington Apple Orchard Systems Hub',
   'https://cpg.treefruit.wsu.edu/bioregulator-sprays/apple-chemical-thinning/',
-  'N/A'
+  NULL
 );
 
 -- Pruning & Training
@@ -683,7 +694,7 @@ INSERT INTO guidereference (
   (SELECT operation_id FROM operation WHERE description = 'Remove shoots or limbs to maintain canopy within space during the dormant and summer seasons annually. See different pruning plans at cite{ferreeApplesBotanyProduction2003}. In larger orchards, pruning may be scheduled every second or third year to manage costs cite{ferreeApplesBotanyProduction2003}.'),
     'Apples: Botany, Production, and Uses',
   'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y',
-  ' 82'
+  'pp. 319-344'
 );
 
 
@@ -725,7 +736,7 @@ INSERT INTO operation (
 ((SELECT stage_id FROM stage WHERE stage_code = 'ODG02' LIMIT 1),
  (SELECT id FROM reference_data WHERE bibtex_key = 'ferreeApplesBotanyProduction2003' LIMIT 1),
  'Herbicides spraying require 200-400l per ha of material to be effective and the water volume varies with the herbicide type cite{ferreeApplesBotanyProduction2003}',
- 'Orchard floor management', 'Weed contro'),
+ 'Orchard floor management', 'Weed control'),
 
 ((SELECT stage_id FROM stage WHERE stage_code = 'ODG02' LIMIT 1),
  (SELECT id FROM reference_data WHERE bibtex_key = '2023IntegratedOrchardManagement' LIMIT 1),
@@ -744,39 +755,39 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- Nutrient
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply once in the spring and once in the autumn%' LIMIT 1),
- 'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/soils-nutrition/', 'N/A'),
+ 'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/soils-nutrition/', NULL),
 
 -- PGR
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply plant growth regulator to adjust%' LIMIT 1),
- 'Orchard Growth Regulator Guide', 'https://example.com/pgr', 'N/A'),
+ 'Orchard Growth Regulator Guide', 'https://cpg.treefruit.wsu.edu/bioregulator-sprays/', NULL),
 
 -- Irrigation
 ((SELECT operation_id FROM operation WHERE description LIKE 'The irrigation schedule is based on thresholds%' LIMIT 1),
- 'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/irrigation-management/', 'N/A'),
+ 'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/irrigation-management/', NULL),
 
 -- Weed control
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use mulching or herbicides to eliminate weeds%' LIMIT 1),
- 'Orchard Plant Protection Guide', 'https://treefruit.wsu.edu/orchard-management/orchard-floor-management/', 'N/A'),
+ 'Orchard Plant Protection Guide', 'https://treefruit.wsu.edu/orchard-management/orchard-floor-management/', NULL),
 
 -- Cultivation 1
 ((SELECT operation_id FROM operation WHERE description LIKE 'Up to six cultivations per season%' LIMIT 1),
  'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'N/A'),
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', NULL),
 
 -- Cultivation 2
 ((SELECT operation_id FROM operation WHERE description LIKE 'Herbicides spraying require 200-400l%' LIMIT 1),
  'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'N/A'),
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', NULL),
 
 -- Herbicide usage
 ((SELECT operation_id FROM operation WHERE description LIKE 'Refer to herbicide usage guidelines%' LIMIT 1),
  'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'N/A'),
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', NULL),
 
 
 -- IPDM
 ((SELECT operation_id FROM operation WHERE description LIKE 'Refer to monitoring strategy with frequency%' LIMIT 1),
- 'Northeast Apple Orchard Best Practices Manual', 'https://netreefruit.org/apples', ' 198');
+ 'Northeast Apple Orchard Best Practices Manual', 'https://netreefruit.org/apples', 'p. 198');
 
 
 
@@ -799,8 +810,8 @@ INSERT INTO guidereference (
 ) VALUES (
   (SELECT operation_id FROM operation WHERE description = 'Use reflective films and shading such as coloured net; Bagging is also a common management strategy to protect fruit from sunburn and environmental damage.' LIMIT 1),
   'New England Orchard BMP Manual',
-  'https://ag.umass.edu/fruit/publications/orchard-bmp-manual',
-  ' 80'
+  'https://www.umass.edu/agriculture-food-environment/fruit/publications/orchard-bmp-manual',
+  'p. 80'
 );
 
 -- Insert operation: Environmental stress management - extreme events
@@ -859,12 +870,12 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Select appropirate pollinizer trees%' LIMIT 1),
-  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/apples/crabapple-pollinators', 'N/A'
+  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/apples/crabapple-pollinators', NULL
 );
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)
 VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Select appropirate pollinizer trees%' LIMIT 1),
-  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/pollination/', 'N/A'
+  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/pollination/', NULL
 );
 
 
@@ -945,60 +956,60 @@ INSERT INTO operation (
 -- Mealybugs
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Monitor and control Mealybugs during Bud Swell to Beginning of Dormancy.' LIMIT 1),
- 'NSW apple portal ', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', ' 62');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'pp. 128-129');
 
 -- Oriental fruit moth
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Monitor Oriental fruit moth throughout season from Bud Swell through Dormancy.' LIMIT 1),
- 'NSW apple portal', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', ' 64');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'pp. 122-124');
 
 -- San José scale
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Apply dormant oil spray for San José scale from Bud Swell to Dormancy.' LIMIT 1),
- 'NSW apple portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 193');
+ 'NSW apple portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 193');
 
 -- San José scale
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Apply dormant oil spray for San José scale from Bud Swell to Dormancy.' LIMIT 1),
- 'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/#pests_insect%7D', 'N/A');
+ 'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/', NULL);
 
 
 -- Powdery mildew
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Manage powdery mildew through bud removal and fungicide at Bud Swell and blossom stage.' LIMIT 1),
- '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', ' 266');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'p. 266');
 
 
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Manage powdery mildew through applying products' LIMIT 1),
- 'New England Mangament Guide', 'https://netreefruit.org/apples/spray-table/1-dormant-silver-tip-apple', 'N/A');
+ 'New England Mangament Guide', 'https://netreefruit.org/apples/spray-table/1-dormant-silver-tip-apple', NULL);
 
 
 
 -- Bryobia mite
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Apply miticides during Midseason to End of Harvest to control Bryobia mite.' LIMIT 1),
- 'NSW apple portal', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', ' 35');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'p. 47');
 
 -- Herbicide usage
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Apply selective herbicides pre- and post-emergence for winter annuals and perennials.' LIMIT 1),
- '2020-21 IPDM Australia', 'https://example.com/herbicides', ' 111–115');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'pp. 111-115');
 
 -- Apple scab
 INSERT INTO guidereference  (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides preventively at blossom and fruiting to prevent Apple scab.' LIMIT 1),
- '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', ' 158');
+ '2020-21 IPDM Australia', 'https://www.horticulture.com.au/growers/help-your-business-grow/research-reports-publications-fact-sheets-and-more/grower-resources/ap16007-assets/2020-21-australian-apple-and-pear-ipdm-manual/', 'pp. 39-42');
 
 -- Silver leaf
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number)  VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Avoid pruning during wet conditions and manage for silver leaf across seasons.' LIMIT 1),
- 'NSW apple portal', 'https://example.com/silver-leaf', ' 122');
+ 'NSW apple portal', 'https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0011/1580069/Silver-leaf.pdf', 'p. 122');
 
 -- Phytophthora
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description = 'Manage root and collar rot through drainage improvements and chemical drenches across periods.' LIMIT 1),
- 'NSW apple portal', 'https://example.com/phytophthora', ' 114');
+ 'NSW apple portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/phytophthora-root-and-collar-rot', 'p. 114');
 
 
 
@@ -1017,7 +1028,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage for apple scab at delayed dormant and green tip stages using protective fungicide programs.' LIMIT 1),
---  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', ' 254-255');
+--  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', 'pp. 254-255');
 
 -- -- Powdery Mildew
 -- INSERT INTO operation (
@@ -1030,7 +1041,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide for powdery mildew at green tip stage.' LIMIT 1),
---  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', ' 254-255');
+--  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', 'pp. 254-255');
 
 -- -- Rosy Apple Aphid, Scale Insects, European Red Mite Eggs
 -- INSERT INTO operation (
@@ -1043,7 +1054,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor and control Rosy Apple Aphid, Scale Insects, and ERM eggs during delayed dormant stage.' LIMIT 1),
---  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', ' 256');
+--  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/tree-fruit/', 'p. 256');
 
 -- -- Fire Blight
 -- INSERT INTO operation (
@@ -1056,7 +1067,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage fire blight with copper-based sprays at bud swell or green ti ' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 6');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 6');
 
 -- -- Black Rot, Crown Rot
 -- INSERT INTO operation (
@@ -1069,7 +1080,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Prevent and treat black rot and crown rot with cultural and chemical measures at delayed dormant stage.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 6');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 6');
 
 -- -- Plant Growth Regulators (MaxCel, Promalin)
 -- INSERT INTO operation (
@@ -1082,7 +1093,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply MaxCel or Promalin at green tip to improve fruit set and reduce russeting.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 7');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 7');
 
 
 -- OAR10 Operation Inserts
@@ -1098,7 +1109,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide spray for scab control at green tip and half-inch green stages.' LIMIT 1),
---  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 254-255');
+--  'New Jersey Tree Fruit Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 254-255');
 
 -- -- Fire Blight
 -- INSERT INTO operation (
@@ -1111,7 +1122,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply copper-based sprays for fire blight prevention at green tip or half-inch green stages.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 9');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 9');
 
 -- -- Phytophthora
 -- INSERT INTO operation (
@@ -1124,7 +1135,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Implement rootstock selection and fungicides to manage phytophthora root and collar rot.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 9');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 9');
 
 -- -- European Red Mite, Rosy Apple Aphid, Winter Moth
 -- INSERT INTO operation (
@@ -1137,7 +1148,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor and control ERM, Rosy Apple Aphid, and Winter Moth from green tip through half-inch green.' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/3-half-inch-green-apple', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/3-half-inch-green-apple', NULL);
 
 -- -- Redbanded Leafroller, White Prunicola Scale, Dogwood Borer
 -- INSERT INTO operation (
@@ -1150,7 +1161,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor for Redbanded Leafroller, Dogwood Borer, and White Prunicola Scale at half-inch green stage.' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/3-half-inch-green-apple', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/3-half-inch-green-apple', NULL);
 
 -- -- Codling Moth, LBAM (Pheromone Mating Disruption)
 -- INSERT INTO operation (
@@ -1163,7 +1174,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Use pheromone disruption methods to control codling moth and lightbrown apple moth.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 183, 226');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'pp. 183, 226');
 
 -- -- Powdery Mildew
 -- INSERT INTO operation (
@@ -1176,7 +1187,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides for powdery mildew at green cluster and half-inch green stages.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 183, 266');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'pp. 183, 266');
 
 --  -- OAR11 Operation Inserts
 
@@ -1191,7 +1202,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide during fruit cluster stage to protect against apple scab development.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', ' 21');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p. 21');
 
 -- -- Powdery Mildew
 -- INSERT INTO operation (
@@ -1204,7 +1215,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Spray against powdery mildew on shoots and young leaves at fruit cluster stage.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 266');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 266');
 
 -- -- Codling Moth (Mating Disruption)
 -- INSERT INTO operation (
@@ -1217,7 +1228,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Deploy mating disruption strategies for codling moth before adult emergence.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 183');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 183');
 
 -- -- Lightbrown Apple Moth (Pheromone)
 -- INSERT INTO operation (
@@ -1230,7 +1241,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply pheromone for mating disruption targeting LBAM.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://example.com/ipm-aus', ' 183');
+--  'Integrated Pest Management for Australian apples & pears', 'https://example.com/ipm-aus', 'p. 183');
 
 
 -- OAR12 Operation Inserts
@@ -1246,7 +1257,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply gibberellins (GA) and benzyladenine (BA) for chemical thinning at full bloom stage.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 191');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 191');
 
 -- -- Blossom-End Rot Control
 -- INSERT INTO operation (
@@ -1259,7 +1270,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor and control blossom-end rot with calcium sprays during full bloom to petal fall.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', ' 22');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p. 22');
 
 -- -- European Red Mite & Aphid Spray
 -- INSERT INTO operation (
@@ -1272,7 +1283,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply miticide or aphicide at petal fall to control European red mite and aphids.' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/vegetative-growth-control', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/vegetative-growth-control', NULL);
 
 -- Pollination Management
 -- INSERT INTO operation (
@@ -1285,7 +1296,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Place honeybee hives prior to 10% bloom and avoid insecticide use during full bloom.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 24');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 24');
 
 -- -- Codling Moth Trapping
 -- INSERT INTO operation (
@@ -1298,7 +1309,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Install pheromone traps to monitor codling moth flight and adjust sprays accordingly.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 183');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 183');
 
 
 -- OAR43 Operation Inserts
@@ -1314,7 +1325,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Spray fungicides to prevent apple scab and powdery mildew infections during tight cluster stage.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 257–258');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 257-258');
 
 -- -- Rosy Apple Aphid and Leafminer Control
 -- INSERT INTO operation (
@@ -1327,7 +1338,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply insecticides at tight cluster for controlling rosy apple aphid and spotted tentiform leafminer.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 258–259');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 258-259');
 
 -- -- Scale Insect and Red Mite Eggs Management
 -- INSERT INTO operation (
@@ -1340,7 +1351,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Target San José scale and European red mite eggs with delayed dormant sprays at prepink stage.' LIMIT 1),
---  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 41');
+--  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 -- -- Codling Moth and Leafroller Monitoring
 -- INSERT INTO operation (
@@ -1353,7 +1364,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor codling moth and leafroller through pheromone traps and visual inspection during prepink to pink stages.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 13');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 13');
 
 -- -- Fungicide Rotation Strategy
 -- INSERT INTO operation (
@@ -1366,7 +1377,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Implement fungicide rotation to prevent resistance for diseases such as rust, black rot, and frogeye.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', ' 12–13');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'pp. 12-13');
 
 
 
@@ -1383,15 +1394,15 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
---  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 46-47');
+--  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'pp. 46-47');
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/5-pink-apple', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/5-pink-apple', NULL);
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
---  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', 'N/A');
+--  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', NULL);
  
 --  INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
@@ -1410,15 +1421,15 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Monitor and manage codling moth, dogwood borer%' LIMIT 1),
---  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+--  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/5-pink-apple', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/spray-table/5-pink-apple', NULL);
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply fungicides to manage apple scab%' LIMIT 1),
---  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', 'N/A');
+--  'Washington Apple Crop Protection Guide', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', NULL);
  
 
 
@@ -1432,7 +1443,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Apply pheromone-based mating disruption techniques where%' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', ' 12–13');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'pp. 12-13');
 
 -- INSERT INTO operation (
 --   stage_id, reference_id, description, section, subsection
@@ -1444,7 +1455,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Target eggs and early nymphs with miticides during this stage.%' LIMIT 1),
---  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 185');
+--  'NSW Apple Crop Protection and Nutrition Portal', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 185');
 
 
 -- INSERT INTO operation (
@@ -1457,7 +1468,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE  description LIKE 'Conduct nutrient applications guided by tissue analysis to support healthy bloom and early fruit development.%' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', ' 184–185');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'pp. 184-185');
 
 
 
@@ -1474,7 +1485,7 @@ INSERT INTO operation (
 
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticides such as Delegate 25WG%' LIMIT 1),
- 'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 47');
+ 'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 47');
 
 
 -- -- OAR55 Operation Inserts
@@ -1490,7 +1501,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides during full bloom for diseases like apple scab, fire blight, powdery mildew, rusts, and rots.' LIMIT 1),
---  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 48');
+--  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 -- -- Cultural Management at Flowering
 -- INSERT INTO operation (
@@ -1503,7 +1514,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Perform bag removal and leader selection as part of bloom-stage cultural management.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 12');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 12');
 
 -- -- Use of Promalin for Fruit Development and Frost Recovery
 -- INSERT INTO operation (
@@ -1516,7 +1527,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply Promalin or Perlan at bloom to improve fruit shape, weight, and frost recovery.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 12–13');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'pp. 12-13');
 
 -- -- Organic Alternatives for Bloom Disease Control
 -- INSERT INTO operation (
@@ -1529,7 +1540,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Use organic products like LifeGard, Cueva, and Serenade during bloom as alternatives for disease control.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 13');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 13');
 
 -- -- Apple Insect and Mite Monitoring During Bloom
 -- INSERT INTO operation (
@@ -1542,7 +1553,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Monitor codling moth, oriental fruit moth, and mites (gypsy, lesser appleworm, red mite) during full bloom.' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://ag.umass.edu/fruit/publications/orchard-bmp-manual', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://www.umass.edu/agriculture-food-environment/fruit/publications/orchard-bmp-manual', NULL);
 
 
 -- OAR57 Operation Inserts
@@ -1558,7 +1569,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides to manage apple scab, cedar apple rust, and powdery mildew during petal fall stage.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 263–264');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 263-264');
 
 -- -- Woolly Aphid and Green Apple Aphid Control
 -- INSERT INTO operation (
@@ -1571,7 +1582,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Target woolly apple aphid and green apple aphid at petal fall with appropriate insecticides.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 265');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p. 265');
 
 -- -- Leafroller, Sawfly, Curculio, and Other Insects
 -- INSERT INTO operation (
@@ -1584,7 +1595,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply sprays to control codling moth, European apple sawfly, oriental fruit moth, leafroller, plum curculio, and tentiform leafminer.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 266');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p. 266');
 
 -- -- Helicoverpa, Lightbrown Apple Moth, and Codling Moth (Australia)
 -- INSERT INTO operation (
@@ -1597,7 +1608,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Spray for helicoverpa, loopers, lightbrown apple moth, and codling moth at petal fall.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', ' 186');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p. 186');
 
 -- -- Summer Thinning and Nutrient Management
 -- INSERT INTO operation (
@@ -1610,7 +1621,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Conduct summer thinning and apply nutrients after petal fall to support fruit development.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', ' 31');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 31');
 
 
 -- -- OAR57 Operation Inserts
@@ -1626,7 +1637,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides to manage apple scab, cedar apple rust, and powdery mildew during petal fall stage.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 263–264');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 263-264');
 
 -- -- Woolly Aphid and Green Apple Aphid Control
 -- INSERT INTO operation (
@@ -1639,7 +1650,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Target woolly apple aphid and green apple aphid at petal fall with appropriate insecticides.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 265');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p. 265');
 
 -- -- Leafroller, Sawfly, Curculio, and Other Insects
 -- INSERT INTO operation (
@@ -1652,7 +1663,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply sprays to control codling moth, European apple sawfly, oriental fruit moth, leafroller, plum curculio, and tentiform leafminer.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', ' 266');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p. 266');
 
 -- -- Helicoverpa, Lightbrown Apple Moth, and Codling Moth (Australia)
 -- INSERT INTO operation (
@@ -1665,7 +1676,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Spray for helicoverpa, loopers, lightbrown apple moth, and codling moth at petal fall.' LIMIT 1),
---  'IPM Australia', 'https://example.com/ipm-aus-petalfall', 'p.186');
+--  'IPM Australia', 'https://example.com/ipm-aus-petalfall', 'p. 186');
 
 
 
@@ -1682,7 +1693,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant fungicide to reduce primary inoculum on bud surfaces.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 1);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 1');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1695,7 +1706,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Prune fire blight cankers and apply early-season bactericide if needed%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1708,7 +1719,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Remove infected buds or shoots to limit initial mildew pressure.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1721,7 +1732,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Remove mummified fruit and prune dead wood to control latent rot sourc%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1734,7 +1745,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Prune canopy to improve fungicide coverage and drying.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1747,7 +1758,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply mating disruption ties prior to bud break to reduce first genera%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 40);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 40');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1760,7 +1771,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor bud feeding activity and apply dormant oil if threshold exceed%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 253);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 253');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1773,7 +1784,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant oil to reduce overwintering egg populations.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 186);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 186');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1786,7 +1797,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use dormant oil or insecticides to suppress scale before bud break.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1799,7 +1810,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply pre-emergent herbicides to control overwintering weeds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1812,7 +1823,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Spot treat with post-emergent herbicides where perennials persist.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 2);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 2');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1825,7 +1836,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply protectant fungicides at delayed dormant to green tip.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1838,7 +1849,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use systemic fungicides to protect emerging buds and shoots.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1851,7 +1862,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Remove early-season cankers and apply bactericides near green tip.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 6);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 6');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1864,7 +1875,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant fungicides and avoid trunk injury near soil line.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 6);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 6');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1877,7 +1888,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply systemic insecticides before leaf curling begins.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 256);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 256');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1890,7 +1901,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Target San Jose scale and other armored scales with oil sprays.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 256);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 256');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1903,7 +1914,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use dormant oil for effective egg suppression on branches.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 256);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 256');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1916,7 +1927,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply near green tip to influence fruit set or mitigate frost injury.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 7);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 7');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1929,7 +1940,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Clean up cankers and old fruit; apply early-season fungicides.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 187);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 187');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1942,7 +1953,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply preventative fungicides to reduce early Alternaria symptoms.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 186);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 186');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1955,7 +1966,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply oil sprays targeting overwintering scales on trunks and limbs.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 188);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 188');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1968,7 +1979,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin pheromone-based mating disruption before first emergence.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 64);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 64');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1981,7 +1992,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout trunks and roots, apply systemic insecticide if needed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 62);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 62');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -1994,7 +2005,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Survey and treat field margins to suppress locust swarms.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 32);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 32');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2007,7 +2018,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply contact insecticides during bud burst if presence confirmed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 37);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 37');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2020,7 +2031,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat infested buds before damage spreads to flowers and fruitlets.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 69);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 69');
 
 
 
@@ -2038,7 +2049,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Initiate primary scab control sprays during green tip and early leaf e%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 8);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 8');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2051,7 +2062,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply copper or streptomycin sprays to prevent early infections.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 9);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 9');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2064,7 +2075,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicide to control root and crown rot in wet soil conditions.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 9);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 9');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2077,7 +2088,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant oil or miticide if overwintering eggs are present.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2090,7 +2101,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout and apply insecticides at green tip before leaf curl.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2103,7 +2114,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat young larvae with contact insecticides if bud feeding occurs.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2116,7 +2127,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Inspect trunk wounds and apply sprays around tree base if needed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2129,7 +2140,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor burr knots and apply trunk sprays if infestation is observed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2142,7 +2153,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Inspect trunk near soil line and treat for larvae if present.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2155,7 +2166,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Time control sprays based on pheromone traps or plant phenology.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2168,7 +2179,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use dormant oil or early insecticides to suppress scale crawlers.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2181,7 +2192,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat early stage crawlers with oil or systemic insecticide.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 10);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 10');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2194,7 +2205,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin mating disruption early in spring to reduce population buildup.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 183);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 183');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2207,7 +2218,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and treat early-season WFT feeding on green tissue.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 226);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 226');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2220,7 +2231,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Prevent mildew infection with early protectant sprays at green cluster%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 266);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 266');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2233,7 +2244,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply mating disruption products before bloom if traps indicate early %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 183);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 183');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2246,7 +2257,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Maintain coverage in humid weather to prevent secondary infections.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2259,7 +2270,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Control mildew through protective sprays on leaves and fruit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 116);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 116');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2272,7 +2283,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicides targeting summer rot pathogens under warm, wet condit%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 189);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 189');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2285,7 +2296,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate fungicides and maintain tree health to prevent infection.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 189);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 189');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2298,7 +2309,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use final fungicide coverage and sanitation to suppress blemishes.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 192);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 192');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2311,7 +2322,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor for buildup and apply miticides if thresholds are exceeded.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2324,7 +2335,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue scheduled insecticide applications based on degree-day model.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 45);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 45');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2337,7 +2348,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Target summer generation larvae feeding on fruit and leaves.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2350,7 +2361,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and apply control measures through midseason generations.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 64);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 64');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2363,7 +2374,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat crawlers during summer for effective suppression.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2376,7 +2387,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat if beetles are present on foliage or feeding on fruit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2389,7 +2400,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply contact insecticides when fruit damage or feeding is detected.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 85);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 85');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2402,7 +2413,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Spot treat orchard perimeters if damage is observed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 87);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 87');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2415,7 +2426,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use bait sprays and traps to prevent late-season infestations.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 71);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 71');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2428,7 +2439,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply border sprays if high populations are found near harvest.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 74);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 74');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2441,7 +2452,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat larvae if they begin feeding internally on fruit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2454,7 +2465,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply miticides or insecticides based on colony presence in canopy or %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 88);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 88');
 
 
 
@@ -2481,7 +2492,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Maintain fungicide coverage for scab, mildew, and fruit rots during co%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2494,7 +2505,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate insecticides for pests such as codling moth, aphids, and stink %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2507,7 +2518,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout for red mites and two-spotted mites and apply miticides based on%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 54);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 54');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2520,7 +2531,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use PGRs like prohexadione-calcium to control excessive shoot growth i%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 53);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 53');
 
 
 
@@ -2541,7 +2552,7 @@ INSERT INTO guidereference (
   operation_id, third_party_database, link, page_number
 ) VALUES (
   (SELECT operation_id FROM operation WHERE description LIKE 'Apply plant growth regulators (e.g., NAA or Ethrel)%' LIMIT 1),
-  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/return-bloom-enhancement', 'N/A'
+  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/return-bloom-enhancement', NULL
 );
 
 
@@ -2560,7 +2571,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply first cover fungicides for apple scab, bitter rot, black and white rots, cedar apple rust, fire blight, and powdery mildew.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p.267-268');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 267-268');
 
 -- -- Insect Management: Codling moth and San Jose scale
 -- INSERT INTO operation (
@@ -2573,11 +2584,11 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply control measures for codling moth and San Jose scale crawlers 7–14 days after petal fall.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p.34');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p. 34');
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply control measures for codling moth and San Jose scale crawlers 7–14 days after petal fall.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p.23-24');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'pp. 23-24');
 
 
 -- -- Insect Management: Leafhoppers and Aphids
@@ -2591,7 +2602,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage potato leafhopper, leafminers, and aphids during early fruit development.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p.35');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'p. 35');
 
 -- -- Broad Insect & Disease Coverage (Australia)
 -- INSERT INTO operation (
@@ -2604,7 +2615,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply sprays for codling moth, lightbrown apple moth, red mite, two-spotted mite, and bitter rot during fruit set.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'p.187-190');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'pp. 187-190');
 
 
 -- OAR72 Operation Inserts
@@ -2620,7 +2631,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage aphids, codling moth, sawfly, tentiform leafminer, plum curculio, oriental fruit moth, and leafhoppers during second cover spray stage.' LIMIT 1),
---  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p.269–271');
+--  'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 269-271');
 
 -- -- Disease Management: Apple Scab and Rots
 -- INSERT INTO operation (
@@ -2633,7 +2644,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicides to control apple scab, bitter rot, and black and white rots during second cover.' LIMIT 1),
--- 'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'p.272–273');
+-- 'New Jersey Commercial Tree Fruit Production Guide', 'https://njaes.rutgers.edu/pubs/publication.php?pid=E002', 'pp. 272-273');
 
 -- -- Fertilization Strategy
 -- INSERT INTO operation (
@@ -2646,7 +2657,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply calcium nitrate and calcium chloride fertilizers using a split application strategy.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p.24');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 24');
 
 -- -- Canopy and Vegetative Growth Management
 -- INSERT INTO operation (
@@ -2659,7 +2670,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage canopy and vegetative growth by leader bending, canopy control, and pruning.' LIMIT 1),
---  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p.24');
+--  'Integrated Orchard Management Guide for Commercial Apples in the Southeast', 'https://content.ces.ncsu.edu/integrated-orchard-management-guide-for-commercial-apples-in-the-southeast', 'p. 24');
 
 -- -- Return Bloom and Sucker Control
 -- INSERT INTO operation (
@@ -2693,7 +2704,7 @@ INSERT INTO guidereference (
 
 --  INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Control green apple aphid, woolly apple aphid, codling moth, sawfly, leafroller, plum curculio, and tentiform leafminer.' LIMIT 1),
---  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'Apple maggot flies,Codling moth,Japanese beetles,Brown marmorated stink bug (BMSB),San Jose scale crawlers (p.37-40)');
+--  'Midwest Apple Pest Management Guide', 'https://ag.purdue.edu/department/hla/extension/_docs/id-465.pdf', 'Apple maggot flies, Codling moth, Japanese beetles, Brown marmorated stink bug (BMSB), San Jose scale crawlers (p.37-40)');
 
 -- -- Disease Management: Late-Season Fungicide Sprays
 -- INSERT INTO operation (
@@ -2706,7 +2717,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply sprays for scab (spray 8), powdery mildew, bitter rot (sprays 4–5), and sooty blotch and flyspeck during late fruit development.' LIMIT 1),
---  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'Apple Scab (spray 8) (p.189), Powdery mildew (p.189), Bitter rot (spray 4–5) (p.189–190), Sooty blotch and fly speck (p.192), Codling moth (4th spray onwards) (p.189–190), San José scale (p.188), Woolly aphid (p.190), Wingless grasshopper (p.190), Apple leafhopper (p.190), Queensland fruit fly (p.191), Lightbrown apple moth (late season) (p.191)');
+--  'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'Apple Scab (spray 8) (p.189), Powdery mildew (p.189), Bitter rot (spray 4-5) (p.189-190), Sooty blotch and fly speck (p.192), Codling moth (4th spray onwards) (p.189-190), San José scale (p.188), Woolly aphid (p.190), Wingless grasshopper (p.190), Apple leafhopper (p.190), Queensland fruit fly (p.191), Lightbrown apple moth (late season) (p.191)');
 
 
 -- -- IPDM: Summer Insect and Mite Pests
@@ -2720,7 +2731,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage apple maggot flies, Japanese beetles, BMSB, San Jose scale, woolly aphid, wingless grasshopper, apple leafhopper, and QFly during summer fruit development.' LIMIT 1),
---   'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'Apple Scab (spray 8) (p.189), Powdery mildew (p.189), Bitter rot (spray 4–5) (p.189–190), Sooty blotch and fly speck (p.192), Codling moth (4th spray onwards) (p.189–190), San José scale (p.188), Woolly aphid (p.190), Wingless grasshopper (p.190), Apple leafhopper (p.190), Queensland fruit fly (p.191), Lightbrown apple moth (late season) (p.191)');
+--   'Integrated Pest Management for Australian apples & pears', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pomes/pests-etc/ipm-apples-pears', 'Apple Scab (spray 8) (p.189), Powdery mildew (p.189), Bitter rot (spray 4-5) (p.189-190), Sooty blotch and fly speck (p.192), Codling moth (4th spray onwards) (p.189-190), San José scale (p.188), Woolly aphid (p.190), Wingless grasshopper (p.190), Apple leafhopper (p.190), Queensland fruit fly (p.191), Lightbrown apple moth (late season) (p.191)');
 
 -- -- OAR82 Operation Inserts (Harvest and Post-Harvest)
 
@@ -2735,11 +2746,11 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide treatments to manage preharvest and postharvest diseases including apple scab, bitter rot, and sooty blotch.' LIMIT 1),
---  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p.56');
+--  'Oregon Apple Pest and Frost Management Guide', 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 56');
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide treatments to manage preharvest and postharvest diseases including apple scab, bitter rot, and sooty blotch.' LIMIT 1),
---  'Washington Apple Orchard Systems Hub', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', 'N/A');
+--  'Washington Apple Orchard Systems Hub', 'https://cpg.treefruit.wsu.edu/apple-programs/overview/%23delayed_dormant', NULL);
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply fungicide treatments to manage preharvest and postharvest diseases including apple scab, bitter rot, and sooty blotch.' LIMIT 1),
@@ -2777,7 +2788,7 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Manage Alternaria and sooty blotch with appropriate late-season fungicides in postharvest period.' LIMIT 1),
---  'Orchard plant protection guide for deciduous fruits in NSW', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pests-diseases-hort/information-for-multiple-crops/orchard-plant-protection-guide', 'N/A');
+--  'Orchard plant protection guide for deciduous fruits in NSW', 'https://www.dpi.nsw.gov.au/agriculture/horticulture/pests-diseases-hort/information-for-multiple-crops/orchard-plant-protection-guide', NULL);
 
 -- -- Harvest Management: Fruit Drop and Readiness
 -- INSERT INTO operation (
@@ -2790,10 +2801,10 @@ INSERT INTO guidereference (
 
 -- INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply harvest drop control %' LIMIT 1),
---  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/harvest-management-and', 'N/A');
+--  'New England Tree Fruit Management Guide', 'https://netreefruit.org/apples/chemical-fruit-thinning-and-other-plant-growth-regulator-uses/harvest-management-and', NULL);
 --  INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 -- ((SELECT operation_id FROM operation WHERE description = 'Apply harvest drop control %' LIMIT 1),
---  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/harvest/', 'N/A');
+--  'Washington Apple Orchard Systems Hub', 'https://treefruit.wsu.edu/orchard-management/harvest/', NULL);
 
 
 
@@ -2812,7 +2823,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply protectant fungicides to prevent primary scab infections at tigh%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 42);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 42');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2825,7 +2836,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply systemic fungicides to suppress early mildew establishment.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 42);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 42');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2838,7 +2849,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Initiate preventative sprays and prune any holdover cankers if visible%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 42);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 42');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2851,7 +2862,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply early-season fungicide to suppress rust species such as cedar ap%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 43);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 43');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2864,7 +2875,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin fungicide program to limit early leaf spot development.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 43);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 43');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2877,7 +2888,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate fungicides to suppress spore release and shoot infection.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 43);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 43');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2890,7 +2901,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply contact insecticides early to prevent leaf curling at tight clus%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2903,7 +2914,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant oil spray to suppress overwintering mite eggs.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2916,7 +2927,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use degree-day model to time treatment for overwintering generation.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2929,7 +2940,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Start pheromone trap monitoring during tight cluster to track emergenc%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 13);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 13');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2942,7 +2953,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply early insecticide sprays to control larvae on leaf surfaces.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2955,7 +2966,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use trunk sprays or wraps to manage larvae during early season.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2968,7 +2979,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout burr knots and use protectants around tree base.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2981,7 +2992,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor trunk injuries and treat areas prone to infestation.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -2994,7 +3005,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Spray larvae as they emerge to prevent damage to developing buds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3007,7 +3018,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply dormant oil or insecticides at tight cluster stage to suppress c%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3020,7 +3031,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use crawler-stage insecticides in orchards with known history.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 41);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 41');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3033,7 +3044,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout for tarnished plant bugs and apply early treatments if threshold%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 13);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 13');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3046,7 +3057,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate FRAC groups to prevent resistance buildup during early season.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 11);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 11');
 
 
 
@@ -3067,7 +3078,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicides for primary scab control.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 46');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 46');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3080,7 +3091,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat early to prevent infection of shoots and blossoms.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 46');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 46');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3093,7 +3104,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply protective fungicides before infection events.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 46');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 46');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3106,7 +3117,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Manage rot complex with broad-spectrum fungicides.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 47');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 47');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3119,7 +3130,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin mating disruption or apply insecticides as needed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 45');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 45');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3132,7 +3143,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and treat at early signs of emergence.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 -- (Due to message length limits, remaining INSERTS will continue in next message) --
 INSERT INTO operation (
@@ -3146,7 +3157,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticide to prevent leaf curl.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3159,7 +3170,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Control overwintering generation during pink.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3172,7 +3183,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Spray based on trap counts and thresholds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3185,7 +3196,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Suppress to avoid fruit deformation.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3198,7 +3209,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Target early larval activity with sprays.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3211,7 +3222,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and apply treatments if above threshold.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3224,7 +3235,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply miticides to control eggs and early nymphs.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 -- (Remaining INSERTS for OAR44 continue in next message) --
 INSERT INTO operation (
@@ -3238,7 +3249,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout and manage early colonies at pink stage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3251,7 +3262,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply control during pink to reduce fruit damage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3264,7 +3275,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and control to avoid scarring on young fruit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3277,7 +3288,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use targeted insecticides to manage WFT.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3290,7 +3301,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticides if thresholds exceeded.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3303,7 +3314,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and manage at pink stage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 44');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 44');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3316,7 +3327,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply nutrients based on spring tissue analysis to support bloom and early fruit development.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 23');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 23');
 
 
 -- OAR50 EARLY THROUGH FULL BLOOM
@@ -3331,7 +3342,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticides during early through full bloom for control of leafrollers and thrips.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', ' 47');
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 47');
 
 
  -- OAR55 
@@ -3346,7 +3357,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply protectant fungicides during bloom to control primary scab infec%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3359,7 +3370,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat to prevent infection of flowers and shoots.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3372,7 +3383,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use systemic or protectant fungicides as needed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3385,7 +3396,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply biologicals or antibiotics during high-risk bloom periods.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3398,7 +3409,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Manage blossom-end rot complex with broad-spectrum fungicides.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3411,7 +3422,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use products like LifeGard, Cueva, or Serenade as alternatives.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3424,7 +3435,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor trap catches and delay spray until post-bloom.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3437,7 +3448,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Delay insecticide application until after petal fall.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3450,7 +3461,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor for activity; avoid insecticide use during bloom.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3463,7 +3474,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor with traps; no sprays should be used during full bloom to prot%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 48);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 48');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3476,7 +3487,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply during bloom to improve fruit shape, weight, and assist with fro%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 13);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 13');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3489,7 +3500,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Conduct bag removal and leader selection as part of full bloom trainin%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 12);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 12');
 
  -- OAR57
 INSERT INTO operation (
@@ -3503,7 +3514,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue fungicide application to prevent secondary scab infections po%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 50);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 50');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3516,7 +3527,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply protective fungicides to control secondary infection cycles.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 50);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 50');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3529,7 +3540,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat to protect young leaves and shoots after petal fall.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 50);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 50');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3542,7 +3553,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply targeted fungicides if cultivar is susceptible or history of inf%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 50);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 50');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3555,7 +3566,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout for aphid colonies on shoot tips and manage using insecticides o%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3568,7 +3579,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply control measures as colonies establish on limbs or roots post bl%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3581,7 +3592,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin first spray at petal fall to control emerging larvae.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 -- Additional 9 insect-related operations follow --
 INSERT INTO operation (
@@ -3595,7 +3606,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Target insecticide application before oviposition begins on fruitlets.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3608,7 +3619,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply broad-spectrum or targeted insecticides depending on regional sp%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3621,7 +3632,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Initiate control based on degree-day models and trap captures post blo%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3634,7 +3645,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticides to protect fruitlets immediately after petal fall.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3647,7 +3658,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat based on mine density threshold or pheromone trap data.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3660,7 +3671,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue scouting and treat if thresholds are exceeded.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3673,7 +3684,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor nymphs and apply insecticide if needed to protect foliage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3686,7 +3697,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin treatment post bloom to suppress early larval activity.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3699,7 +3710,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply first generation spray after bloom if present.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 49);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 49');
 
 
 INSERT INTO operation (
@@ -3713,7 +3724,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Supplement with nitrogen or potassium after bloom to support fruit dev%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 31);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 31');
 
 
 
@@ -3731,7 +3742,7 @@ INSERT INTO guidereference (operation_id, third_party_database, link, page_numbe
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply boron to prevent cork spot symptoms during early postbloom perio%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 15);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 15');
 
 
 
@@ -3747,7 +3758,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply calcium chloride to improve fruit quality and reduce physiologic%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 15);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 15');
 
 
 INSERT INTO operation (
@@ -3761,7 +3772,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply GA4+7 to reduce fruit russeting and improve skin finish.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 15);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 15');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3774,7 +3785,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply thinning agents during postbloom to adjust fruit load.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 15);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 15');
 
 
 INSERT INTO operation (
@@ -3788,7 +3799,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use prohexadione-calcium to regulate vegetative growth and improve fr%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 16);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 16');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3801,7 +3812,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicides to control summer rots as conditions become favorable%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 16);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 16');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3814,7 +3825,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use protective fungicide programs to prevent lesion development on fol%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 16);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 16');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3827,7 +3838,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Target anthracnose control through effective fungicide rotation.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 16);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 16');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3840,7 +3851,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Prune infected shoots and apply appropriate bactericides to manage sho%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 18);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 18');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3853,7 +3864,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate fungicide modes of action to delay resistance development.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 17);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 17');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3866,7 +3877,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout and apply miticides or insecticides as necessary based on thresh%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 18);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 18');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3879,7 +3890,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use miticide products strategically to control resistant mite populati%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 18);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 18');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3892,7 +3903,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply plant defense activators to stimulate host resistance mechanisms%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 18);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 18');
 
 
 -- OAR71
@@ -3909,7 +3920,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply follow-up fungicide sprays to protect expanding fruit and leaves%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3922,7 +3933,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat young foliage and developing fruitlets to suppress mildew spread%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3935,7 +3946,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue fungicide coverage, especially under warm and wet conditions.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3948,7 +3959,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Rotate fungicides for continued protection against trunk and fruit rot%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3961,7 +3972,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply systemic fungicides as rust infection risk persists.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3974,7 +3985,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor shoot symptoms and apply bactericides or growth regulators as %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -3987,7 +3998,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use protectant sprays if history or conditions support Alternaria outb%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 52);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 52');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4000,7 +4011,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply calcium nutrients to reduce incidence of physiological disorder.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 188);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 188');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4013,7 +4024,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply second spray targeting hatching larvae based on trap captures or%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4026,7 +4037,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticide during crawler stage for effective suppression.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4039,7 +4050,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout for hopperburn symptoms and apply controls if needed.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4052,7 +4063,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat based on mines per leaf or trap counts at early fruit set.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4065,7 +4076,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor colonies and apply insecticides if thresholds are exceeded.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4078,7 +4089,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply miticides to manage developing populations.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4091,7 +4102,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat with specific miticides if population builds post bloom.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 51);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 51');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4104,7 +4115,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply cover sprays if flight and egg-laying are active.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 188);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 188');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4117,7 +4128,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor and control WFT in fruit clusters if visible damage occurs.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 188);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 188');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4130,7 +4141,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat larvae post petal fall if chewing damage exceeds thresholds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 220);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 220');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4143,7 +4154,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Begin fruit fly bait sprays if present in region.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 206);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 206');
 
 
 -- OAR72
@@ -4159,7 +4170,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue fungicide sprays to protect expanding fruit from secondary in%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 272);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 272');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4172,7 +4183,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicides to protect fruit during warm, humid periods.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 272);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 272');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4185,7 +4196,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Maintain broad-spectrum fungicide rotation during fruitlet growth.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 273);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 273');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4198,7 +4209,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout and treat aphid colonies before leaf curling affects photosynthe%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 269);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 269');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4211,7 +4222,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply systemic insecticides or biological controls for early colony su%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 269);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 269');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4224,7 +4235,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply second or third spray as needed based on degree-day model.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 269);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 269');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4237,7 +4248,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor for larval injury in fruitlets and apply control if damage obs%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 269);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 269');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4250,7 +4261,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat based on infestation level and host sensitivity during cover spr%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 269);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 269');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4263,7 +4274,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticide during second generation if trap captures exceed thr%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 270);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 270');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4276,7 +4287,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat for plum curculio if recent rainfall and egg-laying activity is %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 270);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 270');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4289,7 +4300,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor leaf mines and consider selective treatments during second cov%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 270);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 270');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4302,7 +4313,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue scouting and apply insecticides if activity persists.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 270);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 270');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4315,7 +4326,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticide if leafhopper nymph populations are high.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 271);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 271');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4328,7 +4339,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply calcium nitrate to enhance fruit firmness and reduce bitter pit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 24);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 24');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4341,7 +4352,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Supplement calcium through foliar sprays to improve storage quality.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 24);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 24');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4354,7 +4365,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Divide fertilizer application to match nutrient demand phases.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 24);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 24');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4367,7 +4378,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Remove water sprouts and train canopy for light penetration.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 24);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 24');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4380,7 +4391,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Bend leaders and manage shoots to balance vegetative and fruit growth.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 24);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 24');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4393,7 +4404,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply chemical thinners to optimize fruit number and size.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 25);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 25');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4406,7 +4417,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply NAA or Ethrel to encourage flower bud formation for next season.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 25);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 25');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4419,7 +4430,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply products like Tre-Hold A-112 or herbicides to suppress suckers.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 25);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 25');
 
 
 --OAR73
@@ -4436,7 +4447,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply late-season protectants to maintain coverage during rainy period%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 272);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 272');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4449,7 +4460,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Continue treatments to prevent fruit surface infections late in season%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 189);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 189');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4462,7 +4473,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply rot-specific fungicides during warm, wet conditions.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 189);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 189');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4475,7 +4486,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Maintain fungicide rotation to prevent buildup of trunk rots.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 273);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 273');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4488,7 +4499,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fungicides starting 270 degree days after petal fall.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 274);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 274');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4501,7 +4512,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout colonies and treat with aphicides if pressure is high.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 276);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 276');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4514,7 +4525,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply systemic insecticides if colonies expand during midsummer.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 276);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 276');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4527,7 +4538,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply fourth or subsequent sprays based on trap counts and models.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 189);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 189');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4540,7 +4551,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Monitor for late larval signs and damage to fruit flesh.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 276);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 276');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4553,7 +4564,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply cover sprays for summer generation larvae feeding on fruit.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 276);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 276');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4566,7 +4577,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat if second or third generations exceed trap thresholds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 276);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 276');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4579,7 +4590,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat for summer activity in humid areas with history of pressure.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 277);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 277');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4592,7 +4603,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Control summer generations based on trap thresholds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 277);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 277');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4605,7 +4616,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticides if populations are detected during midseason.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 277);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 277');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4618,7 +4629,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat if nymphs or adults exceed visual thresholds.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 278);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 278');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4631,7 +4642,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply insecticide upon first capture of adult maggots.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 37);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 37');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4644,7 +4655,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply foliar insecticides when beetles are active on fruit or foliage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 38);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 38');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4657,7 +4668,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Scout borders and apply controls for fruit-probing adults.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 39);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 39');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4670,7 +4681,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat crawler stage during summer for effective suppression.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 188);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 188');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4683,7 +4694,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply spot treatment to orchard margins if populations are present.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 190);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 190');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4696,7 +4707,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use systemic or contact sprays if nymphs are damaging foliage.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 190);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 190');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4709,7 +4720,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Use baiting and trapping strategies for suppression.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 191);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 191');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4722,7 +4733,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Treat late-season generations if fruit damage risk increases.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 191);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 191');
 
 -- OAR82 Entries --
 
@@ -4737,7 +4748,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply urea postharvest to reduce overwintering scab inoculum.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 192);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 192');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4750,7 +4761,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'Apply chlorpyrifos or endosulfan after harvest to manage root colonies%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 192);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 192');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4763,7 +4774,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'continue late-season protection or sanitation depending on pressure.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 56);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 56');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4776,7 +4787,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'apply postharvest sprays if high-pressure seasons or known carryover r%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 56);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 56');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4789,7 +4800,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'control with final fungicide spray preharvest to prevent blemishes.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 123);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 123');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4802,7 +4813,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'use baiting and mass-trapping strategies near harvest.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 206);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 206');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4815,7 +4826,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'implement traps and cover sprays for fruit fly control near harvest.%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 206);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 206');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4828,7 +4839,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'postharvest treatment to target overwintering scale and crawler suppre%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 79);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 79');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4841,7 +4852,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'conduct starch index, firmness, and Brix testing to determine harvest %' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 56);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 56');
 
 INSERT INTO operation (
   stage_id, reference_id, description, section, subsection
@@ -4854,7 +4865,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'apply fruit-retaining agents such as ReTain or Harvista to reduce drop%' LIMIT 1),
  'Oregon Apple Pest and Frost Management Guide',
- 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 56);
+ 'https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2024-pest-management-guide-tree-fruit.pdf', 'p. 56');
 
 
 INSERT INTO operation (
@@ -4868,7 +4879,7 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'maintain optimal temperature and humidity to preserve fruit freshness and extend shelf life%' LIMIT 1),
  'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12');
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'pp. 596-598');
 
 
 INSERT INTO operation (
@@ -4882,6 +4893,6 @@ INSERT INTO operation (
 INSERT INTO guidereference (operation_id, third_party_database, link, page_number) VALUES
 ((SELECT operation_id FROM operation WHERE description LIKE 'adjust oxygen and carbon dioxide levels to prolong storage duration and maintain quality%' LIMIT 1),
  'Apples: Botany, Production, and Uses',
-  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'p.12');
+  'https://books.google.com.au/books/about/Apples.html?id=MmuBCwAAQBAJ&redir_esc=y', 'pp. 592-614');
 
 

@@ -5,49 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Operations for OAR00</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/vendor/jquery-3.6.0.min.js"></script>
   <style>
     b {
       color: #2e7d32;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 7999;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      max-width: 400px;
-      border-radius: 10px;
-      position: relative;
-      width: 90%;
-    }
-
-    .modal-content h3 {
-      margin-top: 0;
-      color: #2e7d32;
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 16px;
-      font-size: 22px;
-      cursor: pointer;
-      color: #888;
-    }
-
-    a.details-link {
-      color: #1a73e8;
-      text-decoration: underline;
-      margin-left: 0.5em;
     }
   </style>
 </head>
@@ -63,16 +24,6 @@
       <!-- Dynamic rows will be inserted here -->
     </tbody>
   </table>
-
-
-<!-- Modal -->
-<div id="detailModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3>Operation References</h3>
-    <div id="modal-content-body"></div>
-  </div>
-</div>
   
 </body>
 

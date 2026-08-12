@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { 
+const {
     getAllTimingByStageCode,
     getAllObservationsByStageCode,
     getAllKeyMeasurementsByStageCode,
+    getAllKeyMeasurements,
+    getProtocolById,
+    getProtocolByMeasurementId,
     getAllOperationByStageCode,
     getAllGeneralOperationByStageCode,
     getAllTiming,

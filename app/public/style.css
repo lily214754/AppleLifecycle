@@ -145,18 +145,12 @@ body {
     background: rgba(200, 230, 201, 0.3);
 }
 
-
-
 /* Highlight Effect for Selected Row */
 .highlighted {
     background-color: #fff3e0 !important;
     border: 2px solid #ff9900 !important;
     box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
 }
-
-
-
-
 
 table {
     display: table;
@@ -187,8 +181,6 @@ tr:nth-child(even) {
     background: var(--background-light);
 }
 
-
-
 .content {
     margin-left: 250px; /* Increase this from 280px to account for padding/borders */
     padding: 40px;
@@ -211,10 +203,6 @@ tr:nth-child(even) {
     max-width: 100%;
     margin: 15px 0;
 }
-
-
-
-
 
 .search-container {
     position: relative; /* Add this */
@@ -297,36 +285,6 @@ tr:nth-child(even) {
     background: #f0f0f0;
 }
 
-
-.reference-popup {
-    position: fixed;
-    background: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    padding: 16px;
-    border-radius: 8px;
-    max-width: 90vw;
-    max-height: 80vh;
-    overflow-y: auto;
-    z-index: 9999;
-  }
-  
-  .reference-popup-content {
-    position: relative;
-  }
-  
-  .reference-popup .close-popup {
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    color: #888;
-  }
-  
-
-
-
 /* Responsive Behavior for tablets and small laptops */
 @media (max-width: 992px) {
     .sidebar {
@@ -357,14 +315,6 @@ tr:nth-child(even) {
         resize: vertical;
         max-height: 60vh;
     }
-
-    .table-content-container {
-        width: 95%;
-        height: 60vh;
-        top: 30%;
-        left: 2.5%;
-        transform: translate(0, -50%);
-    }
 }
 
 /* For very small devices (phones) */
@@ -394,14 +344,6 @@ tr:nth-child(even) {
         max-height: 50vh;
         overflow-y: auto;
     }
-
-    .table-content-container {
-        height: 70vh !important;
-        top: 30%;
-        transform: none;
-        width: 95%;
-        max-height: 90vh;
-    }
 }
 
 /* Responsive design for mid-range devices */
@@ -430,13 +372,6 @@ tr:nth-child(even) {
         height: auto;
         min-height: 50vh;
     }
-
-    .table-content-container {
-        width: 95%;
-        top: 30%;
-        max-width: none;
-        overflow-y: auto;
-    }
 }
 
 /* Additional adjustments for small screens */
@@ -457,12 +392,6 @@ tr:nth-child(even) {
         margin-bottom: 10px;
     }
 
-    .table-content-container {
-        width: 95%;
-        top: 30%;
-        max-height: 90vh;
-    }
-
     .content {
         margin-left: 0;
         padding: 10px;
@@ -475,46 +404,36 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
-.reference-popup {
-    transition: opacity 0.2s ease;
-}
-
-.table-content-container {
-    position: relative;
-}
-
 .error {
     color: #dc3545;
     padding: 20px;
     text-align: center;
 }
 
+/* Modal Styles -- the [Details] dialog inside operation guides. Its rules used to be
+   duplicated inline in every operation-content*.html fragment; they live here now. */
 
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 5000;
-}
-
-.modal-content {
-    background: white;
-    margin: 5% auto;
-    padding: 20px;
-    width: 60%;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.close {
-    float: right;
+a.details-link {
+    color: #1565c0;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    margin-left: 0.5em;
     cursor: pointer;
-    font-size: 24px;
+}
+
+a.details-link:hover {
+    text-decoration-style: solid;
+}
+
+@keyframes popup-fade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes popup-rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
 }
 
 .form-section {
@@ -554,3 +473,647 @@ input, textarea, select {
 .block-tab-btn:hover {
     background-color: #e2e6ea;
 }
+/* New delete button styles */
+.delete-btn {
+    background:rgb(128, 113, 112);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px 2px;
+}
+.delete-btn:hover {
+    background:rgb(16, 15, 15);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.delete-btn:active {
+    transform: translateY(0);
+}
+.delete-btn::before {
+    content: '🗑';
+    font-size: 16px;
+}
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Key Measurements column
+   ========================================================================== */
+
+.measurement-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.measurement-item {
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 3px;
+    line-height: 1.45;
+}
+
+.measurement-item::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: #9e9e9e;
+}
+
+.measurement-link {
+    color: #2e7d32;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+.measurement-link:hover {
+    color: #1b5e20;
+    text-decoration-style: solid;
+    background: #e8f5e9;
+}
+
+/* No protocol recorded for this item, so it stays plain text rather than a dead link. */
+.measurement-item--plain {
+    color: #616161;
+}
+
+/* Category rows. A stage can carry 40+ applicable protocols, so the cell lists the
+   categories they fall into and the drawer opens one category at a time. */
+
+.measurement-categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.measurement-category-btn {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    width: 100%;
+    padding: .3em 0;
+    font: inherit;
+    text-align: left;
+    color: #2e7d32;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #eef2ed;
+    cursor: pointer;
+    transition: color .15s ease;
+}
+
+.measurement-categories .measurement-category-btn:last-child {
+    border-bottom: none;
+}
+
+.measurement-category-name {
+    flex: 1;
+    border-bottom: 1px solid transparent;
+}
+
+.measurement-category-btn:hover {
+    color: #1b5e20;
+}
+
+.measurement-category-btn:hover .measurement-category-name {
+    border-bottom-color: currentColor;
+}
+
+/* The count carries real information -- how many protocols sit behind the row -- so
+   it is set in tabular figures and kept quiet next to the label. */
+.measurement-category-count {
+    flex: none;
+    font-size: .82em;
+    font-variant-numeric: tabular-nums;
+    color: #9e9e9e;
+}
+
+.measurement-category-btn:hover .measurement-category-count {
+    color: #2e7d32;
+}
+
+/* Back out of a protocol to the category listing it was reached through. */
+.protocol-drawer-back {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 3px 9px 3px 6px;
+    font: inherit;
+    font-size: 0.82em;
+    color: #2e7d32;
+    background: #f1f8f2;
+    border: 1px solid #dbeddd;
+    border-radius: 11px;
+    cursor: pointer;
+}
+
+.protocol-drawer-back:hover {
+    background: #e8f5e9;
+    color: #1b5e20;
+}
+
+/* The measurement list at level 1 of the drawer. */
+.protocol-measurement-list .measurement-item {
+    padding-left: 14px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Measurement protocol drawer
+   Slides in from the right. Sits above the table popup (4000) and the operation
+   modal (5000) but below .reference-popup (9999), so citations opened inside the
+   drawer still float above it.
+   ========================================================================== */
+
+.protocol-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 440px;
+    max-width: 92vw;
+    height: 100%;
+    background: #fff;
+    border-left: 1px solid #dee2e6;
+    box-shadow: -4px 0 18px rgba(0, 0, 0, 0.16);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 24px 24px 48px;
+    z-index: 6000;
+    transform: translateX(100%);
+    transition: transform 0.28s ease, visibility 0.28s;
+    visibility: hidden;
+}
+
+.protocol-drawer.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .protocol-drawer { transition: none; }
+}
+
+.protocol-drawer-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: #eee;
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.protocol-drawer-close:hover {
+    background: #291b1b;
+    color: #fff;
+}
+
+.protocol-category {
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #757575;
+    margin-bottom: 4px;
+    padding-right: 36px;
+}
+
+.protocol-title {
+    margin: 0 0 10px;
+    padding-right: 36px;
+    font-size: 1.18em;
+    line-height: 1.35;
+    color: #1b5e20;
+}
+
+.protocol-heading {
+    margin: 20px 0 6px;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #757575;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+.protocol-text {
+    margin: 0;
+    line-height: 1.6;
+    color: #263238;
+}
+
+.protocol-formula {
+    margin: 0;
+    padding: 8px 10px;
+    background: #f5f5f5;
+    border-left: 3px solid #a5d6a7;
+    border-radius: 3px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+    overflow-x: auto;
+}
+
+.protocol-instruments {
+    margin: 0;
+    color: #37474f;
+    line-height: 1.55;
+}
+
+.protocol-stages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.protocol-stage-chip {
+    padding: 2px 8px;
+    background: #f1f8f2;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    font-size: 0.82em;
+    color: #2e7d32;
+    white-space: nowrap;
+}
+
+.protocol-scope {
+    margin-top: 8px;
+    font-size: 0.8em;
+    color: #9e9e9e;
+}
+
+.protocol-references {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.protocol-reference {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.protocol-reference:last-child { border-bottom: none; }
+
+.protocol-reference-title    { line-height: 1.45; }
+.protocol-reference-title a  { color: #1565c0; }
+.protocol-reference-author   { font-size: 0.88em; color: #616161; font-style: italic; }
+.protocol-reference-publisher{ font-size: 0.85em; color: #9e9e9e; }
+
+@media (max-width: 900px) {
+    .protocol-drawer {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Drawer states and the citation view. */
+.protocol-loading,
+.protocol-empty {
+    color: #757575;
+    padding: 8px 0;
+}
+
+.protocol-references--standalone .protocol-reference {
+    padding: 12px 0;
+}
+
+.protocol-reference-key {
+    margin-top: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.76em;
+    color: #b0b0b0;
+}
+
+/* Tables arriving from the fetched fragments. They set their own <style> for a
+   standalone page, so these rules keep them readable inside the panel. */
+.protocol-table-content {
+    font-size: .92em;
+}
+
+.protocol-table-content h2,
+.protocol-table-content #operation-heading {
+    margin: 0 0 14px;
+    font-size: 1.18em;
+    color: #1b5e20;
+}
+
+.protocol-table-content table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.protocol-table-content th,
+.protocol-table-content td {
+    padding: .55em .7em;
+    border: 1px solid #e3e8e2;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.protocol-table-content th {
+    position: static;
+    background: #f1f4ef;
+    color: #37474f;
+    font-weight: 600;
+    font-size: .92em;
+}
+
+.protocol-table-content tr:nth-child(even) {
+    background: #fafbf9;
+}
+
+.protocol-table-content b {
+    color: #2e7d32;
+}
+
+/* Long tables scroll inside the panel rather than pushing it sideways. */
+.protocol-table-content {
+    overflow-x: auto;
+}
+
+/* ==========================================================================
+   Citation card
+   Anchored beside the [1] the reader clicked, so the source stays next to the
+   sentence it supports rather than on the far side of the screen.
+   ========================================================================== */
+
+.reference-popup {
+    position: fixed;
+    z-index: 9999;
+    width: max-content;
+    max-width: min(400px, 90vw);
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 14px 34px 14px 16px;
+    background: #fff;
+    border: 1px solid #dfe5dd;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(20, 28, 22, 0.16);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.reference-popup.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reference-popup { transition: none; }
+}
+
+/* Caret pointing back at the link; --caret is set in JS so it still lines up
+   after the card has been clamped to the viewport edge. */
+.reference-popup::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: var(--caret, 20px);
+    width: 11px;
+    height: 11px;
+    background: #fff;
+    border-left: 1px solid #dfe5dd;
+    border-top: 1px solid #dfe5dd;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.reference-popup--above::before {
+    top: auto;
+    bottom: -6px;
+    border-left: none;
+    border-top: none;
+    border-right: 1px solid #dfe5dd;
+    border-bottom: 1px solid #dfe5dd;
+}
+
+.reference-popup-close {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #9aa39c;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.reference-popup-close:hover {
+    background: #eef2ed;
+    color: #2e7d32;
+}
+
+.reference-popup-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reference-popup-item + .reference-popup-item {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f3ef;
+}
+
+.reference-popup-title {
+    color: #1f2621;
+    font-weight: 600;
+}
+
+.reference-popup-title a { color: #1565c0; }
+
+.reference-popup-year {
+    font-weight: 400;
+    color: #78827c;
+}
+
+.reference-popup-author {
+    margin-top: 2px;
+    color: #5c655f;
+    font-style: italic;
+}
+
+.reference-popup-publisher {
+    margin-top: 1px;
+    font-size: 0.86em;
+    color: #9aa39c;
+}
+
+/* ==========================================================================
+   Centred windows
+   The operation guide opens over the page, and its sources open over the guide,
+   so the guide stays readable behind them. Two layers, same visual language.
+   ========================================================================== */
+
+.centre-window {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh 3vw;
+    background: rgba(20, 28, 22, 0.42);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: window-fade 0.16s ease;
+}
+
+.table-popup  { z-index: 4000; }
+.detail-window { z-index: 4200; }   /* sources sit above the guide */
+
+.centre-window-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(1060px, 100%);
+    max-height: 92vh;
+    padding: 30px 34px 26px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 20px 54px rgba(0, 0, 0, 0.3);
+    animation: window-rise 0.18s ease;
+}
+
+.centre-window-card--narrow { width: min(540px, 100%); }
+
+.centre-window-body { overflow: auto; }
+
+.centre-window-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #f1f3f2;
+    color: #4a544c;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.centre-window-close:hover { background: #2e7d32; color: #fff; }
+
+.centre-window-title {
+    margin: 0 0 14px;
+    padding-right: 40px;
+    font-size: 1.1rem;
+    color: #1b5e20;
+}
+
+@keyframes window-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes window-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .centre-window, .centre-window-card { animation: none; }
+}
+
+/* The guide sources listed in the second window. */
+.guide-source-list { list-style: none; margin: 0; padding: 0; }
+
+.guide-source {
+    padding: 11px 0;
+    border-bottom: 1px solid #f0f3ef;
+}
+.guide-source:last-child { border-bottom: none; }
+
+.guide-source-name { font-weight: 600; color: #1f2621; line-height: 1.45; }
+.guide-source-name a { color: #1565c0; }
+.guide-source-page { margin-top: 2px; font-size: 0.88em; color: #5c655f; }
+.guide-source-url {
+    margin-top: 3px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.74em;
+    color: #b0b7b2;
+    word-break: break-all;
+}
+
+/* ==========================================================================
+   Operation guide entries
+   Proposed additions are shown in blue with a tag, so what is already confirmed
+   and what is waiting on review can be told apart at a glance.
+   ========================================================================== */
+
+.operation-item {
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+.operation-item--proposed {
+    padding: 4px 10px;
+    margin-left: 0.4em;
+    border-left: 3px solid #1565c0;
+    background: #f2f7fd;
+    color: #14395e;
+    border-radius: 0 4px 4px 0;
+}
+
+.operation-item--proposed .details-link {
+    color: #1565c0;
+}
+
+.operation-proposed-tag {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 1px 7px;
+    border-radius: 9px;
+    background: #1565c0;
+    color: #fff;
+    font-size: 0.68em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: 1px;
+}
+
+.operation-proposed-note {
+    margin: 0 0 16px;
+    padding: 9px 13px;
+    border-left: 3px solid #1565c0;
+    background: #f2f7fd;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.88rem;
+    color: #14395e;
+}
+
