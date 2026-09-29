@@ -107,9 +107,3 @@ $$
 59 of the 100 questions reach 100%. Each question's $C_q + I_q$, $N_q$ and $\text{Coverage}_q$
 are given in the summary table and at the head of each question in `Coverage_Judgements.md`.
 
-Note: some portal references were added during the evaluation, so this measures how completely the
-portal covers these 100 questions. It is not a held-out test of answering new questions.
-
-Note on question a122 ("What makes apples healthy to eat?"): only its facts about the fruit's own
-composition (fibre, vitamin C) are counted; its human-health claims are out of scope. Its evidence
-is linked from the portal's cultivar selection card, which is a weak fit for nutrition content.
