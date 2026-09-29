@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Apple Tree Life Cycle</title>
+    <link rel="stylesheet" href="style_home.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background: #f8f9fa;
+            color: #2d2d2d;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 1rem;
+            background: white;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            font-size: 1.4rem;
+            color: #2e7d32;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            color: #666;
+            text-align: center;
+            margin: calc(80px + 1rem) auto 2rem;
+            padding: 0 1rem;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            padding: 1rem;
+            /* margin: 0 auto 2rem; */
+            max-width: 1200px;
+            flex: 1;
+        }
+
+        .card {
+            position: relative;
+            width: min(90vw, 300px);
+            height: 300px;
+            cursor: pointer;
+            perspective: 1000px;
+            margin: 0.5rem;
+        }
+
+        .card img {
+            width: 80%;
+            max-width: 180px;
+            height: auto;
+            aspect-ratio: 1;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card:hover .card-inner,
+        .card.touch-flip .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-front {
+            background: white;
+            border: 2px solid #2e7d32;
+        }
+
+        .card-back {
+            background: #2e7d32;
+            color: #ffffff;
+            transform: rotateY(180deg);
+            text-align: center;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: auto;
+            background: #2e7d32;
+            color: #ffffff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+            }
+
+            .intro-text {
+                font-size: 0.8rem;
+                margin: calc(80px + 0.5rem) auto 1rem;
+            }
+
+            .card {
+                height: 280px;
+                width: min(85vw, 260px);
+            }
+
+            .card img {
+                max-width: 140px;
+            }
+
+            .card h3 {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                height: 250px;
+                width: min(90vw, 220px);
+            }
+
+            .card img {
+                max-width: 120px;
+            }
+
+            .card h3 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>The Digital Apple Tree Life Cycle</h2>
+    <p class="intro-text">
+        A digitized apple tree life cycle model for enhanced traceability and smart orchard management.
+    </p>
+
+    <div class="card-container">
+        <div class="card" onclick="window.location.href='tree_lifecycle?env=natural'">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="/images/natural_tree_icon.png" alt="Natural Environment" width="680" height="754" decoding="async">
+                    <h3>Natural Environment</h3>
+                </div>
+                <div class="card-back">
+                    <h3>Learn More</h3>
+                    <p>About natural apple tree growth</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.location.href='tree_lifecycle?env=orchard'">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="/images/orchard_icon.png" alt="Orchard" width="686" height="724" decoding="async">
+                    <h3>Orchard (Commercial Environment)</h3>
+                </div>
+                <div class="card-back">
+                    <h3>Explore</h3>
+                    <p>Commercial orchard with management guidance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 The Digital Apple Tree Life Cycle.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if ('ontouchstart' in window) {
+                document.querySelectorAll('.card').forEach(card => {
+                    card.addEventListener('click', function (e) {
+                        if (!this.classList.contains('touch-flip')) {
+                            e.preventDefault();
+                            document.querySelectorAll('.card').forEach(c => c.classList.remove('touch-flip'));
+                            this.classList.add('touch-flip');
+                        } else {
+                            const link = this.getAttribute('onclick');
+                            if (link) eval(link);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

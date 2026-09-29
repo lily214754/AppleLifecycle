@@ -1,0 +1,60 @@
+{
+  "operations": [
+    {
+      "section": "Pollination",
+      "subsection": "Pollination",
+      "stage_codes": [
+        "OAR50",
+        "OAR55"
+      ],
+      "description": "Provide compatible pollen, effective bee activity and suitable orchard habitat during bloom.",
+      "aliases": [],
+      "references": [
+        {
+          "third_party_database": "Penn State Tree Fruit Production Guide",
+          "title": "Penn State Tree Fruit Production Guide",
+          "link": "https://extension.psu.edu/tree-fruit-production-guide",
+          "url": "https://extension.psu.edu/tree-fruit-production-guide",
+          "page_number": "page 45",
+          "pdf_url": "/api/kb/assets/pdf/e5ae1a65affc1a1b/Penn_State_Tree_Fruit_Produc.pdf#page=53",
+          "note": "Effective Pollination Period Index \u2014 temperature and pollen-tube growth; continuation of the pollination model",
+          "edition": "2020\u20132021"
+        }
+      ],
+      "source_sections": [
+        "REVIEW-PS-EPP-45"
+      ],
+      "status": "confirmed"
+    }
+  ],
+  "protocols": [
+    {
+      "protocol_id": 55,
+      "supplement_title": null,
+      "references": [
+        {
+          "third_party_database": "Penn State Tree Fruit Production Guide",
+          "title": "Penn State Tree Fruit Production Guide",
+          "link": "https://extension.psu.edu/tree-fruit-production-guide",
+          "url": "https://extension.psu.edu/tree-fruit-production-guide",
+          "page_number": "page 45",
+          "pdf_url": "/api/kb/assets/pdf/e5ae1a65affc1a1b/Penn_State_Tree_Fruit_Produc.pdf#page=53",
+          "note": "Effective Pollination Period Index \u2014 temperature and pollen-tube growth; continuation of the pollination model",
+          "edition": "2020\u20132021"
+        }
+      ],
+      "source_sections": [
+        "REVIEW-PS-EPP-45"
+      ]
+    }
+  ],
+  "review_findings": [
+    {
+      "source": "Penn State Tree Fruit Production Guide",
+      "printed_page": 45,
+      "pdf_page": 53,
+      "finding": "Effective Pollination Period Index was on an already cited management page, but lacked a specific section locator and pollen protocol reference.",
+      "resolution": "Merge named section into Pollination references and protocol 55; no new method panel."
+    }
+  ]
+}

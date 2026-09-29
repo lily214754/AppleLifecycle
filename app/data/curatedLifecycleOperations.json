@@ -1,0 +1,92 @@
+[
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "The light interception target",
+    "description": "For Australian apple orchards, aim for approximately 60% daily light interception at midseason, preferably by year 3 or 4. Balance canopy development with light distribution: excessive interception can reduce fruit colour and packout through shading.",
+    "status": "confirmed",
+    "claim_ids": ["clm_6e04d03be60d093785b1", "clm_a81ecbfe88c466b6b61d"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=9",
+        "page_number": "PDF page 9; Australian orchard design and conclusions"
+      }
+    ]
+  },
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "Assessing canopy light distribution",
+    "description": "In Australian orchards, inspect tree shadows on a sunny mid-morning or mid-afternoon in December to February. Small shadows with most of the orchard floor sunlit indicate insufficient tree row volume; solid dark shadows indicate a dense canopy. A speckled pattern of light and shade indicates good light penetration and distribution.",
+    "status": "confirmed",
+    "claim_ids": ["clm_322dc0c23323faf0c72f", "clm_91cf2b0fab49a738c250"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=8",
+        "page_number": "PDF page 8; section 10, orchard design and cast-shadow assessment"
+      }
+    ]
+  },
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "What fills the canopy volume",
+    "description": "The Australian guide recommends filling the canopy with evenly spaced branches and well-lit fruiting spurs, with new extension shoots predominantly 30 cm or shorter. Avoid filling the available volume mainly with vigorous shoots, which can shade fruiting wood.",
+    "status": "confirmed",
+    "claim_ids": ["clm_fddf11aea329e055d2ca"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards (Middleton, 2007) - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=2",
+        "page_number": "PDF page 2; section 2, Tree Row Volume"
+      }
+    ]
+  },
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "When to start pulling vigour back",
+    "description": "For over-vigorous mature trees with light interception above 60% and leaf area index approaching 3.0 or higher, the Australian guide recommends reviewing tree structure, pruning, leaf distribution and branch orientation. Summer pruning, trunk girdling, root pruning and regulated deficit irrigation are described as options that may be appropriate, not treatments required for every orchard.",
+    "status": "confirmed",
+    "claim_ids": ["clm_4fde9ed53553278f357d"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards (Middleton, 2007) - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=6",
+        "page_number": "PDF page 6; section 7, Tree Vigour (continued)"
+      }
+    ]
+  },
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "Height against row spacing",
+    "description": "For Australian apple orchards, keep tree height between 0.8 and 1.0 times the between-row spacing to maximise marketable yield. Increasing height beyond the row spacing adds relatively little interception while increasing lower-canopy shading, pruning and harvest costs, and spray-coverage problems.",
+    "status": "confirmed",
+    "claim_ids": ["clm_8c8b70e1dd0a279ef612"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards (Middleton, 2007) - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=5",
+        "page_number": "PDF page 5; section 6, Tree Height"
+      }
+    ]
+  },
+  {
+    "stage_code": "ODG02",
+    "section": "Pruning & Training",
+    "subsection": "Add trees rather than leaf layers",
+    "description": "For high-density systems in the early life of an Australian orchard, use tree density and dwarfing rootstocks to develop the required tree row volume and leaf area early. The source advises that shorter trees at higher density are more efficient than increasing height to add interception, because they expose more fruiting canopy to light and reduce poorly illuminated canopy.",
+    "status": "confirmed",
+    "claim_ids": ["clm_3d0c8a10497fd039a0b2", "clm_b5f5e856db1bc1e1be0d"],
+    "references": [
+      {
+        "third_party_database": "APAL Future Orchards (Middleton, 2007) - fo-ow-0207-light-interception-productivity.pdf",
+        "link": "https://apal.org.au/wp-content/uploads/2019/09/fo-ow-0207-light-interception-productivity.pdf#page=6",
+        "page_number": "PDF page 6; sections 7-8, Tree Vigour and Tree Density"
+      }
+    ]
+  }
+]

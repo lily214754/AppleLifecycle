@@ -1,0 +1,2200 @@
+{
+  "source_title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+  "source_url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+  "edition": "2026 (revised March; EM 8203)",
+  "source_sha256": "2d1aacc26bfa2cd5891260340db2c11b3f83411059a4f81b28148943cb732d4b",
+  "page_offset": 0,
+  "operations": [
+    {
+      "section": "IPDM",
+      "subsection": "Seasonal orchard planning",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Coordinate orchard tasks with local growth stages rather than copying the guide’s Pennsylvania calendar months.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 4",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=4",
+          "note": "2026 (revised March; EM 8203) — Orchard pest management — prevention, monitoring, action levels and alternative controls"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 12",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=12",
+          "note": "2026 (revised March; EM 8203) — Stages of bud development — apple column only; guide stages 0–7 are not portal stage codes"
+        }
+      ],
+      "source_sections": [
+        "OR-0001",
+        "OR-0002"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Orchard spraying",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Check water quality, equipment calibration and canopy coverage before orchard spraying.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 4",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=4",
+          "note": "2026 (revised March; EM 8203) — Dilutions for wettable powder and liquid products — formulation and dilution reference, no standalone rate advice"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 5",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=5",
+          "note": "2026 (revised March; EM 8203) — Best management practices: cultural buffers, mixing/loading, maintenance and application; protect surface water and reduce drift"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 38",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=38",
+          "note": "2026 (revised March; EM 8203) — Apples — coverage, tree phenology, canopy size, row width, speed, spray volume and compatibility"
+        }
+      ],
+      "source_sections": [
+        "OR-0003",
+        "OR-0004",
+        "OR-0016"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Orchard floor management",
+      "subsection": "Orchard floor management",
+      "stage_codes": [
+        "ODG02",
+        "OAR00"
+      ],
+      "description": "Manage tree rows and row middles according to orchard age, weeds, soil and traffic needs.",
+      "aliases": [
+        "Weed control",
+        "Dormant tree-row weed control"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 5",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=5",
+          "note": "2026 (revised March; EM 8203) — Cultural practices — cover crops to intercept runoff and improve water penetration"
+        }
+      ],
+      "source_sections": [
+        "OR-0005"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Sprayer calibration",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Check water quality, equipment calibration and canopy coverage before orchard spraying.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 5",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=5",
+          "note": "2026 (revised March; EM 8203) — Maintenance and calibration — service equipment, check nozzles and avoid overapplication"
+        }
+      ],
+      "source_sections": [
+        "OR-0006"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Pollination",
+      "subsection": "Bee protection",
+      "stage_codes": [
+        "OAR50",
+        "OAR55",
+        "OAR00",
+        "OAR70",
+        "OAR57"
+      ],
+      "description": "Provide compatible pollen, effective bee activity and suitable orchard habitat during bloom.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 5",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=5",
+          "note": "2026 (revised March; EM 8203) — Pesticide stewardship; bee hazard reference for apples and general orchards — protect bloom and pollinators"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 6",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=6",
+          "note": "2026 (revised March; EM 8203) — Pesticide stewardship; bee hazard reference for apples and general orchards — protect bloom and pollinators"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Apple chemical thinning — protect bees and manage flowering cover crops"
+        }
+      ],
+      "source_sections": [
+        "OR-0007",
+        "OR-0008",
+        "OR-0111"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Insecticide resistance management",
+      "stage_codes": [
+        "OAR57",
+        "OAR70"
+      ],
+      "description": "Use monitoring, biological options and resistance management within the orchard IPM programme.",
+      "aliases": [
+        "Resistance management",
+        "Mode of action rotation"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 7",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=7",
+          "note": "2026 (revised March; EM 8203) — Causes of control failures; resistance and cross-resistance; proactive strategies; mode of action and IPM"
+        }
+      ],
+      "source_sections": [
+        "OR-0009"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Beneficial insects and mites",
+      "stage_codes": [
+        "ODG02",
+        "OAR70"
+      ],
+      "description": "Recognise orchard natural enemies and conserve their contribution to pest and mite regulation.",
+      "aliases": [
+        "Beneficial insects",
+        "Predator toxicity"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 8",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=8",
+          "note": "2026 (revised March; EM 8203) — Natural enemy impact guide — relative effects, orchard-use history and table qualifications; not individual product advice"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 9",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=9",
+          "note": "2026 (revised March; EM 8203) — Natural enemy impact guide — relative effects, orchard-use history and table qualifications; not individual product advice"
+        }
+      ],
+      "source_sections": [
+        "OR-0010",
+        "OR-0011"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Apple rust mite",
+      "stage_codes": [
+        "ODG02",
+        "OAR70",
+        "OAR46"
+      ],
+      "description": "Monitor apple rust mite and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 8",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=8",
+          "note": "2026 (revised March; EM 8203) — Natural enemy impact guide — apple rust mite as alternative prey supporting predatory mites; retain ecological context"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 9",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=9",
+          "note": "2026 (revised March; EM 8203) — Natural enemy impact guide — apple rust mite as alternative prey supporting predatory mites; retain ecological context"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — rust mite"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 54",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=54",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer mites — Apple rust mite; species-dependent response and resistance"
+        }
+      ],
+      "source_sections": [
+        "OR-0012",
+        "OR-0013",
+        "OR-0048",
+        "OR-0085"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Apple scab",
+      "stage_codes": [
+        "OAR42",
+        "OAR44",
+        "OAR46",
+        "OAR55",
+        "OAR57",
+        "OAR70",
+        "OAR92",
+        "OAR00",
+        "OAR43"
+      ],
+      "description": "Identify apple scab, follow its seasonal risk and combine monitoring, sanitation and appropriate management for the block.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 11",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=11",
+          "note": "2026 (revised March; EM 8203) — Apple scab infection — Mills wetness/temperature table and lesion-development notes"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 41",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=41",
+          "note": "2026 (revised March; EM 8203) — Prepink diseases — Apple scab; seasonal management and comparative efficacy"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 42",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=42",
+          "note": "2026 (revised March; EM 8203) — Prepink diseases — Apple scab; seasonal management and comparative efficacy"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 45",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=45",
+          "note": "2026 (revised March; EM 8203) — Pink through full bloom diseases — Apple scab"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 46",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=46",
+          "note": "2026 (revised March; EM 8203) — Pink through full bloom diseases — Apple scab"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 49",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=49",
+          "note": "2026 (revised March; EM 8203) — Petal fall diseases — Apple scab"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 51",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=51",
+          "note": "2026 (revised March; EM 8203) — 10 days to 2 weeks after petal fall — Apple scab"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 56",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=56",
+          "note": "2026 (revised March; EM 8203) — Footnote 7 — scab forecasting and limitations of post-infection activity"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 57",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=57",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — Apple scab column; ratings depend on coverage, weather, susceptibility and disease pressure"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — Apple scab column; ratings depend on coverage, weather, susceptibility and disease pressure"
+        }
+      ],
+      "source_sections": [
+        "OR-0014",
+        "OR-0030",
+        "OR-0031",
+        "OR-0032",
+        "OR-0033",
+        "OR-0034",
+        "OR-0035",
+        "OR-0036",
+        "OR-0037",
+        "OR-0092"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Brown marmorated stink bug",
+      "stage_codes": [
+        "OAR70",
+        "OAR80"
+      ],
+      "description": "Monitor brown marmorated stink bug and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Brown marmorated stink bug (BMSB)"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 37",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=37",
+          "note": "2026 (revised March; EM 8203) — BMSB — apple-applicable management and efficacy reference; regional history and other-crop columns excluded"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — brown marmorated stink bug"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — brown marmorated stink bug"
+        }
+      ],
+      "source_sections": [
+        "OR-0015",
+        "OR-0067",
+        "OR-0068"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Mating disruption",
+      "stage_codes": [
+        "OAR00",
+        "OAR42",
+        "OAR46"
+      ],
+      "description": "Use monitoring, biological options and resistance management within the orchard IPM programme.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 38",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=38",
+          "note": "2026 (revised March; EM 8203) — Codling moth — dormant/pink setup, passive and aerosol dispensers, block edges, pressure and monitoring"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 44",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=44",
+          "note": "2026 (revised March; EM 8203) — Codling moth — dormant/pink setup, passive and aerosol dispensers, block edges, pressure and monitoring"
+        }
+      ],
+      "source_sections": [
+        "OR-0017",
+        "OR-0018"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Codling moth",
+      "stage_codes": [
+        "OAR00",
+        "OAR42",
+        "OAR46",
+        "OAR70"
+      ],
+      "description": "Monitor codling moth and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 38",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=38",
+          "note": "2026 (revised March; EM 8203) — Mating disruption and monitoring — trap position, lure comparability and avoiding false negatives"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 44",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=44",
+          "note": "2026 (revised March; EM 8203) — Mating disruption and monitoring — trap position, lure comparability and avoiding false negatives"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — codling moth; egg-hatch timing and granulosis virus"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — codling moth; egg-hatch timing and granulosis virus"
+        }
+      ],
+      "source_sections": [
+        "OR-0019",
+        "OR-0020",
+        "OR-0069",
+        "OR-0070"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Green aphids (apple aphid and spirea aphid)",
+      "stage_codes": [
+        "OAR42",
+        "OAR43",
+        "OAR46",
+        "OAR70"
+      ],
+      "description": "Monitor green aphids (apple aphid and spirea aphid) and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Green aphids",
+        "Green apple aphid"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 39",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=39",
+          "note": "2026 (revised March; EM 8203) — Delayed dormant — aphids (not identified to species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — aphids (group-level guidance)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — aphids (group-level source; no species-specific claim)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — aphids (group-level source; no species-specific claim)"
+        }
+      ],
+      "source_sections": [
+        "OR-0021",
+        "OR-0046",
+        "OR-0063",
+        "OR-0064"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "European red mite",
+      "stage_codes": [
+        "OAR42",
+        "OAR43",
+        "OAR46",
+        "OAR70"
+      ],
+      "description": "Monitor european red mite and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 39",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=39",
+          "note": "2026 (revised March; EM 8203) — Delayed dormant — European red mite eggs"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — spider mites (group-level guidance)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 54",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=54",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer mites — European red mite; species-dependent response and resistance"
+        }
+      ],
+      "source_sections": [
+        "OR-0022",
+        "OR-0050",
+        "OR-0083"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Leafrollers",
+      "stage_codes": [
+        "OAR42",
+        "OAR43",
+        "OAR44",
+        "OAR46",
+        "OAR55",
+        "OAR57",
+        "OAR70"
+      ],
+      "description": "Identify leafroller activity and fruit injury before choosing orchard management.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 39",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=39",
+          "note": "2026 (revised March; EM 8203) — Delayed dormant — leafrollers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 40",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=40",
+          "note": "2026 (revised March; EM 8203) — Prepink insects — leafrollers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — leafrollers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 46",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=46",
+          "note": "2026 (revised March; EM 8203) — Early through full bloom — leafrollers; petal-fall timing and bee protection"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 48",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=48",
+          "note": "2026 (revised March; EM 8203) — Petal fall insects — leafrollers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — leafrollers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — leafrollers"
+        }
+      ],
+      "source_sections": [
+        "OR-0023",
+        "OR-0027",
+        "OR-0047",
+        "OR-0052",
+        "OR-0057",
+        "OR-0073",
+        "OR-0074"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "San Jose scale",
+      "stage_codes": [
+        "OAR42",
+        "OAR43",
+        "OAR46",
+        "OAR57",
+        "OAR70"
+      ],
+      "description": "Monitor san jose scale and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "San José scale"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 39",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=39",
+          "note": "2026 (revised March; EM 8203) — Delayed dormant — scale insects: general scale-management context"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — San Jose scale"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 48",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=48",
+          "note": "2026 (revised March; EM 8203) — Petal fall insects — San Jose scale and crawler emergence"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 50",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=50",
+          "note": "2026 (revised March; EM 8203) — 10 days to 2 weeks after petal fall — San Jose scale and crawler emergence"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — San Jose scale crawlers"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — San Jose scale crawlers"
+        }
+      ],
+      "source_sections": [
+        "OR-0024",
+        "OR-0049",
+        "OR-0058",
+        "OR-0061",
+        "OR-0075",
+        "OR-0076"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Phytophthora collar, crown and root rots",
+      "stage_codes": [
+        "OAR42",
+        "OAR43",
+        "OAR82-postharvest"
+      ],
+      "description": "Identify phytophthora collar, crown and root rots, follow its seasonal risk and combine monitoring, sanitation and appropriate management for the block.",
+      "aliases": [
+        "Phytophthora root rot",
+        "Phytophthora collar rot",
+        "Phytophthora",
+        "Crown rot",
+        "Collar rot"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 40",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=40",
+          "note": "2026 (revised March; EM 8203) — Delayed dormant diseases — crown and collar rot; root-zone application context"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 55",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=55",
+          "note": "2026 (revised March; EM 8203) — Postharvest crown and collar rot — disease-management context"
+        }
+      ],
+      "source_sections": [
+        "OR-0025",
+        "OR-0089"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Green fruitworms",
+      "stage_codes": [
+        "OAR44"
+      ],
+      "description": "Monitor green fruitworms and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 40",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=40",
+          "note": "2026 (revised March; EM 8203) — Prepink insects — green fruitworm"
+        }
+      ],
+      "source_sections": [
+        "OR-0026"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Rosy apple aphid",
+      "stage_codes": [
+        "OAR44"
+      ],
+      "description": "Monitor rosy apple aphid and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 40",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=40",
+          "note": "2026 (revised March; EM 8203) — Prepink insects — rosy apple aphids"
+        }
+      ],
+      "source_sections": [
+        "OR-0028"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Tarnished plant bugs and native stink bugs",
+      "stage_codes": [
+        "OAR44",
+        "OAR70"
+      ],
+      "description": "Monitor tarnished plant bugs and native stink bugs and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Tarnished plant bug",
+        "Plant bugs"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 40",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=40",
+          "note": "2026 (revised March; EM 8203) — Prepink insects — sucking bugs (group-level guidance only)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — tarnished plant bug"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — tarnished plant bug"
+        }
+      ],
+      "source_sections": [
+        "OR-0029",
+        "OR-0077",
+        "OR-0078"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Powdery mildew",
+      "stage_codes": [
+        "OAR44",
+        "OAR46",
+        "OAR55",
+        "OAR57",
+        "OAR70",
+        "OAR43",
+        "OAR00",
+        "OAR42"
+      ],
+      "description": "Identify powdery mildew, follow its seasonal risk and combine monitoring, sanitation and appropriate management for the block.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 41",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=41",
+          "note": "2026 (revised March; EM 8203) — Prepink diseases — Powdery mildew; seasonal management and comparative efficacy"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 42",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=42",
+          "note": "2026 (revised March; EM 8203) — Prepink diseases — Powdery mildew; seasonal management and comparative efficacy"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 45",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=45",
+          "note": "2026 (revised March; EM 8203) — Pink through full bloom diseases — Powdery mildew"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 46",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=46",
+          "note": "2026 (revised March; EM 8203) — Pink through full bloom diseases — Powdery mildew"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 49",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=49",
+          "note": "2026 (revised March; EM 8203) — Petal fall diseases — Powdery mildew"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 51",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=51",
+          "note": "2026 (revised March; EM 8203) — 10 days to 2 weeks after petal fall — Powdery mildew"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 57",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=57",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — Powdery mildew column; ratings depend on coverage, weather, susceptibility and disease pressure"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — Powdery mildew column; ratings depend on coverage, weather, susceptibility and disease pressure"
+        }
+      ],
+      "source_sections": [
+        "OR-0038",
+        "OR-0039",
+        "OR-0040",
+        "OR-0041",
+        "OR-0042",
+        "OR-0043",
+        "OR-0044",
+        "OR-0045"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Two-spotted spider mite",
+      "stage_codes": [
+        "OAR46",
+        "OAR70"
+      ],
+      "description": "Monitor two-spotted spider mite and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Twospotted spider mite",
+        "Two-spotted mite"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 43",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=43",
+          "note": "2026 (revised March; EM 8203) — Pink insects and mites — spider mites (group-level guidance)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 54",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=54",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer mites — Two-spotted spider mite; species-dependent response and resistance"
+        }
+      ],
+      "source_sections": [
+        "OR-0051",
+        "OR-0084"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Western flower thrips",
+      "stage_codes": [
+        "OAR55",
+        "OAR57"
+      ],
+      "description": "Monitor western flower thrips and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Western flower thrips (WFT)"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 46",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=46",
+          "note": "2026 (revised March; EM 8203) — Early through full bloom — thrips (source does not identify a species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 48",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=48",
+          "note": "2026 (revised March; EM 8203) — Petal fall insects — thrips (source does not identify a species)"
+        }
+      ],
+      "source_sections": [
+        "OR-0053",
+        "OR-0060"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Fire blight",
+      "stage_codes": [
+        "OAR55"
+      ],
+      "description": "Include shoot-growth management in the wider fire blight programme.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 47",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=47",
+          "note": "2026 (revised March; EM 8203) — Bloom — fire blight, integrated control, resistance and CougarBlight predictive timing"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 57",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=57",
+          "note": "2026 (revised March; EM 8203) — Apple disease comparative efficacy — fire blight column"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Apple disease comparative efficacy — fire blight column"
+        }
+      ],
+      "source_sections": [
+        "OR-0054",
+        "OR-0055",
+        "OR-0056"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Spotted tentiform leafminer",
+      "stage_codes": [
+        "OAR57",
+        "OAR70"
+      ],
+      "description": "Monitor spotted tentiform leafminer and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 48",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=48",
+          "note": "2026 (revised March; EM 8203) — Petal fall insects — tentiform leafminer (source does not identify a species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 50",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=50",
+          "note": "2026 (revised March; EM 8203) — 10 days to 2 weeks after petal fall — tentiform leafminer (source does not identify a species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — tentiform leafminer (source does not identify a species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — tentiform leafminer (source does not identify a species)"
+        }
+      ],
+      "source_sections": [
+        "OR-0059",
+        "OR-0062",
+        "OR-0079",
+        "OR-0080"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Apple maggot",
+      "stage_codes": [
+        "OAR70"
+      ],
+      "description": "Monitor apple maggot and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [
+        "Apple maggot flies"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — apple maggot"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — apple maggot"
+        }
+      ],
+      "source_sections": [
+        "OR-0065",
+        "OR-0066"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "White apple leafhopper",
+      "stage_codes": [
+        "OAR70"
+      ],
+      "description": "Monitor white apple leafhopper and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — leafhoppers (source does not identify a species)"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — leafhoppers (source does not identify a species)"
+        }
+      ],
+      "source_sections": [
+        "OR-0071",
+        "OR-0072"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Woolly apple aphid",
+      "stage_codes": [
+        "OAR70"
+      ],
+      "description": "Monitor woolly apple aphid and fruit or tree injury; use its life cycle and local pressure to decide whether management is needed.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 52",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=52",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — woolly apple aphid"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 53",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=53",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer cover sprays — woolly apple aphid"
+        }
+      ],
+      "source_sections": [
+        "OR-0081",
+        "OR-0082"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "McDaniel spider mite",
+      "stage_codes": [
+        "OAR70"
+      ],
+      "description": "Identify mcdaniel spider mite and use orchard observations and seasonal risk to guide integrated management.",
+      "aliases": [
+        "McDaniel mite"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 54",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=54",
+          "note": "2026 (revised March; EM 8203) — Late spring and summer mites — McDaniel spider mite; species-dependent response and resistance"
+        }
+      ],
+      "source_sections": [
+        "OR-0086"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Post-harvest handling",
+      "subsection": "Postharvest disease control",
+      "stage_codes": [
+        "OAR80"
+      ],
+      "description": "Assess maturity and fruit condition, then use careful handling and suitable storage to preserve quality.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 55",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=55",
+          "note": "2026 (revised March; EM 8203) — Preharvest storage-rot prevention — align orchard disease management with packing/storage plans"
+        }
+      ],
+      "source_sections": [
+        "OR-0087"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Apple anthracnose",
+      "stage_codes": [
+        "OAR82-postharvest"
+      ],
+      "description": "Assess apple anthracnose risk after harvest and integrate orchard disease management with seasonal conditions.",
+      "aliases": [
+        "Anthracnose",
+        "Anthracnose canker"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 55",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=55",
+          "note": "2026 (revised March; EM 8203) — Postharvest diseases — anthracnose"
+        }
+      ],
+      "source_sections": [
+        "OR-0088"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Pesticide compatibility",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Check formulation compatibility, mixing order and crop sensitivity when planning orchard tank mixes.",
+      "aliases": [
+        "Tank-mix compatibility",
+        "Jar test before an oil tank mix"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 56",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=56",
+          "note": "2026 (revised March; EM 8203) — Spray tips and cautions — formulation mixing, oil/sulfur separation and phytotoxicity"
+        }
+      ],
+      "source_sections": [
+        "OR-0090"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "IPDM",
+      "subsection": "Horticultural oil as a suffocant",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Consider contact activity, coverage, weather and compatibility when using horticultural oils.",
+      "aliases": [
+        "Horticultural oils"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 56",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=56",
+          "note": "2026 (revised March; EM 8203) — Spray tips — growing-season oil compatibility and crop injury"
+        }
+      ],
+      "source_sections": [
+        "OR-0091"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Fungicide resistance management",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Combine cultural management with a considered fungicide-use pattern to limit resistance.",
+      "aliases": [
+        "Fungicide resistance",
+        "Fungicide resistance strategy",
+        "Fungicide rotation"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 56",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=56",
+          "note": "2026 (revised March; EM 8203) — Fungicide stewardship — rotate groups, limit applications and consider mode of action and resistance"
+        }
+      ],
+      "source_sections": [
+        "OR-0093"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Disease management",
+      "subsection": "Bull's-eye rot",
+      "stage_codes": [
+        "OAR80",
+        "OAR82-postharvest"
+      ],
+      "description": "Assess bull’s-eye rot risk and coordinate preharvest disease prevention with storage management.",
+      "aliases": [
+        "Bulls eye rot",
+        "Bull’s eye rot",
+        "Bulls-eye rot"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 57",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=57",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — bull’s-eye rot column"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Effectiveness of fungicides for apple diseases — bull’s-eye rot column"
+        }
+      ],
+      "source_sections": [
+        "OR-0094",
+        "OR-0095"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Orchard floor management",
+      "subsection": "Orchard herbicides",
+      "stage_codes": [
+        "ODG02",
+        "OAR70",
+        "OAR82-postharvest"
+      ],
+      "description": "Use the relevant crop-specific reference table when planning orchard treatments and work intervals.",
+      "aliases": [
+        "Herbicide application",
+        "Herbicide usage",
+        "Tree-row herbicide options"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — soil residual, soil/foliar and contact/systemic approaches; bearing versus nonbearing trees"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 59",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=59",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — soil residual, soil/foliar and contact/systemic approaches; bearing versus nonbearing trees"
+        }
+      ],
+      "source_sections": [
+        "OR-0096",
+        "OR-0097"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Orchard floor management",
+      "subsection": "Herbicide resistance management",
+      "stage_codes": [
+        "ODG02"
+      ],
+      "description": "Scout for changes in weed control and combine suitable herbicide rotation with orchard floor management.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — mode-of-action groups as a resistance-planning reference"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 59",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=59",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — mode-of-action groups as a resistance-planning reference"
+        }
+      ],
+      "source_sections": [
+        "OR-0098",
+        "OR-0099"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Orchard floor management",
+      "subsection": "Establishing a New Orchard",
+      "stage_codes": [
+        "ODG00",
+        "ODG01"
+      ],
+      "description": "Manage tree rows and row middles according to orchard age, weeds, soil and traffic needs.",
+      "aliases": [
+        "Establishment weed control",
+        "Tree-row weed control, young trees",
+        "Weed-free strip on young trees"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 58",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=58",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — nonbearing/young-tree restrictions and crop-safety considerations"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 59",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=59",
+          "note": "2026 (revised March; EM 8203) — Apple herbicides — nonbearing/young-tree restrictions and crop-safety considerations"
+        }
+      ],
+      "source_sections": [
+        "OR-0100",
+        "OR-0101"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Nutrient management",
+      "subsection": "Orchard nutrition",
+      "stage_codes": [
+        "ODG02",
+        "OAR00",
+        "OAR46",
+        "OAR70",
+        "OAR82-postharvest"
+      ],
+      "description": "Use tissue analysis and deficiency or toxicity symptoms to guide a balanced orchard nutrition programme.",
+      "aliases": [
+        "Soil and plant analysis",
+        "Soil and tissue together",
+        "Fertility program",
+        "Pre-bloom foliar boron and zinc",
+        "Petal-fall magnesium and urea sprays"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 79",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=79",
+          "note": "2026 (revised March; EM 8203) — Spray program for nutrients — apple/general zinc, boron, magnesium and nitrogen sections; cherry/pear calcium rows and local rates excluded"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 80",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=80",
+          "note": "2026 (revised March; EM 8203) — Spray program for nutrients — apple/general zinc, boron, magnesium and nitrogen sections; cherry/pear calcium rows and local rates excluded"
+        }
+      ],
+      "source_sections": [
+        "OR-0102",
+        "OR-0103"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Nutrient management",
+      "subsection": "Nutrient deficiency and toxicity",
+      "stage_codes": [
+        "ODG02",
+        "OAR70"
+      ],
+      "description": "Use tissue analysis and deficiency or toxicity symptoms to guide a balanced orchard nutrition programme.",
+      "aliases": [
+        "Deficiency diagnosis",
+        "Deficiency symptoms"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 79",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=79",
+          "note": "2026 (revised March; EM 8203) — Nutrient deficiency versus maintenance; crop injury and dilution considerations — apple/general rows only"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 80",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=80",
+          "note": "2026 (revised March; EM 8203) — Nutrient deficiency versus maintenance; crop injury and dilution considerations — apple/general rows only"
+        }
+      ],
+      "source_sections": [
+        "OR-0104",
+        "OR-0105"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Nutrient management",
+      "subsection": "Foliar Application of Nutrients",
+      "stage_codes": [
+        "OAR00",
+        "OAR44",
+        "OAR46",
+        "OAR70",
+        "OAR82-postharvest"
+      ],
+      "description": "Use tissue analysis and deficiency or toxicity symptoms to guide a balanced orchard nutrition programme.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 79",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=79",
+          "note": "2026 (revised March; EM 8203) — Dormant, prepink/pink, foliage and postharvest nutrient spray timing — apple/general portions"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 80",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=80",
+          "note": "2026 (revised March; EM 8203) — Dormant, prepink/pink, foliage and postharvest nutrient spray timing — apple/general portions"
+        }
+      ],
+      "source_sections": [
+        "OR-0106",
+        "OR-0107"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Nutrient management",
+      "subsection": "Fertilizing newly planted apple trees",
+      "stage_codes": [
+        "ODG01"
+      ],
+      "description": "Plan nutrient supply around the establishment needs of young apple trees.",
+      "aliases": [],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 80",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=80",
+          "note": "2026 (revised March; EM 8203) — Zinc deficiency in nonbearing trees — apple-applicable portion"
+        }
+      ],
+      "source_sections": [
+        "OR-0108"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Thinning",
+      "subsection": "Postbloom thinning",
+      "stage_codes": [
+        "OAR57",
+        "OAR70",
+        "OAR71"
+      ],
+      "description": "Use flowering, fruit size and tree condition to guide crop-load adjustment.",
+      "aliases": [
+        "Post-bloom and hand thinning",
+        "Post-bloom chemical thinning window"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Chemical thinning sprays for apples — weather, fruit size, young trees, response assessment and coverage"
+        }
+      ],
+      "source_sections": [
+        "OR-0109"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Plant growth regulator",
+      "subsection": "Return bloom",
+      "stage_codes": [
+        "OAR60"
+      ],
+      "description": "Balance current crop load and vegetative growth to support flowering in the next season.",
+      "aliases": [
+        "Return bloom enhancement",
+        "Return bloom on a heavily loaded tree"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Chemical thinning sprays for apples — thinning and return bloom"
+        }
+      ],
+      "source_sections": [
+        "OR-0110"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Plant growth regulator",
+      "subsection": "Preharvest drop control",
+      "stage_codes": [
+        "OAR80"
+      ],
+      "description": "Plan preharvest drop management around fruit maturity and the intended picking window.",
+      "aliases": [
+        "Preharvest drop"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Stop drop sprays — apple-applicable AVG reference only; pear-specific NAA directions excluded"
+        }
+      ],
+      "source_sections": [
+        "OR-0112"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "section": "Plant growth regulator",
+      "subsection": "Vegetative growth control",
+      "stage_codes": [
+        "OAR57",
+        "OAR70"
+      ],
+      "description": "Manage shoot vigour in relation to tree condition, crop load and the stage of shoot growth.",
+      "aliases": [
+        "Growth control",
+        "Prohexadione-calcium",
+        "Prohexadione-Ca programme"
+      ],
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 82",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=82",
+          "note": "2026 (revised March; EM 8203) — Plant growth regulator for apples; prohexadione-calcium — apple shoot-growth timing, regrowth and cultivar response"
+        }
+      ],
+      "source_sections": [
+        "OR-0113"
+      ],
+      "status": "confirmed"
+    }
+  ],
+  "protocols": [
+    {
+      "protocol_id": 76,
+      "supplement_title": null,
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 11",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=11",
+          "note": "2026 (revised March; EM 8203) — Apple scab infection — wetness duration, average temperature and lesion-development interpretation"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 47",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=47",
+          "note": "2026 (revised March; EM 8203) — Fire blight — CougarBlight model used to time bloom management"
+        }
+      ],
+      "source_sections": [
+        "OR-0114",
+        "OR-0115"
+      ]
+    },
+    {
+      "protocol_id": 1,
+      "supplement_title": "Orchard weather measurements",
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 11",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=11",
+          "note": "2026 (revised March; EM 8203) — Apple scab infection — hourly temperature and intermittent wetting periods"
+        }
+      ],
+      "source_sections": [
+        "OR-0116"
+      ]
+    },
+    {
+      "protocol_id": 77,
+      "supplement_title": "Codling moth monitoring",
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 38",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=38",
+          "note": "2026 (revised March; EM 8203) — Codling moth monitoring — trap height, lure selection and interpretation under mating disruption"
+        },
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 44",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=44",
+          "note": "2026 (revised March; EM 8203) — Codling moth monitoring — trap height, lure selection and interpretation under mating disruption"
+        }
+      ],
+      "source_sections": [
+        "OR-0117",
+        "OR-0118"
+      ]
+    },
+    {
+      "protocol_id": 77,
+      "supplement_title": "Pheromone trapping",
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 38",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=38",
+          "note": "2026 (revised March; EM 8203) — Monitoring — trap placement away from aerosol plumes, accessibility and lure-specific thresholds"
+        }
+      ],
+      "source_sections": [
+        "OR-0119"
+      ]
+    },
+    {
+      "protocol_id": 60,
+      "supplement_title": "Estimating average fruit diameter",
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Apple thinning — fruit diameter as a timing guide when spring growth is slow"
+        }
+      ],
+      "source_sections": [
+        "OR-0120"
+      ]
+    },
+    {
+      "protocol_id": 31,
+      "supplement_title": null,
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 81",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=81",
+          "note": "2026 (revised March; EM 8203) — Apple thinning — assess crop-load response over time and account for tree age and weather"
+        }
+      ],
+      "source_sections": [
+        "OR-0121"
+      ]
+    },
+    {
+      "protocol_id": 19,
+      "supplement_title": "Estimating average shoot length",
+      "references": [
+        {
+          "title": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "third_party_database": "Oregon State University Extension Service — 2026 Pest Management Guide for Tree Fruits",
+          "url": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "link": "https://extension.oregonstate.edu/sites/extd8/files/documents/donnelja/2026-pest-management-guide-tree-fruit-0326.pdf",
+          "edition": "2026 (revised March; EM 8203)",
+          "page_number": "page 82",
+          "pdf_url": "/api/kb/assets/pdf/2d1aacc26bfa2cd5/2026-pest-management-guide-tree-fruit-0326.pdf#page=82",
+          "note": "2026 (revised March; EM 8203) — Prohexadione-calcium on apples — monitor shoot extension and resumption of growth"
+        }
+      ],
+      "source_sections": [
+        "OR-0122"
+      ]
+    }
+  ]
+}
